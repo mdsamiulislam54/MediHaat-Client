@@ -19,22 +19,22 @@ const Navbar = () => {
   const navItem = (
     <>
       <li>
-        <Link to="/">Home</Link>
+        <Link to="/" className="hover:bg-primary/15 ">Home</Link>
       </li>
       <li>
-        <Link to="/shop">Shop</Link>
+        <Link to="/shop" className="hover:bg-primary/15 ">Shop</Link>
       </li>
       <li>
-        <Link to="/about">About</Link>
+        <Link to="/about" className="hover:bg-primary/15 ">About</Link>
       </li>
       <li>
-        <Link to="/services">Services</Link>
+        <Link to="/services" className="hover:bg-primary/15 ">Services</Link>
       </li>
       <li>
-        <Link to="/contact">Contact</Link>
+        <Link to="/contact" className="hover:bg-primary/15 ">Contact</Link>
       </li>
       <li>
-        <Link to="/faq">FAQ</Link>
+        <Link to="/faq" className="hover:bg-primary/15 ">FAQ</Link>
       </li>
     </>
   );
@@ -97,7 +97,7 @@ const Navbar = () => {
 
           {/* navItem (desktop only) */}
           <div className="hidden lg:flex">
-            <ul className="menu menu-horizontal gap-5 text-[16px] font-medium">
+            <ul className="menu menu-horizontal gap-5 text-[16px] font-medium ">
               {navItem}
             </ul>
           </div>

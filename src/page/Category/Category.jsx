@@ -66,7 +66,7 @@ const Category = () => {
           const Icon = iconMap[category.icon];
           return (
             <SwiperSlide key={category.id}>
-              <div className=" shadow shadow-primary/50 my-5 rounded-lg p-4 flex flex-col items-center text-center hover:shadow-md transition cursor-pointer h-[150px]">
+              <div className=" shadow shadow-primary/50 my-5 rounded-lg p-4 flex flex-col items-center text-center hover:shadow-md transition cursor-pointer h-[150px] ">
                 <div className="text-4xl text-primary rose-500 mb-3">
                   {Icon && <Icon />}
                 </div>

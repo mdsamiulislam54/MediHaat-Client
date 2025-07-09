@@ -21,6 +21,23 @@ const Banner = () => {
     },
   });
 
+  const highlightPercentageText = (text) => {
+    const percentRegex = /\d+%/g; // Detects any percentage like 30%, 50%, etc.
+    return text.split(percentRegex).map((part, index, arr) => {
+      // If part matches the percentage, highlight that part
+      if (index < arr.length - 1) {
+        const match = text.match(percentRegex)[index];
+        return (
+          <>
+            {part}
+            <span className="text-primary font-bold">{match}</span>
+          </>
+        );
+      }
+      return part;
+    });
+  };
+
   if (isLoading) return <div className="text-center py-10">Loading...</div>;
   if (error)
     return (
@@ -63,8 +80,9 @@ const Banner = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, ease: "easeIn" }}
                   >
+                  
                     <h2 className="text-xl md:text-6xl font-bold mb-2">
-                      {banner.title}
+                      {highlightPercentageText(banner.title)}
                     </h2>
                     <p className="text-sm md:text-3xl mb-4">
                       {banner.subTitle}
