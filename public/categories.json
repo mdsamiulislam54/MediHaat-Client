@@ -1,0 +1,72 @@
+[
+  {
+    "_id": "1",
+    "name": "Pain Relief",
+    "slug": "pain-relief",
+    "icon": "FaCapsules",
+    "medicineCount": 32
+  },
+  {
+    "_id": "2",
+    "name": "Immunity Boosters",
+    "slug": "immunity-boosters",
+    "icon": "FaShieldVirus",
+    "medicineCount": 20
+  },
+  {
+    "_id": "3",
+    "name": "Ayurveda & Herbal",
+    "slug": "ayurveda-herbal",
+    "icon": "FaLeaf",
+    "medicineCount": 15
+  },
+  {
+    "_id": "4",
+    "name": "Women’s Health",
+    "slug": "womens-health",
+    "icon": "FaFemale",
+    "medicineCount": 18
+  },
+  {
+    "_id": "5",
+    "name": "Medical Devices",
+    "slug": "medical-devices",
+    "icon": "FaStethoscope",
+    "medicineCount": 12
+  },
+  {
+    "_id": "6",
+    "name": "Sexual Wellness",
+    "slug": "sexual-wellness",
+    "icon": "FaHeartbeat",
+    "medicineCount": 10
+  },
+  {
+    "_id": "7",
+    "name": "Vitamins & Supplements",
+    "slug": "vitamins-supplements",
+    "icon": "FaPills",
+    "medicineCount": 40
+  },
+  {
+    "_id": "8",
+    "name": "Skin & Hair Care",
+    "slug": "skin-hair-care",
+    "icon": "FaSpa",
+    "medicineCount": 25
+  },
+  {
+    "_id": "9",
+    "name": "Baby Care",
+    "slug": "baby-care",
+    "icon": "FaBaby",
+    "medicineCount": 22
+  },
+  {
+    "_id": "10",
+    "name": "Heart Care",
+    "slug": "heart-care",
+    "icon": "FaHeart",
+    "medicineCount": 18
+  }
+]
