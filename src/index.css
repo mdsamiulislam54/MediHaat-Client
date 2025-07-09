@@ -1,5 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 @import "tailwindcss";
  @plugin "daisyui" {
   themes: light --default, dark --prefersdark;
   themes: light --default;
  }
+
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+ --color-primary:'#2ECC71';
+    --color-secondary:'#ECF0F1';
+    --color-accent:'#3498DB';
+    --color-text:'#2C3E50';
+    --color-background:'#FFFFFF';
+}
+
+body{
+    font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+
+  font-style: normal;
+}
+
+.fixed-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  animation: slideDown 3s ease-out forwards; 
+  z-index: 999;
+  color: black !important;
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
