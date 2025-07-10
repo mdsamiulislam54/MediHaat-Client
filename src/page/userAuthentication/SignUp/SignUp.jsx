@@ -5,9 +5,20 @@ import { FaArrowLeftLong, FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import Button from "../../../components/Button/Button";
 
+import axiosinstance from "../../../hooks/axiosInstance/axiosinstance";
+import uploadImageToCloudinary from "../../../hooks/profileImagesUpload/profileImagesUpload";
+import { UserAuth } from "../../../hooks/userAuth/userAuth";
+import { updateProfile } from "firebase/auth";
+import Swal from "sweetalert2";
+import Loader from "../../../components/Loader/Loader";
+
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
+  const axiosInstance = axiosinstance();
+  const { signWithGoogle, createUserEmailAndPassword } = UserAuth();
 
   const {
     register,
@@ -17,9 +28,38 @@ const SignUp = () => {
   } = useForm();
 
   // Handle form submit
-  const onSubmit = (data) => {
-    console.log("Signup Data:", data);
-    reset();
+  const onSubmit = async (data) => {
+    setLoading(true); // loading start
+    try {
+      const imagesFile = data.photo[0];
+      const imageUrl = await uploadImageToCloudinary(imagesFile);
+
+      const { email, password, name } = data;
+
+      const res = await createUserEmailAndPassword(email, password);
+      const user = res.user;
+
+      await updateProfile(user, {
+        displayName: name,
+        photoURL: imageUrl,
+      });
+
+      Swal.fire({
+        title: "Account Created!",
+        icon: "success",
+      });
+
+      reset();
+      navigate("/");
+    } catch (error) {
+      console.error(error);
+      Swal.fire({
+        icon: "error",
+        title: "Something went wrong!",
+      });
+    } finally {
+      setLoading(false); // loading stop
+    }
   };
 
   return (
@@ -53,7 +93,9 @@ const SignUp = () => {
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             {/* Role selection */}
             <div className="flex gap-4">
-            <label className="text-sm font-bold ">Please choose a role ?</label>
+              <label className="text-sm font-bold ">
+                Please choose a role ?
+              </label>
               <label className="flex items-center gap-2 cursor-pointer">
                 <input
                   type="radio"
@@ -183,19 +225,12 @@ const SignUp = () => {
             {/* Submit Button */}
             <div>
               <Button
-                children={"Create Account"}
+                children={`${loading ? "" : "Create Account"}`}
+                loader={loading && <loader />}
                 type="submit"
                 className={"w-full"}
               />
             </div>
-
-            {/* Google Login */}
-            <button
-              type="button"
-              className="btn w-full btn-outline btn-primary flex items-center gap-2"
-            >
-              <FcGoogle /> Sign in with Google
-            </button>
           </form>
 
           {/* Already signup */}

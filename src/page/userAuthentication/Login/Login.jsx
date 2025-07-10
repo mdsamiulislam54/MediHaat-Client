@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import Button from "../../../components/Button/Button";
 import Logo from "../../../components/Logo/Logo";
 import { FaArrowLeftLong } from "react-icons/fa6";
+import { UserAuth } from "../../../hooks/userAuth/userAuth";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const {
@@ -14,10 +16,30 @@ const Login = () => {
     formState: { errors },
   } = useForm();
   const [showPassword, setShowPassword] = useState(false);
-
+  const {loginWithEmailPassword} = UserAuth()
+  const navigate = useNavigate()
   const onSubmit = (data) => {
-    console.log("Login Data :", data);
-  };
+  const { email, password } = data;
+
+  loginWithEmailPassword(email, password)
+    .then(() => {
+      
+      Swal.fire({
+        title: "Login Successful!",
+        icon: "success",
+      });
+      navigate("/");
+    })
+    .catch((error) => {
+      console.error(error);
+      Swal.fire({
+        title: "Login Failed!",
+        text: error.message,
+        icon: "error",
+      });
+    });
+};
+
 
   const termsAccepted = watch("terms");
 

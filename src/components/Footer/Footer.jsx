@@ -7,13 +7,13 @@ import Button from "../Button/Button";
 
 const Footer = () => {
   return (
-    <footer className=" bg-gradient-to-br from-green-100 to-white  text-gray-700 pt-12 pb-6">
+    <div className=" bg-gradient-to-br from-green-100 to-white  text-gray-700 pt-12 pb-6">
       <div className="w-11/12 mx-auto grid md:grid-cols-4 gap-10">
         {/* Logo + Description */}
         <div>
-          <p className="text-start inline-block">
+          <div className="text-start inline-block">
             <Logo color={"text-primary "} />
-          </p>
+          </div>
           <p className="text-sm text-gray-800">
             Your trusted online medical store. Shop health products,
             supplements, and medicines at the best prices.
@@ -88,7 +88,7 @@ const Footer = () => {
       <div className="mt-10 border-t border-primary pt-4 text-center text-sm text-gray-800">
         &copy; {new Date().getFullYear()} MediHaat — All Rights Reserved.
       </div>
-    </footer>
+    </div>
   );
 };
 

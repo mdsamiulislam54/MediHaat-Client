@@ -30,7 +30,7 @@ const Banner = () => {
         return (
           <>
             {part}
-            <span className="text-primary font-bold">{match}</span>
+            <span key={index} className="text-primary font-bold">{match}</span>
           </>
         );
       }

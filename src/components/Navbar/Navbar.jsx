@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import Logo from "../../components/Logo/Logo";
 import { Link } from "react-router";
 import { AnimatePresence, motion } from "framer-motion";
 import { IoClose } from "react-icons/io5";
 
+import { UserAuth } from "../../hooks/userAuth/userAuth";
+
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
+  const { user } = UserAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,22 +22,34 @@ const Navbar = () => {
   const navItem = (
     <>
       <li>
-        <Link to="/" className="hover:bg-primary/15 ">Home</Link>
+        <Link to="/" className="hover:bg-primary/15 p-2 ">
+          Home
+        </Link>
       </li>
       <li>
-        <Link to="/shop" className="hover:bg-primary/15 ">Shop</Link>
+        <Link to="/shop" className="hover:bg-primary/15 p-2 ">
+          Shop
+        </Link>
       </li>
       <li>
-        <Link to="/about" className="hover:bg-primary/15 ">About</Link>
+        <Link to="/about" className="hover:bg-primary/15 p-2  ">
+          About
+        </Link>
       </li>
       <li>
-        <Link to="/services" className="hover:bg-primary/15 ">Services</Link>
+        <Link to="/services" className="hover:bg-primary/15 p-2  ">
+          Services
+        </Link>
       </li>
       <li>
-        <Link to="/contact" className="hover:bg-primary/15 ">Contact</Link>
+        <Link to="/contact" className="hover:bg-primary/15 p-2  ">
+          Contact
+        </Link>
       </li>
       <li>
-        <Link to="/faq" className="hover:bg-primary/15 ">FAQ</Link>
+        <Link to="/faq" className="hover:bg-primary/15 p-2  ">
+          FAQ
+        </Link>
       </li>
     </>
   );
@@ -46,7 +61,7 @@ const Navbar = () => {
         <div className="indicator relative cursor-pointer">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-7 w-7 text-primary xl:text-black"
+            className="h-8 w-8 text-primary xl:text-black"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -58,7 +73,7 @@ const Navbar = () => {
               d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
             />
           </svg>
-          <span className="badge badge-sm indicator-item absolute md:-top-3 -top-5 md:right-2 transform translate-x-2 translate-y-2 bg-primary border-0 text-white">
+          <span className="badge badge-sm indicator-item absolute md:-top-5 -top-5 md:right-0 transform translate-x-2 translate-y-2 bg-primary border-0 text-white">
             0
           </span>
         </div>
@@ -73,20 +88,36 @@ const Navbar = () => {
       </li>
 
       {/* Join Button */}
-      <li>
-        <Link
-          to="/login"
-          className="btn bg-white text-primary border-2 border-primary px-6 py-2 rounded-md text-sm hover:bg-[#00a08a] hover:text-white"
-        >
-          Join Us
-        </Link>
+      {!user ? (
+        <li>
+          <Link
+            to="/login"
+            className="btn bg-white text-primary border-2 border-primary px-6 py-2 rounded-md text-sm hover:bg-[#00a08a] hover:text-white"
+          >
+            Join Us
+          </Link>
+        </li>
+      ):(
+         <li>
+        <button className="">
+          <img src={user?.photoURL} alt="" className="w-10 h-10 rounded-full" />
+        </button>
       </li>
+      )}
+
+     
     </>
   );
 
   return (
     <>
-      <nav className={` ${scrollY > 50 ? "fixed-nav bg-gradient-to-br from-green-100 to-white shadow py-3" :'py-3  relative z-50'}`}>
+      <nav
+        className={` ${
+          scrollY > 50
+            ? "fixed-nav bg-gradient-to-br from-green-100 to-white shadow py-3"
+            : "py-3  relative z-50"
+        }`}
+      >
         <div className="flex items-center justify-between w-11/12 mx-auto ">
           {/* logo */}
           <div className="flex items-center">
@@ -97,16 +128,14 @@ const Navbar = () => {
 
           {/* navItem (desktop only) */}
           <div className="hidden xl:flex">
-            <ul className="menu menu-horizontal gap-5 text-[16px] font-medium ">
+            <ul className=" flex gap-5 text-[16px]  font-medium  ">
               {navItem}
             </ul>
           </div>
 
           {/* menuItem (desktop only) */}
           <div className="hidden xl:flex">
-            <ul className="menu menu-horizontal gap-3 items-center">
-              {menuItem}
-            </ul>
+            <ul className="flex gap-3 items-center">{menuItem}</ul>
           </div>
 
           {/* mobile menu button */}
