@@ -1,0 +1,92 @@
+[
+  {
+    "id": "1",
+    "name": "Pain Relief Tablets",
+    "image": "https://png.pngtree.com/png-vector/20240531/ourmid/pngtree-doctor-s-prescription-a-mix-of-medicinal-tablet-png-image_12583052.png",
+    "originalPrice": 50,
+    "discountedPrice": 35,
+    "discountPercentage": 30,
+    "features": ["Best Seller", "Doctor Recommended", "Fast Relief", "Limited Stock", "Safe Ingredients"]
+  },
+  {
+    "id": "2",
+    "name": "Immunity Boosters",
+    "image": "https://healthace.ng/wp-content/uploads/2024/05/super-immun.jpg",
+    "originalPrice": 120,
+    "discountedPrice": 90,
+    "discountPercentage": 25,
+    "features": ["Best Seller", "Organic", "Ayurvedic Formula", "Doctor Recommended", "New Arrival"]
+  },
+  {
+    "id": "3",
+    "name": "Ayurveda Supplements",
+    "image": "https://tiimg.tistatic.com/fp/1/005/455/medicine-grade-ayurveda-rasona-107.jpg",
+    "originalPrice": 80,
+    "discountedPrice": 60,
+    "discountPercentage": 25,
+    "features": ["Herbal Certified", "Organic", "No Side Effects", "Immunity Booster", "Limited Stock"]
+  },
+  {
+    "id": "4",
+    "name": "Skin Care Lotion",
+    "image": "https://m.media-amazon.com/images/I/61fyHp17jlL._AC_UL480_FMwebp_QL65_.jpg",
+    "originalPrice": 15,
+    "discountedPrice": 12,
+    "discountPercentage": 20,
+    "features": ["Dermatologist Tested", "Paraben Free", "New Arrival", "Organic", "Best Seller"]
+  },
+  {
+    "id": "5",
+    "name": "Multivitamin Tablets",
+    "image": "https://m.media-amazon.com/images/I/61zHX6Er0SL._AC_UL480_FMwebp_QL65_.jpg",
+    "originalPrice": 30,
+    "discountedPrice": 22,
+    "discountPercentage": 27,
+    "features": ["Doctor Recommended", "Energy Booster", "Daily Use", "Best Seller", "Limited Stock"]
+  },
+  {
+    "id": "6",
+    "name": "Herbal Tea",
+    "image": "https://www.pravek.com/cdn/shop/articles/buy-herbal-tea-online-in-India.png?v=1716804025",
+    "originalPrice": 10,
+    "discountedPrice": 7,
+    "discountPercentage": 30,
+    "features": ["Organic", "Caffeine Free", "Immunity Booster", "Best Seller", "Relaxing Blend"]
+  },
+  {
+    "id": "7",
+    "name": "Cold & Cough Syrup",
+    "image": "https://www.advacarepharma.com/static/24186b4d0f83e9e27024dad3278d9155/323c6/cold-syrup-box-bottle.png",
+    "originalPrice": 15,
+    "discountedPrice": 11,
+    "discountPercentage": 20,
+    "features": ["Doctor Recommended", "Fast Relief", "Sugar Free", "Best Seller", "Limited Stock"]
+  },
+  {
+    "id": "8",
+    "name": "Vitamins for Women",
+    "image": "https://i-cf65.ch-static.com/content/dam/cf-consumer-healthcare/bp-wellness-centrum/en_US/sliced-images/global/products/Bottle%20of%20Centrum%20Multigummies%20Women%20Vitamins.jpg?auto=format",
+    "originalPrice": 50,
+    "discountedPrice": 35,
+    "discountPercentage": 30,
+    "features": ["Energy Booster", "Daily Wellness", "Best Seller", "Organic", "Doctor Recommended"]
+  },
+  {
+    "id": "9",
+    "name": "Health Supplements",
+    "image": "https://m.media-amazon.com/images/I/71SBTHw2V1L._AC_UL480_FMwebp_QL65_.jpg",
+    "originalPrice": 90,
+    "discountedPrice": 70,
+    "discountPercentage": 22,
+    "features": ["Doctor Recommended", "Energy Booster", "New Arrival", "No Side Effects", "Best Seller"]
+  },
+  {
+    "id": "10",
+    "name": "Herbal Cough Drops",
+    "image": "https://assets.sainsburys-groceries.co.uk/gol/8050245/1/640x640.jpg",
+    "originalPrice": 8,
+    "discountedPrice": 5,
+    "discountPercentage": 38,
+    "features": ["Herbal Certified", "Fast Relief", "Doctor Recommended", "Limited Stock", "Organic"]
+  }
+]

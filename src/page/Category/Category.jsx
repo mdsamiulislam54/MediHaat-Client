@@ -50,8 +50,9 @@ const Category = () => {
         slidesPerView={2}
         breakpoints={{
           640: { slidesPerView: 3 },
-          768: { slidesPerView: 4 },
-          1024: { slidesPerView: 6 },
+          768: { slidesPerView: 3 },
+          1024: { slidesPerView: 4 },
+          1280:{slidesPerView:6}
         }}
         loop={true}
         autoplay={{
@@ -65,9 +66,9 @@ const Category = () => {
         {data.map((category) => {
           const Icon = iconMap[category.icon];
           return (
-            <SwiperSlide key={category.id}>
-              <div className=" shadow shadow-primary/50 my-5 rounded-lg p-4 flex flex-col items-center text-center hover:shadow-md transition cursor-pointer h-[150px] ">
-                <div className="text-4xl text-primary rose-500 mb-3">
+            <SwiperSlide key={category.id} className="">
+              <div className=" shadow shadow-primary/50 my-5 rounded-lg p-4 flex flex-col items-center text-center hover:shadow-md transition cursor-pointer h-[150px]  ">
+                <div className="text-4xl text-primary rose-500 ">
                   {Icon && <Icon />}
                 </div>
                 <h3 className="text-base font-semibold">{category.name}</h3>

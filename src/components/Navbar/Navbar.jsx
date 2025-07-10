@@ -46,7 +46,7 @@ const Navbar = () => {
         <div className="indicator relative cursor-pointer">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-7 w-7 text-primary lg:text-black"
+            className="h-7 w-7 text-primary xl:text-black"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -75,7 +75,7 @@ const Navbar = () => {
       {/* Join Button */}
       <li>
         <Link
-          to="/join"
+          to="/login"
           className="btn bg-white text-primary border-2 border-primary px-6 py-2 rounded-md text-sm hover:bg-[#00a08a] hover:text-white"
         >
           Join Us
@@ -96,21 +96,21 @@ const Navbar = () => {
           </div>
 
           {/* navItem (desktop only) */}
-          <div className="hidden lg:flex">
+          <div className="hidden xl:flex">
             <ul className="menu menu-horizontal gap-5 text-[16px] font-medium ">
               {navItem}
             </ul>
           </div>
 
           {/* menuItem (desktop only) */}
-          <div className="hidden lg:flex">
+          <div className="hidden xl:flex">
             <ul className="menu menu-horizontal gap-3 items-center">
               {menuItem}
             </ul>
           </div>
 
           {/* mobile menu button */}
-          <div className="lg:hidden">
+          <div className="xl:hidden">
             <button onClick={() => setMenuOpen(!menuOpen)}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
