@@ -1,15 +1,19 @@
 import React, { use, useEffect, useState } from "react";
 import Logo from "../../components/Logo/Logo";
-import { Link } from "react-router";
+import { Link, NavLink, useNavigate } from "react-router";
 import { AnimatePresence, motion } from "framer-motion";
 import { IoClose } from "react-icons/io5";
+import { FiLogOut, FiUser, FiHome } from "react-icons/fi";
 
 import { UserAuth } from "../../hooks/userAuth/userAuth";
-
+import Button from "../../components/Button/Button";
+import Swal from "sweetalert2";
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
-  const { user } = UserAuth();
+  const [dropdownMenu, setDropdownMenu] = useState(false);
+  const { user,logOut,setUser } = UserAuth();
+  const navigate = useNavigate()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,6 +22,25 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleLogOut = ()=>{
+      logOut()
+      .then(()=>{
+        Swal.fire({
+          icon:"success",
+          title:"LogOut Successful!"
+        })
+        setUser(null)
+        navigate('/');
+        setDropdownMenu(false)
+
+      }).catch(()=>{
+        Swal.fire({
+          icon:"error",
+          title:"LogOut Failed!"
+        })
+      })
+  }
 
   const navItem = (
     <>
@@ -57,7 +80,7 @@ const Navbar = () => {
   const menuItem = (
     <>
       {/* Cart */}
-      <li>
+      <li className="list">
         <div className="indicator relative cursor-pointer">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -80,7 +103,7 @@ const Navbar = () => {
       </li>
 
       {/* Language Select */}
-      <li>
+      <li className="list-none">
         <select className="bg-white text-primary border-2 border-primary px-4 py-2 rounded-md text-sm">
           <option>English</option>
           <option>Bangla</option>
@@ -97,15 +120,57 @@ const Navbar = () => {
             Join Us
           </Link>
         </li>
-      ):(
-         <li>
-        <button className="">
-          <img src={user?.photoURL} alt="" className="w-10 h-10 rounded-full" />
-        </button>
-      </li>
+      ) : (
+        <div className="relative">
+          <button
+            className="cursor-pointer"
+            onClick={() => setDropdownMenu(!dropdownMenu)}
+          >
+            <img
+              src={user?.photoURL}
+              alt=""
+              className="w-10 h-10 rounded-full"
+            />
+          </button>
+          {/* dropdown menu */}
+          <AnimatePresence>
+            {dropdownMenu && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.5 }}
+                transition={{ duration: 0.35, ease: "easeInOut" }}
+                className="absolute max-md:-top-50 right-0 max-md:-right-32 bg-gradient-to-br from-white to-gray-100 p-4 rounded-xl shadow-lg shadow-primary/20 z-50"
+              >
+                <ul className="flex flex-col gap-3 w-48">
+                  <NavLink
+                    to="/dashboard"
+                    className="flex items-center gap-3 text-gray-700 hover:text-primary hover:bg-gray-50 p-2 rounded-lg transition"
+                  >
+                    <FiHome className="text-lg" />
+                    Dashboard
+                  </NavLink>
+                  <NavLink
+                    to="/update-profile"
+                    className="flex items-center gap-3 text-gray-700 hover:text-primary hover:bg-gray-50 p-2 rounded-lg transition"
+                  >
+                    <FiUser className="text-lg" />
+                    Update Profile
+                  </NavLink>
+                  <button
+                  onClick={handleLogOut}
+                  
+                    className="flex items-center gap-3 text-gray-700 hover:text-primary hover:bg-gray-50 p-2 rounded-lg transition cursor-pointer"
+                  >
+                    <FiLogOut className="text-lg" />
+                    Logout
+                  </button>
+                </ul>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
       )}
-
-     
     </>
   );
 
@@ -114,8 +179,8 @@ const Navbar = () => {
       <nav
         className={` ${
           scrollY > 50
-            ? "fixed-nav bg-gradient-to-br from-green-100 to-white shadow py-3"
-            : "py-3  relative z-50"
+            ? "fixed-nav bg-gradient-to-br relative from-green-100 to-white shadow py-3"
+            : "py-3  relative z-100"
         }`}
       >
         <div className="flex items-center justify-between w-11/12 mx-auto ">
@@ -161,38 +226,41 @@ const Navbar = () => {
       </nav>
 
       {/* mobile sidebar menu */}
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            initial={{ x: "-100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "-100%" }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="fixed top-0 left-0 w-3/4 h-full bg-white shadow z-[100] flex flex-col"
-          >
-            {/* header */}
-            <div className="flex items-center justify-between px-4 py-3 border-b border-primary">
-              <Logo color="text-primary" />
-              <button
-                onClick={() => setMenuOpen(false)}
-                className="text-3xl text-primary"
-              >
-                <IoClose />
-              </button>
-            </div>
+    <AnimatePresence>
+  {menuOpen && (
+    <motion.div
+      initial={{ x: "-100%" }}
+      animate={{ x: 0 }}
+      exit={{ x: "-100%" }}
+      transition={{ duration: 0.4, ease: "easeInOut" }}
+      className="fixed top-0 left-0 w-[85%] sm:w-3/4 h-full bg-white shadow-lg z-[100] flex flex-col"
+    >
+      {/* header */}
+      <div className="flex items-center justify-between px-5 py-4 border-b border-primary pt-[env(safe-area-inset-top)]">
+        <Logo color="text-primary" />
+        <button
+          onClick={() => setMenuOpen(false)}
+          className="text-3xl text-primary cursor-pointer"
+        >
+          <IoClose />
+        </button>
+      </div>
 
-            {/* menu items */}
-            <ul className="flex flex-col gap-5 text-primary text-lg font-medium p-5">
-              {navItem}
-            </ul>
+      {/* scrollable menu area */}
+      <div className="flex-1 overflow-y-auto">
+        <ul className="flex flex-col gap-5 text-primary text-base sm:text-lg font-medium p-5">
+          {navItem}
+        </ul>
+      </div>
 
-            {/* right side content in mobile */}
-            <ul className="flex  gap-4 p-5 border-t border-primary mt-auto">
-              {menuItem}
-            </ul>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* mobile bottom actions */}
+      <div className="border-t border-primary p-5 flex flex-wrap gap-4">
+        {menuItem}
+      </div>
+    </motion.div>
+  )}
+</AnimatePresence>
+
     </>
   );
 };

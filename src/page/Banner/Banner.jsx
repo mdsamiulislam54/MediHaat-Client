@@ -62,7 +62,7 @@ const Banner = () => {
         className="rounded-xl overflow-hidden"
       >
         {data?.map((banner, index) => (
-          <SwiperSlide key={banner._id}>
+          <SwiperSlide key={index}>
             <div className="relative w-full h-[250px] md:h-[600px]">
               <img
                 src={banner.image}

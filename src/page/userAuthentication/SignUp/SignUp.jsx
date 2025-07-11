@@ -29,38 +29,59 @@ const SignUp = () => {
 
   // Handle form submit
   const onSubmit = async (data) => {
-    setLoading(true); // loading start
-    try {
-      const imagesFile = data.photo[0];
-      const imageUrl = await uploadImageToCloudinary(imagesFile);
+  setLoading(true); // 🔵 Start loading
 
-      const { email, password, name } = data;
+  try {
+    //  Upload image to Cloudinary
+    const imageFile = data.photo[0];
+    const imageUrl = await uploadImageToCloudinary(imageFile);
 
-      const res = await createUserEmailAndPassword(email, password);
-      const user = res.user;
+    //  Create user account
+    const { email, password, name, role } = data;
+    const res = await createUserEmailAndPassword(email, password);
+    const user = res.user;
 
-      await updateProfile(user, {
-        displayName: name,
-        photoURL: imageUrl,
-      });
+    //  Update user profile
+    await updateProfile(user, {
+      displayName: name,
+      photoURL: imageUrl,
+    });
 
-      Swal.fire({
-        title: "Account Created!",
-        icon: "success",
-      });
+    //  Prepare user data for database
+    const userData = {
+      name: user.displayName,
+      email: user.email,
+      photoURL: user.photoURL,
+      role, 
+    };
 
-      reset();
-      navigate("/");
-    } catch (error) {
-      console.error(error);
-      Swal.fire({
-        icon: "error",
-        title: "Something went wrong!",
-      });
-    } finally {
-      setLoading(false); // loading stop
-    }
-  };
+    //  Save user data to MongoDB via backend API
+    await axiosInstance.post("/create-user", userData);
+
+    //  Success alert
+    Swal.fire({
+      title: "Account Created!",
+      icon: "success",
+    });
+
+    //  Reset form & navigate to home
+    reset();
+    navigate("/");
+
+  } catch (error) {
+    console.error(error);
+
+    //  Error alert
+    Swal.fire({
+      icon: "error",
+      title: "Something went wrong!",
+    });
+
+  } finally {
+    setLoading(false); // Stop loading
+  }
+};
+
 
   return (
     <div>

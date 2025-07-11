@@ -9,10 +9,13 @@ import {
   signInWithPopup,
   signOut,
 } from "firebase/auth";
+import axiosinstance from "../../hooks/axiosInstance/axiosinstance";
 
 const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [role, setRole] = useState([])
   const [loading, setLoading] = useState(true);
+  const axiosInstance = axiosinstance()
 
   const createUserEmailAndPassword = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -25,13 +28,16 @@ const UserProvider = ({ children }) => {
     return signInWithPopup(provider, auth);
   };
   const logOut = () => {
-    return signOut(auth);
+    return signOut(auth)
+    
   };
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth,  (currentUser) => {
+    const unsubscribe = onAuthStateChanged(auth,  async (currentUser) => {
       if (currentUser) {
-        console.log(currentUser)
+        const res = await axiosInstance.get(`/user/${currentUser.email}`)
+        setRole(res.data.role)
+        console.log(res.data)
         setUser(currentUser);
       } else {
         setUser(null);
@@ -51,7 +57,10 @@ const UserProvider = ({ children }) => {
     signWithGoogle,
     logOut,
     loginWithEmailPassword,
+    setUser
   };
+
+ 
   return (
     <UserContext.Provider value={userInfo}>{children}</UserContext.Provider>
   );
