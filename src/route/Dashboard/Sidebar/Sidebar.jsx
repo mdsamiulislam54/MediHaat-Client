@@ -68,24 +68,24 @@ const Sidebar = ({ closeSidebar }) => {
             </NavLink>
           </>
         )}
-
+    {/* Seller nav link */}
         {role?.includes("seller") && (
           <>
-            <NavLink to="/dashboard/add-medicine" className="flex items-center gap-2 hover:bg-secondary p-2 hover:text-primary transition-all duration-300 ">
+            <NavLink to="/dashboard/seller/add-medicine" className="flex items-center gap-2 hover:bg-secondary p-2 hover:text-primary transition-all duration-300 ">
               <IoAddCircleOutline /> Add Medicine
             </NavLink>
-            <NavLink to="/dashboard/my-medicines" className="flex items-center gap-2 hover:bg-secondary p-2 hover:text-primary transition-all duration-300 ">
+            <NavLink to="/dashboard/seller/my-medicines" className="flex items-center gap-2 hover:bg-secondary p-2 hover:text-primary transition-all duration-300 ">
               <IoPricetagsOutline /> My Medicines
             </NavLink>
-            <NavLink to="/dashboard/payment-history" className="flex items-center gap-2 hover:bg-secondary p-2 hover:text-primary transition-all duration-300 ">
+            <NavLink to="/dashboard/seller/payment-history" className="flex items-center gap-2 hover:bg-secondary p-2 hover:text-primary transition-all duration-300 ">
               <IoCashOutline /> Payment History
             </NavLink>
-            <NavLink to="/dashboard/advertise-request" className="flex items-center gap-2 hover:bg-secondary p-2 hover:text-primary transition-all duration-300 ">
+            <NavLink to="/dashboard/seller/advertise-request" className="flex items-center gap-2 hover:bg-secondary p-2 hover:text-primary transition-all duration-300 ">
               <IoImageOutline /> Advertise Request
             </NavLink>
           </>
         )}
-
+        {/* admin nav-link */}
         {role?.includes("admin") && (
           <>
             <NavLink to="/dashboard/manage-users" className="flex items-center gap-2 hover:bg-secondary p-2 hover:text-primary transition-all duration-300 ">

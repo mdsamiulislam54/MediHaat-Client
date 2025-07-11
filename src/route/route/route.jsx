@@ -6,7 +6,8 @@ import Login from "../../page/userAuthentication/Login/Login";
 import SignUp from "../../page/userAuthentication/SignUp/SignUp";
 import DashboardLayout from "../Dashboard/DashboardLayout/DashboardLayout";
 import DashboardHome from "../../page/DashboardPage/DashbordHome/DashboardHome";
-import MyOrders from "../../page/DashboardPage/MyOrders/MyOrders";
+
+import Addmedicine from "../../page/DashboardPage/SellerPage/Addmedicine/Addmedicine";
 
 const router = createBrowserRouter([
   {
@@ -44,10 +45,15 @@ const router = createBrowserRouter([
         index:true,
         element:<DashboardHome/>
       },
-      {
-        path:'my-orders',
-        element:<MyOrders/>
-      }
+        // user route
+
+        // seller route
+        {
+          path:'seller/add-medicine',
+          element:<Addmedicine/>
+        }
+
+        // admin route
     ]
   }
 ]);
