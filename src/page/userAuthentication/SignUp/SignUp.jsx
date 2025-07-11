@@ -11,6 +11,7 @@ import { UserAuth } from "../../../hooks/userAuth/userAuth";
 import { updateProfile } from "firebase/auth";
 import Swal from "sweetalert2";
 import Loader from "../../../components/Loader/Loader";
+import Logo from "../../../components/Logo/Logo";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -84,7 +85,7 @@ const SignUp = () => {
 
 
   return (
-    <div>
+    <div className="w-11/12 mx-auto">
       <div className="flex justify-between items-center m-8">
         <Link
           to="/"
@@ -107,7 +108,10 @@ const SignUp = () => {
 
         {/* Right Form */}
         <div className="w-full max-w-lg mx-auto bg-white shadow-lg rounded-xl p-6 flex-1">
-          <h2 className="text-3xl font-bold mb-6 text-center">
+          <div>
+            <Logo color="text-primary"/>
+          </div>
+          <h2 className="text-2xl my-2 font-bold mb-6 text-center">
             Create Account
           </h2>
 

@@ -1,0 +1,60 @@
+import React from "react";
+import { UserAuth } from "../../../hooks/userAuth/userAuth";
+import { IoPersonCircle, IoCheckmarkCircle, IoCalendarClear } from "react-icons/io5";
+
+const DashboardHome = () => {
+  const { user, role } = UserAuth();
+
+  return (
+    <div className="space-y-6">
+      {/* Welcome Message */}
+      <div className="bg-gradient-to-r from-primary to-blue-500 text-white p-6 rounded-xl shadow flex flex-col md:flex-row items-center justify-between">
+        <div>
+          <h2 className="text-2xl font-bold">Welcome, {user?.displayName || "User"}!</h2>
+          <p className="text-sm mt-1">Glad to see you back on your dashboard.</p>
+        </div>
+        <div className="flex items-center gap-2 mt-4 md:mt-0">
+          <IoPersonCircle className="text-4xl" />
+          <div>
+            <h3 className="font-semibold">{user?.email}</h3>
+            <p className="text-xs">Role: 
+              <span className="bg-white text-primary font-semibold px-2 py-1 rounded ml-1">
+                {role?.join(", ") || "user"}
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Quick Summary Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="bg-white p-5 rounded-xl shadow flex items-center gap-4">
+          <IoCheckmarkCircle className="text-4xl text-green-500" />
+          <div>
+            <h4 className="text-lg font-semibold">Active Account</h4>
+            <p className="text-sm text-gray-500">Your account is in good standing.</p>
+          </div>
+        </div>
+
+        <div className="bg-white p-5 rounded-xl shadow flex items-center gap-4">
+          <IoCalendarClear className="text-4xl text-blue-500" />
+          <div>
+            <h4 className="text-lg font-semibold">Last Login</h4>
+            <p className="text-sm text-gray-500">Today</p>
+          </div>
+        </div>
+
+        <div className="bg-white p-5 rounded-xl shadow flex items-center gap-4">
+          <IoPersonCircle className="text-4xl text-yellow-500" />
+          <div>
+            <h4 className="text-lg font-semibold">Total Role(s)</h4>
+            <p className="text-sm text-gray-500">{role?.length || 1}</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  );
+};
+
+export default DashboardHome;

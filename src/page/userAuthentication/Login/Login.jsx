@@ -62,6 +62,7 @@ const Login = () => {
         icon: "success",
         title: "Login Successful!",
       });
+      navigate('/')
     } catch (error) {
       console.error("Google Login Error:", error);
       Swal.fire({
