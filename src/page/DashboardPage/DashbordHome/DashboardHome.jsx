@@ -1,9 +1,27 @@
-import React from "react";
+
 import { UserAuth } from "../../../hooks/userAuth/userAuth";
 import { IoPersonCircle, IoCheckmarkCircle, IoCalendarClear } from "react-icons/io5";
+import axiosinstance from "../../../hooks/axiosInstance/axiosinstance";
+import { useQuery } from "@tanstack/react-query";
 
 const DashboardHome = () => {
   const { user, role } = UserAuth();
+   const axiosInstanceCall = axiosinstance();
+console.log(user)
+
+  const { data} = useQuery({
+    queryKey: ["seller" ],
+    queryFn: async () => {
+      const res = await axiosInstanceCall.get(
+        `seller-medicine/${user?.email}`
+      );
+      console.log(res);
+
+      return res.data.result;
+    },
+  });
+
+  console.log(data)
 
   return (
     <div className="space-y-6">
@@ -40,7 +58,7 @@ const DashboardHome = () => {
           <IoCalendarClear className="text-4xl text-blue-500" />
           <div>
             <h4 className="text-lg font-semibold">Last Login</h4>
-            <p className="text-sm text-gray-500">Today</p>
+            <p className="text-sm text-gray-500">{user.metadata.lastSignInTime}</p>
           </div>
         </div>
 
@@ -48,7 +66,7 @@ const DashboardHome = () => {
           <IoPersonCircle className="text-4xl text-yellow-500" />
           <div>
             <h4 className="text-lg font-semibold">Total Role(s)</h4>
-            <p className="text-sm text-gray-500">{role?.length || 1}</p>
+            <p className="text-sm text-gray-500">{data?.length || 1}</p>
           </div>
         </div>
       </div>

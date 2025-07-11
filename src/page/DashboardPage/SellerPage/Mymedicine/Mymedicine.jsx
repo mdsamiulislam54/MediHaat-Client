@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axiosinstance from "../../../../hooks/axiosInstance/axiosinstance";
 import { useQuery } from "@tanstack/react-query";
 import Loader from "../../../../components/Loader/Loader";
+import { UserAuth } from "../../../../hooks/userAuth/userAuth";
 
 const Mymedicine = () => {
   const axiosInstanceCall = axiosinstance();
@@ -10,12 +11,13 @@ const Mymedicine = () => {
   const [perPage, setPerPage] = useState(10);
   const totalPage = Math.ceil(count / perPage) || 0;
   const pageArray = [...Array(totalPage).keys()];
+  const {user} = UserAuth()
 
   const { data, isLoading, error } = useQuery({
     queryKey: ["medicine", currentPage, perPage],
     queryFn: async () => {
       const res = await axiosInstanceCall.get(
-        `all-medicine?limit=${perPage}&page=${currentPage}`
+        `all-medicine?limit=${perPage}&page=${currentPage}&email=${user.email}`
       );
       console.log(res);
       setCount(res.data.count);
@@ -36,7 +38,7 @@ const Mymedicine = () => {
 
         <div>
           {data?.length === 0 ? (
-            <p>No medicines found.</p>
+            <p className="min-h-screen flex justify-center items-center">No medicines found.</p>
           ) : (
             <div className="overflow-x-auto">
               <table className="table table-zebra">
