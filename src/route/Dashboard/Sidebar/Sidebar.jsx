@@ -74,7 +74,7 @@ const Sidebar = ({ closeSidebar }) => {
             <NavLink to="/dashboard/seller/add-medicine" className="flex items-center gap-2 hover:bg-secondary p-2 hover:text-primary transition-all duration-300 ">
               <IoAddCircleOutline /> Add Medicine
             </NavLink>
-            <NavLink to="/dashboard/seller/my-medicines" className="flex items-center gap-2 hover:bg-secondary p-2 hover:text-primary transition-all duration-300 ">
+            <NavLink to="seller/my-medicine" className="flex items-center gap-2 hover:bg-secondary p-2 hover:text-primary transition-all duration-300 ">
               <IoPricetagsOutline /> My Medicines
             </NavLink>
             <NavLink to="/dashboard/seller/payment-history" className="flex items-center gap-2 hover:bg-secondary p-2 hover:text-primary transition-all duration-300 ">
