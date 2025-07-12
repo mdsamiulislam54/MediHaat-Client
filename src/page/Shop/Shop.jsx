@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import  { useContext, useState } from "react";
 import Loader from "../../components/Loader/Loader";
 
 import { FaEye } from "react-icons/fa";
@@ -10,11 +10,14 @@ import { UserAuth } from "../../hooks/userAuth/userAuth";
 import MedicineDetails from "./MedicineDetails";
 import { AnimatePresence } from "framer-motion";
 
+import {  CartContext } from "../../Contextapi/AddToCart/cartContext";
+
 const Shop = () => {
   const axiosInstanceCall = axiosinstance();
   const { user } = UserAuth();
   const [currentPage, setCurrentPage] = useState(0);
   const [perPage, setPerPage] = useState(10);
+  const {addToCart}= useContext(CartContext)
 
   const { data, isLoading, error } = useQuery({
     queryKey: ["shop", currentPage, perPage],
@@ -97,7 +100,7 @@ const Shop = () => {
                         <img
                           src={medicine.imageURL}
                           alt={medicine.medicineName}
-                          className="w-[40px] h-auto rounded object-cover"
+                          className="lg:w-[80px] w-[40px] h-auto rounded object-cover"
                         />
                       </td>
                       <td>{medicine.name}</td>
@@ -109,7 +112,7 @@ const Shop = () => {
                       <td>{medicine.discount}%</td>
                       <td>{medicine.sellerName}</td>
                       <td className="space-x-2 flex justify-center">
-                        <button className="btn btn-primary btn-sm">
+                        <button onClick={()=>addToCart(medicine)} className="btn btn-primary btn-sm">
                           <BiSolidCartAdd className="text-xl" />
                         </button>
                         <button

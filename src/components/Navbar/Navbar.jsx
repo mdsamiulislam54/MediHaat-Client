@@ -1,4 +1,4 @@
-import React, { use, useEffect, useState } from "react";
+import React, { use, useContext, useEffect, useState } from "react";
 import Logo from "../../components/Logo/Logo";
 import { Link, NavLink, useNavigate } from "react-router";
 import { AnimatePresence, motion } from "framer-motion";
@@ -6,14 +6,18 @@ import { IoClose } from "react-icons/io5";
 import { FiLogOut, FiUser, FiHome } from "react-icons/fi";
 
 import { UserAuth } from "../../hooks/userAuth/userAuth";
-import Button from "../../components/Button/Button";
+
 import Swal from "sweetalert2";
+
+import { CartContext } from "../../Contextapi/AddToCart/cartContext";
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+
   const [scrollY, setScrollY] = useState(0);
   const [dropdownMenu, setDropdownMenu] = useState(false);
-  const { user,logOut,setUser } = UserAuth();
-  const navigate = useNavigate()
+  const { user, logOut, setUser } = UserAuth();
+  const navigate = useNavigate();
+  const { cart } = useContext(CartContext);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,24 +27,24 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleLogOut = ()=>{
-      logOut()
-      .then(()=>{
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
         Swal.fire({
-          icon:"success",
-          title:"LogOut Successful!"
-        })
-        setUser(null)
-        navigate('/');
-        setDropdownMenu(false)
-
-      }).catch(()=>{
-        Swal.fire({
-          icon:"error",
-          title:"LogOut Failed!"
-        })
+          icon: "success",
+          title: "LogOut Successful!",
+        });
+        setUser(null);
+        navigate("/");
+        setDropdownMenu(false);
       })
-  }
+      .catch(() => {
+        Swal.fire({
+          icon: "error",
+          title: "LogOut Failed!",
+        });
+      });
+  };
 
   const navItem = (
     <>
@@ -81,7 +85,7 @@ const Navbar = () => {
     <>
       {/* Cart */}
       <li className="list">
-        <div className="indicator relative cursor-pointer">
+        <Link to={"/cart-page"} className="indicator relative cursor-pointer">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-8 w-8 text-primary xl:text-black"
@@ -97,9 +101,9 @@ const Navbar = () => {
             />
           </svg>
           <span className="badge badge-sm indicator-item absolute md:-top-5 -top-5 md:right-0 transform translate-x-2 translate-y-2 bg-primary border-0 text-white">
-            0
+            {cart.length}
           </span>
-        </div>
+        </Link>
       </li>
 
       {/* Language Select */}
@@ -158,8 +162,7 @@ const Navbar = () => {
                     Update Profile
                   </NavLink>
                   <button
-                  onClick={handleLogOut}
-                  
+                    onClick={handleLogOut}
                     className="flex items-center gap-3 text-gray-700 hover:text-primary hover:bg-gray-50 p-2 rounded-lg transition cursor-pointer"
                   >
                     <FiLogOut className="text-lg" />
@@ -226,41 +229,40 @@ const Navbar = () => {
       </nav>
 
       {/* mobile sidebar menu */}
-    <AnimatePresence>
-  {menuOpen && (
-    <motion.div
-      initial={{ x: "-100%" }}
-      animate={{ x: 0 }}
-      exit={{ x: "-100%" }}
-      transition={{ duration: 0.4, ease: "easeInOut" }}
-      className="fixed top-0 left-0 w-[85%] sm:w-3/4 h-full bg-white shadow-lg z-[100] flex flex-col"
-    >
-      {/* header */}
-      <div className="flex items-center justify-between px-5 py-4 border-b border-primary pt-[env(safe-area-inset-top)]">
-        <Logo color="text-primary" />
-        <button
-          onClick={() => setMenuOpen(false)}
-          className="text-3xl text-primary cursor-pointer"
-        >
-          <IoClose />
-        </button>
-      </div>
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ x: "-100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "-100%" }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+            className="fixed top-0 left-0 w-[85%] sm:w-3/4 h-full bg-white shadow-lg z-[100] flex flex-col"
+          >
+            {/* header */}
+            <div className="flex items-center justify-between px-5 py-4 border-b border-primary pt-[env(safe-area-inset-top)]">
+              <Logo color="text-primary" />
+              <button
+                onClick={() => setMenuOpen(false)}
+                className="text-3xl text-primary cursor-pointer"
+              >
+                <IoClose />
+              </button>
+            </div>
 
-      {/* scrollable menu area */}
-      <div className="flex-1 overflow-y-auto">
-        <ul className="flex flex-col gap-5 text-primary text-base sm:text-lg font-medium p-5">
-          {navItem}
-        </ul>
-      </div>
+            {/* scrollable menu area */}
+            <div className="flex-1 overflow-y-auto">
+              <ul className="flex flex-col gap-5 text-primary text-base sm:text-lg font-medium p-5">
+                {navItem}
+              </ul>
+            </div>
 
-      {/* mobile bottom actions */}
-      <div className="border-t border-primary p-5 flex flex-wrap gap-4">
-        {menuItem}
-      </div>
-    </motion.div>
-  )}
-</AnimatePresence>
-
+            {/* mobile bottom actions */}
+            <div className="border-t border-primary p-5 flex flex-wrap gap-4">
+              {menuItem}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };

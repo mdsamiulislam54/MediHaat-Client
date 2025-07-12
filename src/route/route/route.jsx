@@ -12,6 +12,7 @@ import Mymedicine from "../../page/DashboardPage/SellerPage/Mymedicine/Mymedicin
 import AdvertiseRequest from "../../page/DashboardPage/SellerPage/AdvertiseRequest/AdvertiseRequest";
 import Shop from "../../page/Shop/Shop";
 import MedicineDetails from "../../page/Shop/MedicineDetails";
+import Cart from "../../page/CartItem/Cart";
 
 
 const router = createBrowserRouter([
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path:'/medicine-details/:id',
         element:<MedicineDetails/>
+      },
+      {
+        path:'/cart-page',
+        element:<Cart/>
       }
 
     ],
