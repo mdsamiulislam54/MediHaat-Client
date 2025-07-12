@@ -65,7 +65,7 @@ console.log(user)
         <div className="bg-white p-5 rounded-xl shadow flex items-center gap-4">
           <IoPersonCircle className="text-4xl text-yellow-500" />
           <div>
-            <h4 className="text-lg font-semibold">Total Role(s)</h4>
+            <h4 className="text-lg font-semibold">Your Total Medicine</h4>
             <p className="text-sm text-gray-500">{data?.length || 1}</p>
           </div>
         </div>

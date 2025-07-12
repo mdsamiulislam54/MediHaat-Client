@@ -80,7 +80,7 @@ const Sidebar = ({ closeSidebar }) => {
             <NavLink to="/dashboard/seller/payment-history" className="flex items-center gap-2 hover:bg-secondary p-2 hover:text-primary transition-all duration-300 ">
               <IoCashOutline /> Payment History
             </NavLink>
-            <NavLink to="/dashboard/seller/advertise-request" className="flex items-center gap-2 hover:bg-secondary p-2 hover:text-primary transition-all duration-300 ">
+            <NavLink to="seller/advertise-request" className="flex items-center gap-2 hover:bg-secondary p-2 hover:text-primary transition-all duration-300 ">
               <IoImageOutline /> Advertise Request
             </NavLink>
           </>

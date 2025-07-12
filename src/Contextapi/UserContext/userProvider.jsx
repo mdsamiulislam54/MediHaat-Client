@@ -11,11 +11,12 @@ import {
 } from "firebase/auth";
 import axiosinstance from "../../hooks/axiosInstance/axiosinstance";
 
+
 const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [role, setRole] = useState([])
+  const [role, setRole] = useState([]);
   const [loading, setLoading] = useState(true);
-  const axiosInstance = axiosinstance()
+  const axiosinstanceCall = axiosinstance();
 
   const createUserEmailAndPassword = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -25,29 +26,48 @@ const UserProvider = ({ children }) => {
   };
   const signWithGoogle = () => {
     const provider = new GoogleAuthProvider();
-    return signInWithPopup(provider, auth);
+    return signInWithPopup(auth, provider);
   };
   const logOut = () => {
-    return signOut(auth)
-    
+    return signOut(auth);
   };
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth,  async (currentUser) => {
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       if (currentUser) {
-        const res = await axiosInstance.get(`/user/${currentUser.email}`)
-        setRole(res.data.role)
-        console.log(res.data)
-        setUser(currentUser);
+        console.log(currentUser)
+
+        try {
+          const res = await axiosinstanceCall.get(`/user/${currentUser.email}`);
+         
+          setRole(res.data.role);
+         
+        } catch (error) {
+          if (error.response?.status === 404) {
+            // New Google user — create entry
+            const newUser = {
+              name: currentUser.displayName,
+              email: currentUser.email,
+              photoURL: currentUser.photoURL,
+              role: ["user"],
+            };
+            const createRes = await axiosinstance.post("/create-user", newUser);
+            setRole(createRes.data.role);
+          } else {
+            console.error("Error fetching user:", error);
+          }
+        }
+
+         setUser(currentUser);
       } else {
         setUser(null);
+        setRole([]);
       }
+
       setLoading(false);
     });
 
-    return () => {
-      unsubscribe();
-    };
+    return () => unsubscribe();
   }, []);
 
   const userInfo = {
@@ -57,10 +77,13 @@ const UserProvider = ({ children }) => {
     signWithGoogle,
     logOut,
     loginWithEmailPassword,
-    setUser
+    setUser,
+    setRole,
+    role
   };
 
- 
+
+
   return (
     <UserContext.Provider value={userInfo}>{children}</UserContext.Provider>
   );
