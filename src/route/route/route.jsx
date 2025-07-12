@@ -10,6 +10,7 @@ import DashboardHome from "../../page/DashboardPage/DashbordHome/DashboardHome";
 import Addmedicine from "../../page/DashboardPage/SellerPage/Addmedicine/Addmedicine";
 import Mymedicine from "../../page/DashboardPage/SellerPage/Mymedicine/Mymedicine";
 import AdvertiseRequest from "../../page/DashboardPage/SellerPage/AdvertiseRequest/AdvertiseRequest";
+import Shop from "../../page/Shop/Shop";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,11 @@ const router = createBrowserRouter([
         index: true,
         Component: Home,
       },
+      {
+        path:'/shop',
+        Component:Shop
+      }
+
     ],
   },
 // userlayout

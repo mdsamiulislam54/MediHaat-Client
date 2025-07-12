@@ -84,7 +84,7 @@ const Mymedicine = () => {
               </table>
             </div>
           )}
-
+        {/* pagination */}
           <div className="flex justify-center items-center my-10">
             <button
               className="btn mx-4"

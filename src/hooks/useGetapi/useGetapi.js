@@ -8,7 +8,7 @@ const useGetapi = (url) => {
     queryKey: ["getData", url], 
     queryFn: async () => {
       const res = await axiosInstanceCall.get(url);
-      return res.data;
+      return res.data || [];
     },
   });
 

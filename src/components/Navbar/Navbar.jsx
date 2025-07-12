@@ -180,10 +180,10 @@ const Navbar = () => {
         className={` ${
           scrollY > 50
             ? "fixed-nav bg-gradient-to-br relative from-green-100 to-white shadow py-3"
-            : "py-3  relative z-100"
+            : " shadow py-3 relative z-100 "
         }`}
       >
-        <div className="flex items-center justify-between w-11/12 mx-auto ">
+        <div className="flex items-center justify-between w-11/12 mx-auto   ">
           {/* logo */}
           <div className="flex items-center">
             <Link to="/" className="text-xl font-bold">
