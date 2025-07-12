@@ -9,6 +9,7 @@ import { UserAuth } from "../../../../hooks/userAuth/userAuth";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../../hooks/axisonsecure/axiosSecure";
 import { image } from "framer-motion/client";
+import { FaWindowClose } from "react-icons/fa";
 
 const AdvertiseRequest = () => {
   const { data, isLoading, isError, error } = useGetapi("/all-banner");
@@ -112,7 +113,7 @@ const AdvertiseRequest = () => {
                 className="absolute top-2 right-2 text-xl font-bold"
                 onClick={() => setIsOpen(false)}
               >
-                ✕
+                <FaWindowClose className="text-primary cursor-pointer"/>
               </button>
               <h2 className="text-2xl font-bold mb-4 text-center">
                 Add Advertise

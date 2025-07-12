@@ -11,6 +11,8 @@ import Addmedicine from "../../page/DashboardPage/SellerPage/Addmedicine/Addmedi
 import Mymedicine from "../../page/DashboardPage/SellerPage/Mymedicine/Mymedicine";
 import AdvertiseRequest from "../../page/DashboardPage/SellerPage/AdvertiseRequest/AdvertiseRequest";
 import Shop from "../../page/Shop/Shop";
+import MedicineDetails from "../../page/Shop/MedicineDetails";
+
 
 const router = createBrowserRouter([
   {
@@ -24,6 +26,10 @@ const router = createBrowserRouter([
       {
         path:'/shop',
         Component:Shop
+      },
+      {
+        path:'/medicine-details/:id',
+        element:<MedicineDetails/>
       }
 
     ],

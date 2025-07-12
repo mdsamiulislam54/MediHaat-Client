@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import Loader from "../../components/Loader/Loader";
-import Button from "../../components/Button/Button";
+
 import { FaEye } from "react-icons/fa";
 import { BiSolidCartAdd } from "react-icons/bi";
 import { useQuery } from "@tanstack/react-query";
 import axiosinstance from "../../hooks/axiosInstance/axiosinstance";
 import { UserAuth } from "../../hooks/userAuth/userAuth";
+
+import MedicineDetails from "./MedicineDetails";
+import { AnimatePresence } from "framer-motion";
 
 const Shop = () => {
   const axiosInstanceCall = axiosinstance();
@@ -15,7 +18,7 @@ const Shop = () => {
 
   const { data, isLoading, error } = useQuery({
     queryKey: ["shop", currentPage, perPage],
-    
+
     queryFn: async () => {
       const res = await axiosInstanceCall.get(
         `/get-medicine?page=${currentPage}&limit=${perPage}`
@@ -25,14 +28,20 @@ const Shop = () => {
     },
   });
 
-
-  if (error) return <p className="text-center text-red-500">{error.message}</p>;
-
+  const [selectedMedicine, setSelectedMedicine] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(true);
   const medicines = data?.result || [];
   const totalCount = data?.count || 0;
   const totalPage = Math.ceil(totalCount / perPage);
   const pageArray = [...Array(totalPage).keys()];
 
+  // Handle eye button click
+  const handleViewDetails = (medicine) => {
+    setSelectedMedicine(medicine);
+    setIsModalOpen(true);
+  };
+
+  if (error) return <p className="text-center text-red-500">{error.message}</p>;
   return (
     <div className="min-h-screen">
       <div className="w-11/12 mx-auto">
@@ -103,7 +112,10 @@ const Shop = () => {
                         <button className="btn btn-primary btn-sm">
                           <BiSolidCartAdd className="text-xl" />
                         </button>
-                        <button className="btn btn-sm btn-primary">
+                        <button
+                         onClick={()=>handleViewDetails(medicine)}
+                          className="btn btn-sm btn-primary"
+                        >
                           <FaEye className="text-xl" />
                         </button>
                       </td>
@@ -147,6 +159,18 @@ const Shop = () => {
             </button>
           </ul>
         </div>
+        {/* Medicine Details Modal */}
+        <AnimatePresence>
+        {isModalOpen && selectedMedicine && (
+          <MedicineDetails
+            medicine={selectedMedicine}
+            onClose={() => {
+              setIsModalOpen(false);
+              setSelectedMedicine(null);
+            }}
+          />
+        )}
+        </AnimatePresence>
       </div>
     </div>
   );
