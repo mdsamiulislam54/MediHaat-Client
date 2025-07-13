@@ -66,6 +66,9 @@ const Sidebar = ({ closeSidebar }) => {
             <NavLink to="/dashboard/profile" className="flex items-center gap-2 hover:bg-secondary p-2 hover:text-primary transition-all duration-300 ">
               <IoPeopleOutline /> My Profile
             </NavLink>
+            <NavLink to="user/payment-history" className="flex items-center gap-2 hover:bg-secondary p-2 hover:text-primary transition-all duration-300 ">
+              <IoPeopleOutline /> My Payment History
+            </NavLink>
           </>
         )}
     {/* Seller nav link */}

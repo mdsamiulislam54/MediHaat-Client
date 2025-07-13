@@ -15,6 +15,7 @@ import MedicineDetails from "../../page/Shop/MedicineDetails";
 import Cart from "../../page/CartItem/Cart";
 import Checkout from "../../page/Checkout/Checkout";
 import PaymentSuccess from "../../page/PaymentSuccess/PaymentSuccess";
+import PaymentHistory from "../../page/DashboardPage/UserDashboard/PaymentHistory/PaymentHistory";
 
 
 const router = createBrowserRouter([
@@ -75,7 +76,10 @@ const router = createBrowserRouter([
         element:<DashboardHome/>
       },
         // user route
-
+        {
+          path:'user/payment-history',
+          element:<PaymentHistory/>
+        },
         // seller route
         {
           path:'seller/add-medicine',
