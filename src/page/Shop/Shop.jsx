@@ -1,4 +1,4 @@
-import  { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import Loader from "../../components/Loader/Loader";
 
 import { FaEye } from "react-icons/fa";
@@ -10,21 +10,24 @@ import { UserAuth } from "../../hooks/userAuth/userAuth";
 import MedicineDetails from "./MedicineDetails";
 import { AnimatePresence } from "framer-motion";
 
-import {  CartContext } from "../../Contextapi/AddToCart/cartContext";
+import { CartContext } from "../../Contextapi/AddToCart/cartContext";
+import { useLocation } from "react-router";
 
 const Shop = () => {
   const axiosInstanceCall = axiosinstance();
   const { user } = UserAuth();
   const [currentPage, setCurrentPage] = useState(0);
   const [perPage, setPerPage] = useState(10);
-  const {addToCart}= useContext(CartContext)
+  const { addToCart } = useContext(CartContext);
+  const location = useLocation();
+  const categoryName = location.state?.category;
 
   const { data, isLoading, error } = useQuery({
     queryKey: ["shop", currentPage, perPage],
 
     queryFn: async () => {
       const res = await axiosInstanceCall.get(
-        `/get-medicine?page=${currentPage}&limit=${perPage}`
+        `/get-medicine?page=${currentPage}&limit=${perPage}${categoryName ? `&category=${categoryName}` : ""}`
       );
       console.log("shop", res);
       return res.data;
@@ -112,11 +115,14 @@ const Shop = () => {
                       <td>{medicine.discount}%</td>
                       <td>{medicine.sellerName}</td>
                       <td className="space-x-2 flex justify-center">
-                        <button onClick={()=>addToCart(medicine)} className="btn btn-primary btn-sm">
+                        <button
+                          onClick={() => addToCart(medicine)}
+                          className="btn btn-primary btn-sm"
+                        >
                           <BiSolidCartAdd className="text-xl" />
                         </button>
                         <button
-                         onClick={()=>handleViewDetails(medicine)}
+                          onClick={() => handleViewDetails(medicine)}
                           className="btn btn-sm btn-primary"
                         >
                           <FaEye className="text-xl" />
@@ -164,15 +170,15 @@ const Shop = () => {
         </div>
         {/* Medicine Details Modal */}
         <AnimatePresence>
-        {isModalOpen && selectedMedicine && (
-          <MedicineDetails
-            medicine={selectedMedicine}
-            onClose={() => {
-              setIsModalOpen(false);
-              setSelectedMedicine(null);
-            }}
-          />
-        )}
+          {isModalOpen && selectedMedicine && (
+            <MedicineDetails
+              medicine={selectedMedicine}
+              onClose={() => {
+                setIsModalOpen(false);
+                setSelectedMedicine(null);
+              }}
+            />
+          )}
         </AnimatePresence>
       </div>
     </div>
