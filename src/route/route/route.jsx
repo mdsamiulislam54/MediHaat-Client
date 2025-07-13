@@ -14,6 +14,7 @@ import Shop from "../../page/Shop/Shop";
 import MedicineDetails from "../../page/Shop/MedicineDetails";
 import Cart from "../../page/CartItem/Cart";
 import Checkout from "../../page/Checkout/Checkout";
+import PaymentSuccess from "../../page/PaymentSuccess/PaymentSuccess";
 
 
 const router = createBrowserRouter([
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path:'/checkout',
         element:<Checkout/>
+      },
+      {
+        path:'/order-success',
+        element:<PaymentSuccess/>
       }
 
     ],

@@ -9,6 +9,7 @@ import {
   FaCcAmex,
   FaMoneyCheckAlt,
 } from "react-icons/fa";
+import { useNavigate } from "react-router";
 
 const CheckoutForm = ({ data, selectedItems, totalPay, totalQuantity }) => {
   const stripe = useStripe();
@@ -16,6 +17,7 @@ const CheckoutForm = ({ data, selectedItems, totalPay, totalQuantity }) => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const axiosSecure = useAxiosSecure();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -93,7 +95,7 @@ const CheckoutForm = ({ data, selectedItems, totalPay, totalQuantity }) => {
           })),
         };
 
-        console.log(orderDetails);
+       
         await axiosSecure.post("/order-history", orderDetails);
 
         Swal.close();
@@ -104,7 +106,7 @@ const CheckoutForm = ({ data, selectedItems, totalPay, totalQuantity }) => {
           confirmButtonText: "OK",
         });
 
-        // Optional: navigate('/order-success')
+        navigate('/order-success', {state:orderDetails})
       }
     } catch (err) {
       console.error(err);
