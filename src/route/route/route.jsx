@@ -13,6 +13,7 @@ import AdvertiseRequest from "../../page/DashboardPage/SellerPage/AdvertiseReque
 import Shop from "../../page/Shop/Shop";
 import MedicineDetails from "../../page/Shop/MedicineDetails";
 import Cart from "../../page/CartItem/Cart";
+import Checkout from "../../page/Checkout/Checkout";
 
 
 const router = createBrowserRouter([
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path:'/cart-page',
         element:<Cart/>
+      },
+      {
+        path:'/checkout',
+        element:<Checkout/>
       }
 
     ],
