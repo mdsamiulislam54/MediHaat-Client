@@ -71,7 +71,7 @@ const Cart = () => {
     navigate("/checkout", {
       state: {
         selectedItems,
-        quantities,
+        totalQuantity,
         totalPrice,
         totalDiscount
       },
