@@ -12,6 +12,7 @@ import { AnimatePresence } from "framer-motion";
 
 import { CartContext } from "../../Contextapi/AddToCart/cartContext";
 import { useLocation } from "react-router";
+import { FaSearch } from "react-icons/fa";
 
 const Shop = () => {
   const axiosInstanceCall = axiosinstance();
@@ -21,15 +22,26 @@ const Shop = () => {
   const { addToCart } = useContext(CartContext);
   const location = useLocation();
   const categoryName = location.state?.category;
+  const [sortOrder, setSortOrder] = useState(""); // "asc" | "desc"
+  const [searchText, setSearchText] = useState("");
 
   const { data, isLoading, error } = useQuery({
-    queryKey: ["shop", currentPage, perPage],
-
+    queryKey: [
+      "shop",
+      currentPage,
+      perPage,
+      categoryName,
+      sortOrder,
+      searchText,
+    ],
     queryFn: async () => {
       const res = await axiosInstanceCall.get(
-        `/get-medicine?page=${currentPage}&limit=${perPage}${categoryName ? `&category=${categoryName}` : ""}`
+        `/get-medicine?page=${currentPage}&limit=${perPage}${
+          categoryName ? `&category=${categoryName}` : ""
+        }${sortOrder ? `&sort=${sortOrder}` : ""}${
+          searchText ? `&search=${searchText}` : ""
+        }`
       );
-      console.log("shop", res);
       return res.data;
     },
   });
@@ -61,6 +73,33 @@ const Shop = () => {
           <div className="absolute inset-0 bg-black/40 rounded-xl flex justify-center items-center text-white">
             <h2 className="text-3xl font-bold underline">Shop</h2>
           </div>
+        </div>
+        {/* sorted */}
+        <div className="flex flex-col md:flex-row items-center justify-between my-6 gap-4">
+          {/* Search Input with Icon */}
+          <div className="relative w-full max-w-xs">
+            <input
+              type="text"
+              placeholder="Search by name, generic, or company"
+              value={searchText}
+              onChange={(e) => setSearchText(e.target.value)}
+              className="input input-bordered w-full pl-10"
+            />
+            <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-primary text-lg pointer-events-none">
+              <FaSearch />
+            </div>
+          </div>
+
+          {/* Sort Dropdown */}
+          <select
+            className="select select-bordered w-full max-w-xs"
+            value={sortOrder}
+            onChange={(e) => setSortOrder(e.target.value)}
+          >
+            <option className="p-2 bg-white  border-b" value="">Sort by Price</option>
+            <option className="p-2 bg-white " value="asc">Low to High</option>
+            <option className="p-2 bg-white " value="desc">High to Low</option>
+          </select>
         </div>
 
         {/* Medicine Table */}
