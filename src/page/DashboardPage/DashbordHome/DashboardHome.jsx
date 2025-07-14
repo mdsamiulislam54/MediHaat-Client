@@ -50,8 +50,8 @@ const DashboardHome = () => {
             <FaMoneyBill className="text-4xl text-green-500" />
             <div>
               <h4 className="text-lg font-semibold">Total Sale</h4>
-              <p className="text-sm text-gray-800 font-bold">
-                ${adminDashboardTotalPaid.data?.totalPaidAmount.toFixed(2)}
+              <p className="text-lg text-gray-800 font-bold ">
+                ${adminDashboardTotalPaid?.data?.totalPaidAmount||0}
               </p>
             </div>
           </div>

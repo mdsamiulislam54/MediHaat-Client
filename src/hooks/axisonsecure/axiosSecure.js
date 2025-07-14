@@ -1,5 +1,6 @@
 import axios from "axios";
-
+// https://medihaat-server.vercel.app
+// `http://localhost:5000/api/
 import { UserAuth } from "../userAuth/userAuth";
 
 const useAxiosSecure = () => {

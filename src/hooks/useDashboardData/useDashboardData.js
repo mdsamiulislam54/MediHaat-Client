@@ -1,23 +1,25 @@
 import { useQuery } from "@tanstack/react-query";
 
-import axiosinstance from "../axiosInstance/axiosinstance";
+
 import { UserAuth } from "../userAuth/userAuth";
+
+import useAxiosSecure from "../axisonsecure/axiosSecure";
 
 const useDashboardData = () => {
   const { user, role } = UserAuth();
-  const axios = axiosinstance();
+ const axiosSecure = useAxiosSecure()
 
   const fetchSellerMedicines = async () => {
-    const res = await axios.get(`seller-medicine/${user?.email}`);
+    const res = await axiosSecure.get(`seller-medicine/${user?.email}`);
     return res.data.result;
   };
 
   const fetchSellerBanners = async () => {
-    const res = await axios.get(`seller-added-banner/${user?.email}`);
+    const res = await axiosSecure.get(`seller-added-banner/${user?.email}`);
     return res.data.result;
   };
   const sellerPaidOrderFn = async () => {
-    const res = await axios.get(
+    const res = await axiosSecure.get(
       `/seller-payment-history?sellerEmail=${user?.email}`
     );
 
@@ -39,10 +41,11 @@ const useDashboardData = () => {
 
   // admin
 const fetchAdminTotalPaidOrders = async () => {
-  const res = await axios.get(`/admin-paid-orders`);
+  const res = await axiosSecure.get(`/admin-paid-orders`);
+  console.log(res)
   const paidOrders = res.data.paidOrders;
   const pendingOrders = res.data.pendingOrders;
-  const totalPaidAmount = res.data.totalPaidAmount;
+  const totalPaidAmount = res.data?.totalPaidAmount;
 
 
   console.log("Paid Orders:", paidOrders);
@@ -58,7 +61,7 @@ const fetchAdminTotalPaidOrders = async () => {
 
 
   const fetchAdminStats = async () => {
-    const res = await axios.get(`admin-dashboard-summary`);
+    const res = await axiosSecure.get(`admin-dashboard-summary`);
     return res.data.result;
   };
 
