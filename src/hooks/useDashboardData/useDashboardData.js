@@ -1,6 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
 
-
 import axiosinstance from "../axiosInstance/axiosinstance";
 import { UserAuth } from "../userAuth/userAuth";
 
@@ -17,22 +16,42 @@ const useDashboardData = () => {
     const res = await axios.get(`seller-added-banner/${user?.email}`);
     return res.data.result;
   };
-const sellerPaidOrderFn = async () => {
-  const res = await axios.get(`/seller-payment-history?sellerEmail=${user?.email}`);
+  const sellerPaidOrderFn = async () => {
+    const res = await axios.get(
+      `/seller-payment-history?sellerEmail=${user?.email}`
+    );
 
-  const allProducts = res.data.result.flat();
-  const pendingOrders = allProducts.filter(item => item?.orderStatus === "pending");
+    const allProducts = res.data.result.flat();
+    const pendingOrders = allProducts.filter(
+      (item) => item?.orderStatus === "pending"
+    );
 
-  const paidOrders = allProducts.filter(item => item?.payStatus === "paid");
+    const paidOrders = allProducts.filter((item) => item?.payStatus === "paid");
 
-  const sellerData = {
-    totalOrders: allProducts.length,
-    pendingOrders: pendingOrders.length,
-    paidOrders: paidOrders.length,
-    allOrders: allProducts
+    const sellerData = {
+      totalOrders: allProducts.length,
+      pendingOrders: pendingOrders.length,
+      paidOrders: paidOrders.length,
+      allOrders: allProducts,
+    };
+    return sellerData;
   };
-  return sellerData;
+
+  // admin
+const fetchAdminTotalPaidOrders = async () => {
+  const res = await axios.get(`/admin-paid-orders`);
+  const paidOrders = res.data.paidOrders;
+  const pendingOrders = res.data.pendingOrders;
+
+  console.log("Paid Orders:", paidOrders);
+  console.log("Pending Orders:", pendingOrders);
+
+  return {
+    paidOrders: paidOrders.length,
+    pendingOrders: pendingOrders.length,
+  };
 };
+
 
 
   const fetchAdminStats = async () => {
@@ -64,11 +83,18 @@ const sellerPaidOrderFn = async () => {
     enabled: role?.includes("admin"),
   });
 
+  const adminDashboardTotalPaid = useQuery({
+    queryKey: ["adminDashboardTotalPaid"],
+    queryFn: fetchAdminTotalPaidOrders,
+    enabled: role?.includes("admin"),
+  });
+
   return {
     sellerMedicineQuery,
     sellerBannerQuery,
     adminDashboardQuery,
     sellerPaidOrder,
+    adminDashboardTotalPaid,
     role,
     user,
   };

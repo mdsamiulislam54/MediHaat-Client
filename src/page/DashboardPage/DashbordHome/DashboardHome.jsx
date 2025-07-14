@@ -9,7 +9,8 @@ import {
 const DashboardHome = () => {
   const { user, role } = UserAuth();
 
-  const { sellerBannerQuery, sellerMedicineQuery,sellerPaidOrder } = useDashboardData();
+  const { sellerBannerQuery, sellerMedicineQuery, sellerPaidOrder,adminDashboardTotalPaid } =
+    useDashboardData();
 
   return (
     <div className="space-y-6">
@@ -72,26 +73,55 @@ const DashboardHome = () => {
         )}
         {role?.includes("seller") && (
           <div className="bg-white p-5 rounded-xl shadow flex items-center gap-4">
-           <div className="flex items-center gap-5">
-            <div className="flex gap-3">
-             <IoPersonCircle className="text-4xl text-yellow-500" />
-            <div>
-              <h4 className="text-lg font-semibold">Paid Total</h4>
-              <p className="text-sm text-gray-500">
-                { sellerPaidOrder.data.paidOrders}
-              </p>
+            <div className="flex items-center gap-5">
+              <div className="flex gap-3">
+                <IoPersonCircle className="text-4xl text-yellow-500" />
+                <div>
+                  <h4 className="text-lg font-semibold">Paid Total</h4>
+                  <p className="text-sm text-gray-500">
+                    {sellerPaidOrder.data.paidOrders ||0}
+                  </p>
+                </div>
+              </div>
+              <div className="flex gap-3">
+                <IoPersonCircle className="text-4xl text-yellow-500" />
+                <div>
+                  <h4 className="text-lg font-semibold">Pending Order</h4>
+                  <p className="text-sm text-gray-500">
+                    {sellerPaidOrder?.data.pendingOrders ||0}
+                  </p>
+                </div>
+              </div>
+
+              
             </div>
+          </div>
+        )}
+        {/* admin */}
+          {role?.includes("admin") && (
+          <div className="bg-white p-5 rounded-xl shadow flex items-center gap-4">
+            <div className="flex items-center gap-5">
+              <div className="flex gap-3">
+                <IoPersonCircle className="text-4xl text-yellow-500" />
+                <div>
+                  <h4 className="text-lg font-semibold">Paid Total</h4>
+                  <p className="text-sm text-gray-500">
+                    {adminDashboardTotalPaid?.data?.paidOrders || 0}
+                  </p>
+                </div>
+              </div>
+              <div className="flex gap-3">
+                <IoPersonCircle className="text-4xl text-yellow-500" />
+                <div>
+                  <h4 className="text-lg font-semibold">Pending Order</h4>
+                  <p className="text-sm text-gray-500">
+                    {adminDashboardTotalPaid?.data?.paidOrders || 0}
+                  </p>
+                </div>
+              </div>
+
+              
             </div>
-            <div className="flex gap-3">
-               <IoPersonCircle className="text-4xl text-yellow-500" />
-            <div >
-              <h4 className="text-lg font-semibold">Pending Order</h4>
-              <p className="text-sm text-gray-500">
-                { sellerPaidOrder?.data.pendingOrders}
-              </p>
-            </div>
-            </div>
-           </div>
           </div>
         )}
       </div>
