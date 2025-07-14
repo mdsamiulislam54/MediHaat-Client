@@ -22,6 +22,7 @@ const Category = () => {
   });
 
   const handleCategoryClick = (categoryName) => {
+
     navigate("/shop", { state: { category: categoryName } });
   };
 

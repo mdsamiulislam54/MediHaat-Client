@@ -65,7 +65,9 @@ const ManageUsers = () => {
                 <th>Profile</th>
                 <th>Name</th>
                 <th>Role</th>
-                <th>Action</th>
+                <th>Make Admin</th>
+                <th>Make Seller</th>
+                <th>Make User</th>
               </tr>
             </thead>
             <tbody>
@@ -89,15 +91,19 @@ const ManageUsers = () => {
                         Make Admin
                       </button>
                     )}
-                    {role !== "seller" && (
+                    </td>
+                    <td>
+                       {role !== "seller" && (
                       <button
                         onClick={() => handleRoleChange(_id, "seller")}
-                        className="btn btn-sm btn-warning"
+                        className="btn sm btn-warning"
                       >
                         Make Seller
                       </button>
                     )}
-                    {role !== "user" && (
+                    </td>
+                    <td>
+                       {role !== "user" && (
                       <button
                         onClick={() => handleRoleChange(_id, "user")}
                         className="btn btn-sm btn-accent text-white"
@@ -105,7 +111,9 @@ const ManageUsers = () => {
                         Downgrade
                       </button>
                     )}
-                  </td>
+                    </td>
+                   
+                
                 </tr>
               ))}
             </tbody>
