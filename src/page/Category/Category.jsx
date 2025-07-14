@@ -3,39 +3,21 @@ import { useQuery } from "@tanstack/react-query";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
-
-// Import needed icons only
-import {
-  FaCapsules,
-  FaSyringe,
-  FaTablets,
-  FaBaby,
-  FaHeart,
-  FaLeaf,
-  FaFemale,
-} from "react-icons/fa";
 import { useNavigate } from "react-router";
+import useAxiosSecure from "../../hooks/axisonsecure/axiosSecure";
 
-// Icon Mapping — updated for 7 categories
-const iconMap = {
-  FaCapsules: FaCapsules,
-  FaSyringe: FaSyringe,
-  FaTablets: FaTablets,
-  FaBaby: FaBaby,
-  FaHeart: FaHeart,
-  FaLeaf: FaLeaf,
-  FaFemale: FaFemale,
-};
+
+
 
 const Category = () => {
   const navigate = useNavigate();
+  const axiosSecure = useAxiosSecure()
 
   const { data, isLoading, error } = useQuery({
     queryKey: ["categories"],
     queryFn: async () => {
-      const res = await fetch("/categories.json");
-      const data = await res.json();
-      return data;
+      const res = await axiosSecure.get("/category")
+      return res.data;
     },
   });
 
@@ -73,14 +55,16 @@ const Category = () => {
         className="py-2"
       >
         {data.map((category) => {
-          const Icon = iconMap[category.icon];
+          
           return (
             <SwiperSlide key={category._id}>
               <div
                 onClick={() => handleCategoryClick(category.name)}
                 className="shadow shadow-primary/50 my-5 rounded-lg p-4 flex flex-col items-center text-center hover:shadow-md transition cursor-pointer h-[150px]"
               >
-                <div className="text-4xl text-primary">{Icon && <Icon />}</div>
+                <div className="text-4xl text-primary">
+                  <img src={category.images} alt="" className="w-14 h-14 mb-4" />
+                </div>
                 <h3 className="text-base font-semibold">{category.name}</h3>
                 <p className="text-xs text-gray-500">
                   {category.medicineCount} Medicines

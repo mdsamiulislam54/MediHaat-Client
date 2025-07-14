@@ -1,52 +1,44 @@
 [
   {
-    "_id": "1",
     "name": "Painkiller",
-    "slug": "painkiller",
-    "icon": "FaCapsules",
-    "medicineCount": 32
+
+    "images": "https://cdn-icons-png.flaticon.com/512/6146/6146539.png",
+    "total": 32
   },
   {
-    "_id": "2",
     "name": "Antibiotic",
-    "slug": "antibiotic",
-    "icon": "FaSyringe",
-    "medicineCount": 24
+
+    "images": "https://cdn-icons-png.flaticon.com/512/2873/2873052.png",
+    "total": 24
   },
   {
-    "_id": "3",
     "name": "Vitamin",
-    "slug": "vitamin",
-    "icon": "FaTablets",
-    "medicineCount": 28
+
+    "images": "https://cdn-icons-png.flaticon.com/512/2909/2909791.png",
+    "total": 28
   },
   {
-    "_id": "4",
     "name": "Baby Care",
-    "slug": "baby-care",
-    "icon": "FaBaby",
-    "medicineCount": 22
+
+    "images": "https://cdn-icons-png.flaticon.com/512/1702/1702300.png",
+    "total": 22
   },
   {
-    "_id": "5",
     "name": "Heart Care",
-    "slug": "heart-care",
-    "icon": "FaHeart",
-    "medicineCount": 18
+
+    "images": "https://cdn-icons-png.flaticon.com/512/10605/10605926.png",
+    "total": 18
   },
   {
-    "_id": "6",
     "name": "Ayurveda & Herbal",
-    "slug": "ayurveda-herbal",
-    "icon": "FaLeaf",
-    "medicineCount": 15
+
+    "images": "https://cdn-icons-png.flaticon.com/512/3980/3980346.png",
+    "total": 15
   },
   {
-    "_id": "7",
     "name": "Women's Health",
-    "slug": "womens-health",
-    "icon": "FaFemale",
-    "medicineCount": 18
+
+    "images": "https://cdn-icons-png.flaticon.com/512/4897/4897170.png",
+    "total": 18
   }
 ]
-
