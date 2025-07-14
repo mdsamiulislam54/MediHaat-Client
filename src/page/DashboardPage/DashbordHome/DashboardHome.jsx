@@ -1,3 +1,4 @@
+import { FaMoneyBill } from "react-icons/fa";
 import useDashboardData from "../../../hooks/useDashboardData/useDashboardData";
 import { UserAuth } from "../../../hooks/userAuth/userAuth";
 import {
@@ -9,8 +10,12 @@ import {
 const DashboardHome = () => {
   const { user, role } = UserAuth();
 
-  const { sellerBannerQuery, sellerMedicineQuery, sellerPaidOrder,adminDashboardTotalPaid } =
-    useDashboardData();
+  const {
+    sellerBannerQuery,
+    sellerMedicineQuery,
+    sellerPaidOrder,
+    adminDashboardTotalPaid,
+  } = useDashboardData();
 
   return (
     <div className="space-y-6">
@@ -40,6 +45,17 @@ const DashboardHome = () => {
 
       {/* Quick Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {role?.includes("admin") && (
+          <div className="bg-white p-5 rounded-xl shadow flex items-center gap-4">
+            <FaMoneyBill className="text-4xl text-green-500" />
+            <div>
+              <h4 className="text-lg font-semibold">Total Sale</h4>
+              <p className="text-sm text-gray-800 font-bold">
+                ${adminDashboardTotalPaid.data?.totalPaidAmount.toFixed(2)}
+              </p>
+            </div>
+          </div>
+        )}
         <div className="bg-white p-5 rounded-xl shadow flex items-center gap-4">
           <IoCheckmarkCircle className="text-4xl text-green-500" />
           <div>
@@ -79,7 +95,7 @@ const DashboardHome = () => {
                 <div>
                   <h4 className="text-lg font-semibold">Paid Total</h4>
                   <p className="text-sm text-gray-500">
-                    {sellerPaidOrder.data.paidOrders ||0}
+                    {sellerPaidOrder.data.paidOrders || 0}
                   </p>
                 </div>
               </div>
@@ -88,24 +104,22 @@ const DashboardHome = () => {
                 <div>
                   <h4 className="text-lg font-semibold">Pending Order</h4>
                   <p className="text-sm text-gray-500">
-                    {sellerPaidOrder?.data.pendingOrders ||0}
+                    {sellerPaidOrder?.data.pendingOrders || 0}
                   </p>
                 </div>
               </div>
-
-              
             </div>
           </div>
         )}
         {/* admin */}
-          {role?.includes("admin") && (
+        {role?.includes("admin") && (
           <div className="bg-white p-5 rounded-xl shadow flex items-center gap-4">
             <div className="flex items-center gap-5">
               <div className="flex gap-3">
                 <IoPersonCircle className="text-4xl text-yellow-500" />
                 <div>
                   <h4 className="text-lg font-semibold">Paid Total</h4>
-                  <p className="text-sm text-gray-500">
+                  <p className="text-sm text-gray-600 font-bold">
                     {adminDashboardTotalPaid?.data?.paidOrders || 0}
                   </p>
                 </div>
@@ -113,14 +127,12 @@ const DashboardHome = () => {
               <div className="flex gap-3">
                 <IoPersonCircle className="text-4xl text-yellow-500" />
                 <div>
-                  <h4 className="text-lg font-semibold">Pending Order</h4>
-                  <p className="text-sm text-gray-500">
+                  <h4 className="text-lg font-semibold">Pending Total</h4>
+                  <p className="text-sm text-gray-600 font-bold">
                     {adminDashboardTotalPaid?.data?.paidOrders || 0}
                   </p>
                 </div>
               </div>
-
-              
             </div>
           </div>
         )}

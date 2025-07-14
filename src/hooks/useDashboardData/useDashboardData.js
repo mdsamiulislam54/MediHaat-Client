@@ -42,6 +42,8 @@ const fetchAdminTotalPaidOrders = async () => {
   const res = await axios.get(`/admin-paid-orders`);
   const paidOrders = res.data.paidOrders;
   const pendingOrders = res.data.pendingOrders;
+  const totalPaidAmount = res.data.totalPaidAmount;
+
 
   console.log("Paid Orders:", paidOrders);
   console.log("Pending Orders:", pendingOrders);
@@ -49,6 +51,7 @@ const fetchAdminTotalPaidOrders = async () => {
   return {
     paidOrders: paidOrders.length,
     pendingOrders: pendingOrders.length,
+    totalPaidAmount
   };
 };
 

@@ -17,6 +17,7 @@ import Checkout from "../../page/Checkout/Checkout";
 import PaymentSuccess from "../../page/PaymentSuccess/PaymentSuccess";
 import PaymentHistory from "../../page/DashboardPage/UserDashboard/PaymentHistory/PaymentHistory";
 import SellerPaymentHistory from "../../page/DashboardPage/SellerPage/SellerPaymentHistory/SellerPaymentHistory";
+import ManageUsers from "../../page/AdminDashboardPage/ManageUsers/ManageUsers";
 
 
 const router = createBrowserRouter([
@@ -97,9 +98,14 @@ const router = createBrowserRouter([
         {
           path:'seller/payment-history',
           element:<SellerPaymentHistory/>
-        }
+        },
 
         // admin route
+        {
+          path:'/dashboard/manage-users',
+          element:<ManageUsers/>
+        }
+
     ]
   }
 ]);
