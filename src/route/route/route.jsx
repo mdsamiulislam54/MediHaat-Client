@@ -16,6 +16,7 @@ import Cart from "../../page/CartItem/Cart";
 import Checkout from "../../page/Checkout/Checkout";
 import PaymentSuccess from "../../page/PaymentSuccess/PaymentSuccess";
 import PaymentHistory from "../../page/DashboardPage/UserDashboard/PaymentHistory/PaymentHistory";
+import SellerPaymentHistory from "../../page/DashboardPage/SellerPage/SellerPaymentHistory/SellerPaymentHistory";
 
 
 const router = createBrowserRouter([
@@ -92,6 +93,10 @@ const router = createBrowserRouter([
         {
           path:'seller/advertise-request',
           element:<AdvertiseRequest/>
+        },
+        {
+          path:'seller/payment-history',
+          element:<SellerPaymentHistory/>
         }
 
         // admin route

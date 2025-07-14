@@ -15,6 +15,8 @@ const CheckoutForm = ({ data, selectedItems, totalPay, totalQuantity }) => {
   const stripe = useStripe();
   const elements = useElements();
   const [error, setError] = useState("");
+  const [cardError, setCardError] = useState("");
+
   const [loading, setLoading] = useState(false);
   const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
@@ -95,7 +97,6 @@ const CheckoutForm = ({ data, selectedItems, totalPay, totalQuantity }) => {
           })),
         };
 
-       
         await axiosSecure.post("/order-history", orderDetails);
 
         Swal.close();
@@ -106,29 +107,21 @@ const CheckoutForm = ({ data, selectedItems, totalPay, totalQuantity }) => {
           confirmButtonText: "OK",
         });
 
-        navigate('/order-success', {state:orderDetails})
+        navigate("/order-success", { state: orderDetails });
       }
     } catch (err) {
-      console.error(err);
+      setError(err.message);
       Swal.close();
-      Swal.fire({
-        icon: "error",
-        title: "Something went wrong!",
-        text: err.message || "Payment attempt failed.",
-      });
     } finally {
       setLoading(false);
     }
   };
-
-  console.log(totalQuantity);
 
   return (
     <div>
       <form onSubmit={handleSubmit} className="space-y-5">
         <div>
           <div className="flex items-center gap-3 my-3 justify-center">
-
             <FaCcVisa className="text-3xl text-blue-600" />
             <FaCcMastercard className="text-3xl text-red-600" />
             <FaCcPaypal className="text-3xl text-blue-800" />
@@ -151,10 +144,21 @@ const CheckoutForm = ({ data, selectedItems, totalPay, totalQuantity }) => {
                   },
                 },
               }}
+              onChange={(event) => {
+                if (event.error) {
+                  setCardError(event.error.message);
+                } else {
+                  setCardError("");
+                }
+              }}
             />
           </div>
         </div>
-        {error && <p className="text-red-400">{error}</p>}
+        {cardError && (
+          <p className="text-red-500 text-sm text-center">{cardError}</p>
+        )}
+        {error && <p className="text-red-500 text-sm text-center">{error}</p>}
+
         <button
           type="submit"
           disabled={!stripe}
