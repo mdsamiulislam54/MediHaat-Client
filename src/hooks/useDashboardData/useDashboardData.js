@@ -17,6 +17,23 @@ const useDashboardData = () => {
     const res = await axios.get(`seller-added-banner/${user?.email}`);
     return res.data.result;
   };
+const sellerPaidOrderFn = async () => {
+  const res = await axios.get(`/seller-payment-history?sellerEmail=${user?.email}`);
+
+  const allProducts = res.data.result.flat();
+  const pendingOrders = allProducts.filter(item => item?.orderStatus === "pending");
+
+  const paidOrders = allProducts.filter(item => item?.payStatus === "paid");
+
+  const sellerData = {
+    totalOrders: allProducts.length,
+    pendingOrders: pendingOrders.length,
+    paidOrders: paidOrders.length,
+    allOrders: allProducts
+  };
+  return sellerData;
+};
+
 
   const fetchAdminStats = async () => {
     const res = await axios.get(`admin-dashboard-summary`);
@@ -35,6 +52,12 @@ const useDashboardData = () => {
     enabled: role?.includes("seller"),
   });
 
+  const sellerPaidOrder = useQuery({
+    queryKey: ["sellerPaidOrder", user?.email],
+    queryFn: sellerPaidOrderFn,
+    enabled: role?.includes("seller"),
+  });
+
   const adminDashboardQuery = useQuery({
     queryKey: ["adminDashboard"],
     queryFn: fetchAdminStats,
@@ -45,6 +68,7 @@ const useDashboardData = () => {
     sellerMedicineQuery,
     sellerBannerQuery,
     adminDashboardQuery,
+    sellerPaidOrder,
     role,
     user,
   };

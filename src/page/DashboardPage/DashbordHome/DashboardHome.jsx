@@ -9,7 +9,7 @@ import {
 const DashboardHome = () => {
   const { user, role } = UserAuth();
 
-  const { sellerBannerQuery, sellerMedicineQuery } = useDashboardData();
+  const { sellerBannerQuery, sellerMedicineQuery,sellerPaidOrder } = useDashboardData();
 
   return (
     <div className="space-y-6">
@@ -78,16 +78,16 @@ const DashboardHome = () => {
             <div>
               <h4 className="text-lg font-semibold">Paid Total</h4>
               <p className="text-sm text-gray-500">
-                { 0}
+                { sellerPaidOrder.data.paidOrders}
               </p>
             </div>
             </div>
             <div className="flex gap-3">
                <IoPersonCircle className="text-4xl text-yellow-500" />
             <div >
-              <h4 className="text-lg font-semibold">Total Pending</h4>
+              <h4 className="text-lg font-semibold">Pending Order</h4>
               <p className="text-sm text-gray-500">
-                { 0}
+                { sellerPaidOrder?.data.pendingOrders}
               </p>
             </div>
             </div>
