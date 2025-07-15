@@ -8,6 +8,7 @@ import { FaArrowLeftLong } from "react-icons/fa6";
 import { UserAuth } from "../../../hooks/userAuth/userAuth";
 import Swal from "sweetalert2";
 import { createUserIfNotExists } from "../../../hooks/useCreateUserWithGogle/useCreateUserWithGoogle";
+import Loader from "../../../components/Loader/Loader";
 
 const Login = () => {
   const {
@@ -19,10 +20,15 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { loginWithEmailPassword, signWithGoogle, user, setUser, setRole } =
     UserAuth();
-  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const [loadingGoogle, setLoadingGoogle] = useState(false);
+
+
+const navigate = useNavigate();
+
   const onSubmit = (data) => {
     const { email, password } = data;
-
+    setLoading(true)
     loginWithEmailPassword(email, password)
       .then(() => {
         Swal.fire({
@@ -30,6 +36,7 @@ const Login = () => {
           icon: "success",
         });
         navigate("/");
+        setLoading(false)
       })
       .catch((error) => {
         console.error(error);
@@ -38,6 +45,7 @@ const Login = () => {
           text: error.message,
           icon: "error",
         });
+        setLoading(false)
       });
   };
 
@@ -50,6 +58,7 @@ const Login = () => {
     }
 
     try {
+      setLoadingGoogle(true)
       const res = await signWithGoogle();
       const loggedInUser = res.user;
 
@@ -62,7 +71,8 @@ const Login = () => {
         icon: "success",
         title: "Login Successful!",
       });
-      navigate('/')
+      navigate("/");
+      setLoading(false)
     } catch (error) {
       console.error("Google Login Error:", error);
       Swal.fire({
@@ -70,6 +80,7 @@ const Login = () => {
         title: "Login Failed!",
         text: error.message,
       });
+      setLoadingGoogle(false)
     }
   };
 
@@ -170,7 +181,8 @@ const Login = () => {
               {/* Login Button */}
               <Button
                 type="submit"
-                children={"Login"}
+                children={!loading && "Login"}
+                loader={loading}
                 disabled={!termsAccepted}
                 className={"w-full  "}
               ></Button>
@@ -215,7 +227,7 @@ const Login = () => {
                   ></path>
                 </g>
               </svg>
-              Login with Google
+              {loadingGoogle ? <Loader/> :" Login with Google"}
             </button>
 
             {/* New User */}

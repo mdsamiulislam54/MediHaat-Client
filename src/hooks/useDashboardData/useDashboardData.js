@@ -33,6 +33,7 @@ const useDashboardData = () => {
     const sellerData = {
       totalOrders: allProducts?.length || 0,
       pendingOrders: pendingOrders?.length ||0,
+      paid:paidOrders,
       paidOrders: paidOrders?.length ||0,
       allOrders: allProducts || []
     };
@@ -42,8 +43,8 @@ const useDashboardData = () => {
   // admin
 const fetchAdminTotalPaidOrders = async () => {
   const res = await axiosSecure.get(`/admin-paid-orders`);
-  const paidOrders = res.data.paidOrders || 0
-  const pendingOrders = res.data.pendingOrders || 0
+  const paidOrders = res.data?.paidOrders || 0
+  const pendingOrders = res.data?.pendingOrders || 0
   const totalPaidAmount = res.data?.totalPaidAmount || 0
   const allOrders = res?.data?.allOrders || []
 

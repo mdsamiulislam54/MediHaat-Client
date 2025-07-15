@@ -39,25 +39,25 @@ const PaymentHistory = () => {
     <div className="w-11/12 mx-auto py-10">
       <h2 className="text-2xl font-semibold mb-6">My Payment History</h2>
 
-      <div className="overflow-x-auto rounded-lg shadow">
-        <table className="table-auto w-full border border-gray-200">
-          <thead className="bg-gray-100 text-left">
+      <div className="overflow-x-auto bg-base-100 p-2">
+        <table className="table">
+          <thead className="">
             <tr>
-              <th className="px-4 py-3">#</th>
-              <th className="px-4 py-3">Transaction ID</th>
-              <th className="px-4 py-3">Total Paid</th>
-              <th className="px-4 py-3">Status</th>
-              <th className="px-4 py-3">Products</th>
+              <th >#</th>
+              <th >Transaction ID</th>
+              <th >Total Paid</th>
+              <th >Status</th>
+              <th >Products</th>
             </tr>
           </thead>
           <tbody>
             {orders.map((order, index) => (
               <tr key={order._id} className="border-t">
-                <td className="px-4 py-3">{currentPage * itemsPerPage + index + 1}</td>
-                <td className="px-4 py-3">{order.paymentIntentId}</td>
-                <td className="px-4 py-3 text-green-600 font-semibold">${order.totalAmount}</td>
-                <td className="px-4 py-3 capitalize text-primary">{order.payStatus}</td>
-                <td className="px-4 py-3">
+                <td className="">{currentPage * itemsPerPage + index + 1}</td>
+                <td className="">{order.paymentIntentId}</td>
+                <td className=" text-green-600 font-semibold">${order.totalAmount}</td>
+                <td className=" capitalize text-primary">{order.payStatus}</td>
+                <td className="">
                   <ul className="space-y-1">
                     {order.products.slice(0, 3).map((p) => (
                       <li key={p.id}>

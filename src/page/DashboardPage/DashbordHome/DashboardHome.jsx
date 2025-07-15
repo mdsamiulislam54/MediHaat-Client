@@ -6,16 +6,28 @@ import {
   IoCheckmarkCircle,
   IoCalendarClear,
 } from "react-icons/io5";
+import useAxiosSecure from "../../../hooks/axisonsecure/axiosSecure";
+import { useQuery } from "@tanstack/react-query";
 
 const DashboardHome = () => {
   const { user, role } = UserAuth();
 
   const {
-    sellerBannerQuery,
+ 
     sellerMedicineQuery,
     sellerPaidOrder,
     adminDashboardTotalPaid,
   } = useDashboardData();
+  const axiosScure = useAxiosSecure();
+  const { data: myOrders } = useQuery({
+    queryKey: ["user order"],
+    queryFn: async () => {
+      const res = await axiosScure(`/user/orders?email=${user?.email}`);
+      return res?.data;
+    },
+  });
+
+
 
   return (
     <div className="space-y-6">
@@ -45,13 +57,23 @@ const DashboardHome = () => {
 
       {/* Quick Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {role?.includes("user") && (
+          <div className="bg-white p-5 rounded-xl shadow flex items-center gap-4">
+            <div>
+              <h4 className="text-lg font-semibold">Total Order</h4>
+              <p className="text-lg text-gray-800 font-bold ">
+                {myOrders?.length}
+              </p>
+            </div>
+          </div>
+        )}
         {role?.includes("admin") && (
           <div className="bg-white p-5 rounded-xl shadow flex items-center gap-4">
             <FaMoneyBill className="text-4xl text-green-500" />
             <div>
               <h4 className="text-lg font-semibold">Total Sale</h4>
               <p className="text-lg text-gray-800 font-bold ">
-                ${adminDashboardTotalPaid?.data?.totalPaidAmount||0}
+                ${adminDashboardTotalPaid?.data?.totalPaidAmount || 0}
               </p>
             </div>
           </div>
@@ -93,7 +115,7 @@ const DashboardHome = () => {
               <div className="flex gap-3">
                 <IoPersonCircle className="text-4xl text-yellow-500" />
                 <div>
-                  <h4 className="text-lg font-semibold">Paid Total</h4>
+                  <h4 className="text-lg font-semibold">Total Paid </h4>
                   <p className="text-sm text-gray-500">
                     {sellerPaidOrder?.data?.paidOrders || 0}
                   </p>
@@ -108,6 +130,19 @@ const DashboardHome = () => {
                   </p>
                 </div>
               </div>
+            </div>
+          </div>
+        )}
+        {role?.includes("seller") && (
+          <div className="bg-white p-5 rounded-xl shadow flex items-center gap-4">
+            <IoPersonCircle className="text-4xl text-yellow-500" />
+            <div>
+              <h4 className="text-lg font-semibold">Total Earn</h4>
+              <p className="text-sm text-gray-800 font-bold">
+                ${
+                 ( sellerPaidOrder?.data?.paid?.reduce((acc, order)=> acc + order.totalAmount,0))
+                }
+              </p>
             </div>
           </div>
         )}

@@ -22,6 +22,7 @@ import ManageCategory from "../../page/AdminDashboardPage/MangageCategory/Manage
 import PaymentManagemendt from "../../page/AdminDashboardPage/PaymentManagement/PaymentManagemendt";
 import SalesReport from "../../page/AdminDashboardPage/SalesReport/SalesReport";
 import ManageBanner from "../../page/AdminDashboardPage/ManageBanner/ManageBanner";
+import MyOrders from "../../page/DashboardPage/UserDashboard/MyOrders/MyOrders";
 
 
 const router = createBrowserRouter([
@@ -85,6 +86,10 @@ const router = createBrowserRouter([
         {
           path:'user/payment-history',
           element:<PaymentHistory/>
+        },
+        {
+          path:"/dashboard/my-orders",
+          element:<MyOrders/>
         },
         // seller route
         {
