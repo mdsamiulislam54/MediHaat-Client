@@ -65,8 +65,14 @@ const ManageCategory = () => {
 
     try {
       setUploading(true);
-    console.log(updateImageFile)
-       const imageUrl = await uploadImageToCloudinary(updateImageFile);
+    
+      
+       let imageUrl;
+
+    // only upload if new image selected
+    if (updateImageFile) {
+      imageUrl = await uploadImageToCloudinary(updateImageFile);
+    }
       
      
       console.log(imageUrl);
