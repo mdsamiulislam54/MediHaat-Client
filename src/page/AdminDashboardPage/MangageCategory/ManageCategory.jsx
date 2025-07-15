@@ -11,10 +11,11 @@ const ManageCategory = () => {
   const [isOpenModal, setIsModal] = useState(false);
   const [categoryName, setCategoryName] = useState("");
   const [imageFile, setImageFile] = useState(null);
-  const [UpdateImageFile, setUpdateImageFile] = useState(null);
+  const [updateImageFile, setUpdateImageFile] = useState(null);
   const [uploading, setUploading] = useState(false);
   const [updateModal, setUpdateModal] = useState(false);
-  const [updatededData, setUpdatededData] = useState(false);
+  const [updatedData, setUpdatedData] = useState(false);
+  const [updateImg, setUpdateImg] = useState('')
 
   const {
     data: category,
@@ -64,17 +65,21 @@ const ManageCategory = () => {
 
     try {
       setUploading(true);
-      const imageUrl = await uploadImageToCloudinary(UpdateImageFile);
+    console.log(updateImageFile)
+       const imageUrl = await uploadImageToCloudinary(updateImageFile);
+      
+     
       console.log(imageUrl);
+      console.log(updateModal)
 
       const updatedCategory = {
-        name: e.target.name.value || updatededData.name,
-        images: imageUrl || updatededData.images,
-        quantity: e.target.quantity.value || updatededData.total,
+        name: e.target.name.value || updatedData.name,
+        images: imageUrl ? imageUrl : updatedData.images,
+        quantity: e.target.quantity.value || updatedData.total,
       };
 
       console.log(updatedCategory);
-      const res = await axiosSecure.put(`/category/${updatededData._id}`, {
+      const res = await axiosSecure.patch(`/admin/category/${updatedData._id}`, {
         updatedCategory,
       });
       console.log(res);
@@ -118,7 +123,7 @@ const ManageCategory = () => {
 
   const handleUpdateModal = (cat) => {
     setUpdateModal(true);
-    setUpdatededData(cat);
+    setUpdatedData(cat);
   };
 
   if (isLoading) return <Loader />;
@@ -232,18 +237,21 @@ const ManageCategory = () => {
               <input
                 type="text"
                 name="name"
+                defaultValue={updatedData.name}
                 placeholder="Category Name"
                 className="input input-bordered w-full"
               />
               <input
                 type="number"
                 name="quantity"
+                defaultChecked={updatedData.total}
                 placeholder="total quantity"
                 className="input input-bordered w-full"
               />
               <input
                 type="file"
                 accept="image/*"
+                defaultValue={updatedData.image}
                 onChange={(e) => setUpdateImageFile(e.target.files[0])}
                 className="file-input file-input-bordered w-full"
               />
