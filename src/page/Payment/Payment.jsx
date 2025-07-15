@@ -5,6 +5,7 @@ import { FaWindowClose } from "react-icons/fa";
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_KEY);
 
 const Payment = ({ onClose, data,selectedItems,totalPay ,totalQuantity}) => {
+
   return (
     <div className="bg-white p-6 w-[400px] rounded-2xl">
       <div className="flex justify-end">

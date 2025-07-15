@@ -19,6 +19,7 @@ import PaymentHistory from "../../page/DashboardPage/UserDashboard/PaymentHistor
 import SellerPaymentHistory from "../../page/DashboardPage/SellerPage/SellerPaymentHistory/SellerPaymentHistory";
 import ManageUsers from "../../page/AdminDashboardPage/ManageUsers/ManageUsers";
 import ManageCategory from "../../page/AdminDashboardPage/MangageCategory/ManageCategory";
+import PaymentManagemendt from "../../page/AdminDashboardPage/PaymentManagement/PaymentManagemendt";
 
 
 const router = createBrowserRouter([
@@ -109,6 +110,11 @@ const router = createBrowserRouter([
         {
           path:"/dashboard/manage-category",
           element:<ManageCategory/>
+        },
+
+        {
+          path:"/dashboard/payment-management",
+          element:<PaymentManagemendt/>
         }
 
     ]

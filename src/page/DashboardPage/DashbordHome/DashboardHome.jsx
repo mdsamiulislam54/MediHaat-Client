@@ -118,7 +118,7 @@ const DashboardHome = () => {
               <div className="flex gap-3">
                 <IoPersonCircle className="text-4xl text-yellow-500" />
                 <div>
-                  <h4 className="text-lg font-semibold">Paid Total</h4>
+                  <h4 className="text-lg font-semibold"> Total Paid</h4>
                   <p className="text-sm text-gray-600 font-bold">
                     {adminDashboardTotalPaid?.data?.paidOrders || 0}
                   </p>
@@ -127,9 +127,9 @@ const DashboardHome = () => {
               <div className="flex gap-3">
                 <IoPersonCircle className="text-4xl text-yellow-500" />
                 <div>
-                  <h4 className="text-lg font-semibold">Pending Total</h4>
+                  <h4 className="text-lg font-semibold"> Total Pending</h4>
                   <p className="text-sm text-gray-600 font-bold">
-                    {adminDashboardTotalPaid?.data?.paidOrders || 0}
+                    {adminDashboardTotalPaid?.data?.pendingOrders || 0}
                   </p>
                 </div>
               </div>

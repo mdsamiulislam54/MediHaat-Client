@@ -10,7 +10,7 @@ const PaymentSuccess = () => {
   const orderDetails = location.state;
 
   const contentRef = useRef();
-const handlePrint = useReactToPrint({ contentRef });
+  const handlePrint = useReactToPrint({ contentRef });
 
   if (!orderDetails) {
     return (
@@ -27,13 +27,15 @@ const handlePrint = useReactToPrint({ contentRef });
       <p className="text-gray-600 mb-8">Thank you for your purchase.</p>
 
       {/* Invoice Section */}
-      <div ref={contentRef} className="bg-white border-2 border-dotted p-8 w-full max-w-3xl rounded-lg">
+      <div
+        ref={contentRef}
+        className="bg-white border-2 border-dotted p-8 w-full max-w-3xl rounded-lg"
+      >
         {/* Header */}
         <div className="flex items-center justify-between border-b-2 border-dotted border-primary pb-4 mb-4">
           <div className="flex items-center space-x-3">
-            
             <div>
-              <Logo color="text-primary"/>
+              <Logo color="text-primary" />
               <p className="text-sm text-gray-500">info@gmail.com</p>
             </div>
           </div>
@@ -46,12 +48,23 @@ const handlePrint = useReactToPrint({ contentRef });
 
         {/* Customer Info */}
         <div className="mb-4">
-          <h4 className="text-lg font-semibold mb-2">Customer Info</h4>
+          <div className="flex justify-between items-center mb-2">
+            <h4 className="text-lg font-semibold mb-2">Customer Info</h4>
+            <h4 className="font-bold">Pay Status : <span className="text-primary">{orderDetails.payStatus}</span></h4>
+          </div>
           <div className="grid grid-cols-2">
-            <p><strong>Name:</strong> {orderDetails.customerName}</p>
-          <p><strong>Email:</strong> {orderDetails.email}</p>
-          <p><strong>Total Paid:</strong> ${orderDetails.totalAmount}</p>
-          <p><strong>Total Products:</strong> {orderDetails.totalQuantity}</p>
+            <p>
+              <strong>Name:</strong> {orderDetails.customerName}
+            </p>
+            <p>
+              <strong>Email:</strong> {orderDetails.email}
+            </p>
+            <p>
+              <strong>Total Paid:</strong> ${orderDetails.totalAmount}
+            </p>
+            <p>
+              <strong>Total Products:</strong> {orderDetails.totalQuantity}
+            </p>
           </div>
         </div>
 
@@ -77,23 +90,23 @@ const handlePrint = useReactToPrint({ contentRef });
                 </div>
               </div>
               <div>
-                <p className="font-semibold">${item.afterDiscount.toFixed(2)}</p>
+                <p className="font-semibold">
+                  ${item.afterDiscount.toFixed(2)}
+                </p>
               </div>
             </div>
           ))}
         </div>
-
-     
       </div>
-         {/* Footer */}
-        <div className="mt-6 text-right">
-          <button
-            onClick={handlePrint}
-            className="px-5 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition"
-          >
-            Print Invoice
-          </button>
-        </div>
+      {/* Footer */}
+      <div className="mt-6 text-right">
+        <button
+          onClick={handlePrint}
+          className="px-5 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition"
+        >
+          Print Invoice
+        </button>
+      </div>
     </div>
   );
 };

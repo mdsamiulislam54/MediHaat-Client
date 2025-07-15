@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import Button from "../../components/Button/Button";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { useForm } from "react-hook-form";
@@ -7,12 +7,16 @@ import { AnimatePresence } from "framer-motion";
 import Payment from "../Payment/Payment";
 import { UserAuth } from "../../hooks/userAuth/userAuth";
 import Swal from "sweetalert2";
+import axiosSecure from "../../hooks/axisonsecure/axiosSecure";
+import useAxiosSecure from "../../hooks/axisonsecure/axiosSecure";
 
 const Checkout = () => {
   const location = useLocation();
   const [isPayment, setPayment] = useState(false);
   const [data, setData] = useState({});
   const { user, role } = UserAuth();
+  const axisonsecure = useAxiosSecure()
+  const navigate = useNavigate()
   const {
     selectedItems = [],
     totalPrice = 0,
@@ -27,6 +31,50 @@ const Checkout = () => {
     formState: { errors },
   } = useForm();
 
+  const handleCreateOrder = async (paymentMethod, formData) => {
+    try {
+      const orderDetails = {
+        customerName: formData.name,
+        email: formData.email,
+        totalAmount: totalPay,
+        orderStatus: "pending",
+        paymentMethod: paymentMethod, 
+        payStatus: paymentMethod === "cod" ? "pending" : "paid",
+        paymentIntentId: `${formData.name}${new Date().toLocaleDateString()}`,
+        totalQuantity: totalQuantity,
+        
+        products: selectedItems.map((item) => ({
+          id: item._id,
+          images: item.imageURL,
+          company: item.manufacturer,
+          name: item.name,
+          price: item.price,
+          discount: item.discount,
+          sellerEmail: item.sellerEmail,
+          sellerName: item.sellerName,
+          quantity: item.quantity,
+          medicineType: item.medicineType,
+          expiryDate: item.expiryDate,
+          category: item.category,
+          afterDiscount: item.price - (item.price * item.discount) / 100,
+        })),
+      };
+
+      console.log(orderDetails)
+      const res =  await axisonsecure.post("/order-history", orderDetails);
+
+      if (res.data) {
+        Swal.fire("Order Placed!", "Your order has been created.", "success");
+         navigate("/order-success", { state: orderDetails });
+      }
+
+
+    } catch (err) {
+      console.error(err);
+      Swal.fire("Error", "Failed to place order", "error");
+    }
+  };
+
   const onSubmit = (data) => {
     if (!role.includes("user")) {
       Swal.fire({
@@ -35,9 +83,19 @@ const Checkout = () => {
       });
       return;
     }
-    setData(data);
-    setPayment(!isPayment);
+
+    if (data.payment === "stripe") {
+      setData(data);
+      setPayment(true);
+    } 
+    else if (data.payment === "cod") {
+      handleCreateOrder("cod", data);
+      
+    }
+
+    
   };
+
   const onClose = () => {
     setPayment(!isPayment);
   };
@@ -84,11 +142,12 @@ const Checkout = () => {
                       {item.discount}% off
                     </p>
                     <p className="font-bold">
-                      $
-                      {(
-                        item.price -
-                        (item.price * item.discount) / 100
-                      ).toFixed(2)}
+                      $(
+                        {(
+                          item.price -
+                          (item.price * item.discount) / 100
+                        ).toFixed(2)}
+                      )
                     </p>
                   </div>
                 </div>
@@ -193,18 +252,33 @@ const Checkout = () => {
             <div className="mt-6">
               <h3 className="text-lg font-semibold">Payment Method</h3>
               <div className="space-y-4 mt-3">
+                {/* Credit Card */}
                 <div className="flex items-center space-x-4">
                   <input
                     type="radio"
                     {...register("payment", {
                       required: "Select a payment method",
                     })}
-                    value="Credit Card"
+                    value="stripe"
                     className="radio radio-primary"
                   />
-                  <label>Credit Card</label>
+                  <label>Credit Card (Stripe)</label>
                 </div>
 
+                {/* Cash On Delivery */}
+                <div className="flex items-center space-x-4">
+                  <input
+                    type="radio"
+                    {...register("payment", {
+                      required: "Select a payment method",
+                    })}
+                    value="cod"
+                    className="radio radio-primary"
+                  />
+                  <label>Cash on Delivery</label>
+                </div>
+
+                {/* Error Message */}
                 {errors.payment && (
                   <p className="text-red-500 text-sm">
                     {errors.payment.message}
@@ -215,11 +289,16 @@ const Checkout = () => {
 
             <button
               type="submit"
-              disabled={!role.includes('user')}
-              className={`w-full py-3 mt-6 bg-green-600  hover:bg-green-700 rounded-lg cursor-pointer ${!role.includes('user') ? 'bg-primary/20 text-red-800 hover:bg-primary/30':"text-white"} `}
+              disabled={!role.includes("user")}
+              className={`w-full py-3 mt-6 bg-green-600  hover:bg-green-700 rounded-lg cursor-pointer ${
+                !role.includes("user")
+                  ? "bg-primary/20 text-red-800 hover:bg-primary/30"
+                  : "text-white"
+              } `}
             >
-                {!role.includes('user') ? "Restricted (Purchase to only Customer)":"Complete Purchase"}
-              
+              {!role.includes("user")
+                ? "Restricted (Purchase to only Customer)"
+                : "Complete Purchase"}
             </button>
           </div>
         </form>

@@ -30,7 +30,7 @@ const CheckoutForm = ({ data, selectedItems, totalPay, totalQuantity }) => {
 
     try {
       setLoading(true);
-
+      console.log
       Swal.fire({
         title: "Processing Payment...",
         allowOutsideClick: false,
@@ -77,6 +77,7 @@ const CheckoutForm = ({ data, selectedItems, totalPay, totalQuantity }) => {
           totalAmount: totalPay,
           orderStatus: "pending",
           payStatus: "paid",
+          paymentMethod: data.payment, 
           paymentIntentId: paymentIntent.id,
           totalQuantity: totalQuantity,
           products: selectedItems.map((item) => ({
@@ -96,6 +97,8 @@ const CheckoutForm = ({ data, selectedItems, totalPay, totalQuantity }) => {
             afterDiscount: item.price - (item.price * item.discount) / 100,
           })),
         };
+
+        console.log(orderDetails)
 
         await axiosSecure.post("/order-history", orderDetails);
 

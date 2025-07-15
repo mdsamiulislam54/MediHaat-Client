@@ -46,12 +46,13 @@ const fetchAdminTotalPaidOrders = async () => {
   const paidOrders = res.data.paidOrders;
   const pendingOrders = res.data.pendingOrders;
   const totalPaidAmount = res.data?.totalPaidAmount;
-
-
-  console.log("Paid Orders:", paidOrders);
-  console.log("Pending Orders:", pendingOrders);
+  const allOrders = res?.data?.allOrders;
+  console.log(allOrders)
 
   return {
+    allOrders:allOrders,
+    paid:paidOrders,
+    pending:pendingOrders,
     paidOrders: paidOrders.length,
     pendingOrders: pendingOrders.length,
     totalPaidAmount
@@ -59,11 +60,11 @@ const fetchAdminTotalPaidOrders = async () => {
 };
 
 
-
   const fetchAdminStats = async () => {
-    const res = await axiosSecure.get(`admin-dashboard-summary`);
+    const res = await axiosSecure.get(`/admin/users`);
     return res.data.result;
   };
+
 
   const sellerMedicineQuery = useQuery({
     queryKey: ["sellerMedicines", user?.email],
