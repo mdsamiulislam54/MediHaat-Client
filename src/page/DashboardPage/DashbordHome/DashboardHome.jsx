@@ -33,7 +33,7 @@ const DashboardHome = () => {
           <IoPersonCircle className="text-4xl" />
           <div>
             <h3 className="font-semibold">{user?.email}</h3>
-            <p className="text-xs">
+            <p className="text-xs mt-2">
               Role:
               <span className="bg-white text-primary font-semibold px-2 py-1 rounded ml-1">
                 {role?.join(", ") || "user"}
@@ -95,7 +95,7 @@ const DashboardHome = () => {
                 <div>
                   <h4 className="text-lg font-semibold">Paid Total</h4>
                   <p className="text-sm text-gray-500">
-                    {sellerPaidOrder.data.paidOrders || 0}
+                    {sellerPaidOrder?.data?.paidOrders || 0}
                   </p>
                 </div>
               </div>
@@ -104,7 +104,7 @@ const DashboardHome = () => {
                 <div>
                   <h4 className="text-lg font-semibold">Pending Order</h4>
                   <p className="text-sm text-gray-500">
-                    {sellerPaidOrder?.data.pendingOrders || 0}
+                    {sellerPaidOrder?.data?.pendingOrders || 0}
                   </p>
                 </div>
               </div>

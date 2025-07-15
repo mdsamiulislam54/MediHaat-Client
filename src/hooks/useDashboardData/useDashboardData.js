@@ -23,18 +23,18 @@ const useDashboardData = () => {
       `/seller-payment-history?sellerEmail=${user?.email}`
     );
 
-    const allProducts = res.data.result.flat();
-    const pendingOrders = allProducts.filter(
+    const allProducts = res?.data?.result?.flat();
+    const pendingOrders = allProducts?.filter(
       (item) => item?.orderStatus === "pending"
     );
 
     const paidOrders = allProducts.filter((item) => item?.payStatus === "paid");
 
     const sellerData = {
-      totalOrders: allProducts.length,
-      pendingOrders: pendingOrders.length,
-      paidOrders: paidOrders.length,
-      allOrders: allProducts,
+      totalOrders: allProducts?.length || 0,
+      pendingOrders: pendingOrders?.length ||0,
+      paidOrders: paidOrders?.length ||0,
+      allOrders: allProducts || []
     };
     return sellerData;
   };
@@ -42,19 +42,17 @@ const useDashboardData = () => {
   // admin
 const fetchAdminTotalPaidOrders = async () => {
   const res = await axiosSecure.get(`/admin-paid-orders`);
-  console.log(res)
-  const paidOrders = res.data.paidOrders;
-  const pendingOrders = res.data.pendingOrders;
-  const totalPaidAmount = res.data?.totalPaidAmount;
-  const allOrders = res?.data?.allOrders;
-  console.log(allOrders)
+  const paidOrders = res.data.paidOrders || 0
+  const pendingOrders = res.data.pendingOrders || 0
+  const totalPaidAmount = res.data?.totalPaidAmount || 0
+  const allOrders = res?.data?.allOrders || []
 
   return {
     allOrders:allOrders,
     paid:paidOrders,
     pending:pendingOrders,
-    paidOrders: paidOrders.length,
-    pendingOrders: pendingOrders.length,
+    paidOrders: paidOrders.length || 0,
+    pendingOrders: pendingOrders.length || 0,
     totalPaidAmount
   };
 };

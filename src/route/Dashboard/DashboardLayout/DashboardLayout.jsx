@@ -21,7 +21,7 @@ const DashboardLayout = () => {
       {/* Mobile menu button */}
       <button
         onClick={() => setSidebarOpen(true)}
-        className="md:hidden fixed top-4 left-4 text-3xl text-primary z-50"
+        className="md:hidden fixed top-4 left-4 text-3xl  z-50 btn bg-primary text-white"
       >
         <IoMenu />
       </button>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/axisonsecure/axiosSecure";
@@ -8,6 +8,11 @@ import Loader from "../../../components/Loader/Loader";
 
 const PaymentManagement = () => {
   const axiosSecure = useAxiosSecure();
+  const [count, setCount] = useState(0);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [perPage, setPerPage] = useState(8);
+  const totalPage = Math.ceil(count / perPage) || 0;
+  const pageArray = [...Array(totalPage).keys()];
 
   const {
     data: orders,
@@ -15,10 +20,11 @@ const PaymentManagement = () => {
     error,
     refetch,
   } = useQuery({
-    queryKey: ["order"],
+    queryKey: ["order",currentPage,perPage],
     queryFn: async () => {
-      const res = await axiosSecure.get("/admin-paid-orders");
-      return res.data?.allOrders;
+      const res = await axiosSecure.get(`/admin/paid/payment?page=${currentPage}&limit=${perPage}`);
+      setCount(res?.data?.count);
+      return res?.data?.result;
     },
   });
 
@@ -26,9 +32,12 @@ const PaymentManagement = () => {
 
   const handleAcceptPayment = async (orderId) => {
     try {
-      const res = await axiosSecure.patch(`/admin/orders/payment-status/${orderId}`, {
-        payStatus: "paid",
-      });
+      const res = await axiosSecure.patch(
+        `/admin/orders/payment-status/${orderId}`,
+        {
+          payStatus: "paid",
+        }
+      );
 
       if (res.data.result?.modifiedCount > 0) {
         Swal.fire("Success", "Payment status updated to 'Paid'", "success");
@@ -42,13 +51,13 @@ const PaymentManagement = () => {
   if (isLoading) return <Loader />;
 
   return (
-    <div>
+    <div className="min-h-screen relative my-10">
       <h2 className="text-2xl font-bold my-5">Payment Management</h2>
 
       {orders?.length === 0 ? (
         <div className="text-center">No payments found.</div>
       ) : (
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto bg-base-100 p-2">
           <table className="table table-zebra">
             <thead>
               <tr>
@@ -105,6 +114,39 @@ const PaymentManagement = () => {
           </table>
         </div>
       )}
+
+      {/* pagination */}
+      <div className="flex justify-center items-center my-10 absolute -bottom-4 left-[50%] translate-x-[-50%]">
+        <button
+          className="btn mx-4"
+          disabled={currentPage === 0}
+          onClick={() => setCurrentPage((prev) => prev - 1)}
+        >
+          Prev
+        </button>
+        <ul className="flex gap-4">
+          {pageArray?.map((page) => {
+            return (
+              <li
+                key={page}
+                className={`btn bg-gray-200 ${
+                  currentPage === page ? "bg-primary text-white" : ""
+                }`}
+                onClick={() => setCurrentPage(page)}
+              >
+                {page + 1}
+              </li>
+            );
+          })}
+          <button
+            className="btn mx-4"
+            disabled={pageArray?.length - 1 === currentPage ? true : false}
+            onClick={() => setCurrentPage((prev) => prev + 1)}
+          >
+            Next
+          </button>
+        </ul>
+      </div>
     </div>
   );
 };
