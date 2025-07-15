@@ -28,7 +28,7 @@ const PaymentManagement = () => {
     },
   });
 
-  console.log(orders);
+ 
 
   const handleAcceptPayment = async (orderId) => {
     try {

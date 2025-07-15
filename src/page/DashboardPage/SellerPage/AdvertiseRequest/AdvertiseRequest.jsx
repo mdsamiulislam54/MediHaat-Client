@@ -12,10 +12,12 @@ import { image, link } from "framer-motion/client";
 import { FaWindowClose } from "react-icons/fa";
 
 const AdvertiseRequest = () => {
-  const { data, isLoading, isError, error } = useGetapi("/all-banner");
+  const { user } = UserAuth();
+  const { data, isLoading, isError, error } = useGetapi(
+    `/seller/banner?email=${user?.email}`
+  );
   const axisonsecure = useAxiosSecure();
   const [isOpen, setIsOpen] = useState(false);
-  const { user } = UserAuth();
 
   // React Hook Form
   const {
@@ -31,8 +33,15 @@ const AdvertiseRequest = () => {
   const onSubmit = async (formData) => {
     try {
       console.log(formData);
-      const { image, title, subTitle, sellerEmail, description, medicineName,btnText } =
-        formData;
+      const {
+        image,
+        title,
+        subTitle,
+        sellerEmail,
+        description,
+        medicineName,
+        btnText,
+      } = formData;
       const data = {
         image,
         title,
@@ -76,30 +85,47 @@ const AdvertiseRequest = () => {
       {!data || data.length === 0 ? (
         <p>Banner is not found</p>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {data.map((item) => (
-            <div
-              key={item._id}
-              className="relative rounded-2xl overflow-hidden shadow-lg"
-            >
-              <img
-                src={item.image}
-                alt=""
-                className="w-full h-[450px] object-cover"
-              />
-              <div className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-white p-6 text-center space-y-2">
-                <h2 className="text-3xl font-bold">{item.title}</h2>
-                <p className="text-lg">{item.subTitle}</p>
-                <span
-                  className={`px-4 py-1 rounded-full text-sm font-medium ${
-                    item.isActive ? "bg-green-500" : "bg-red-500"
-                  }`}
-                >
-                  {item.isActive ? "Active" : "Non Active"}
-                </span>
-              </div>
-            </div>
-          ))}
+        <div className="overflow-x-auto">
+          <table className="table">
+            <thead>
+              <tr>
+                <th>Image</th>
+                <th>Medicine Name</th>
+                <th>Title</th>
+                <th>Sub Title</th>
+                <th>Status</th>
+                <th>Description</th>
+                <th>Button Text</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.map((item) => (
+                <tr key={item._id}>
+                  <td>
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-16 h-16 rounded object-cover"
+                    />
+                  </td>
+                  <td>{item.medicineName}</td>
+                  <td>{item.title}</td>
+                  <td>{item.subTitle}</td>
+                  <td>
+                    <span
+                      className={`px-2 py-1 rounded text-white text-xs ${
+                        item.isActive ? "bg-green-500" : "bg-red-500"
+                      }`}
+                    >
+                      {item.isActive ? "Active" : "Non Active"}
+                    </span>
+                  </td>
+                  <td>{item.description}</td>
+                  <td>{item.btnText}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       )}
 

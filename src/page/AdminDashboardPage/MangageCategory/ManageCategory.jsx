@@ -15,7 +15,7 @@ const ManageCategory = () => {
   const [uploading, setUploading] = useState(false);
   const [updateModal, setUpdateModal] = useState(false);
   const [updatedData, setUpdatedData] = useState(false);
-  const [updateImg, setUpdateImg] = useState('')
+  const [updateImg, setUpdateImg] = useState("");
 
   const {
     data: category,
@@ -35,7 +35,10 @@ const ManageCategory = () => {
 
     try {
       setUploading(true);
-      const imageUrl = await uploadImageToCloudinary(imageFile);
+      let imageUrl;
+      if (imageFile) {
+         imageUrl = await uploadImageToCloudinary(imageFile);
+      }
 
       const newCategory = {
         name: e.target.name.value,
@@ -65,18 +68,16 @@ const ManageCategory = () => {
 
     try {
       setUploading(true);
-    
-      
-       let imageUrl;
 
-    // only upload if new image selected
-    if (updateImageFile) {
-      imageUrl = await uploadImageToCloudinary(updateImageFile);
-    }
-      
-     
+      let imageUrl;
+
+      // only upload if new image selected
+      if (updateImageFile) {
+        imageUrl = await uploadImageToCloudinary(updateImageFile);
+      }
+
       console.log(imageUrl);
-      console.log(updateModal)
+      console.log(updateModal);
 
       const updatedCategory = {
         name: e.target.name.value || updatedData.name,
@@ -85,9 +86,12 @@ const ManageCategory = () => {
       };
 
       console.log(updatedCategory);
-      const res = await axiosSecure.patch(`/admin/category/${updatedData._id}`, {
-        updatedCategory,
-      });
+      const res = await axiosSecure.patch(
+        `/admin/category/${updatedData._id}`,
+        {
+          updatedCategory,
+        }
+      );
       console.log(res);
       if (res.data) {
         Swal.fire("Updated", "Category Updated Successfully", "success");
