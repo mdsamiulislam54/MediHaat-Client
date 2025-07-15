@@ -116,7 +116,7 @@ const PaymentManagement = () => {
       )}
 
       {/* pagination */}
-      <div className="flex justify-center items-center my-10 absolute -bottom-4 left-[50%] translate-x-[-50%]">
+      <div className="flex justify-center items-center my-10 ">
         <button
           className="btn mx-4"
           disabled={currentPage === 0}
