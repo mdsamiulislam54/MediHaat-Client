@@ -21,6 +21,7 @@ import ManageUsers from "../../page/AdminDashboardPage/ManageUsers/ManageUsers";
 import ManageCategory from "../../page/AdminDashboardPage/MangageCategory/ManageCategory";
 import PaymentManagemendt from "../../page/AdminDashboardPage/PaymentManagement/PaymentManagemendt";
 import SalesReport from "../../page/AdminDashboardPage/SalesReport/SalesReport";
+import ManageBanner from "../../page/AdminDashboardPage/ManageBanner/ManageBanner";
 
 
 const router = createBrowserRouter([
@@ -120,6 +121,10 @@ const router = createBrowserRouter([
         {
           path:"/dashboard/sales-report",
           element:<SalesReport/>
+        },
+        {
+          path:"/dashboard/manage-banner",
+          element:<ManageBanner/>
         }
 
     ]

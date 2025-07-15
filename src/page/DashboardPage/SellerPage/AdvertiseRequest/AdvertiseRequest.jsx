@@ -8,7 +8,7 @@ import { UserAuth } from "../../../../hooks/userAuth/userAuth";
 
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../../hooks/axisonsecure/axiosSecure";
-import { image } from "framer-motion/client";
+import { image, link } from "framer-motion/client";
 import { FaWindowClose } from "react-icons/fa";
 
 const AdvertiseRequest = () => {
@@ -30,16 +30,22 @@ const AdvertiseRequest = () => {
 
   const onSubmit = async (formData) => {
     try {
-        console.log(formData)
-        const {image,title,subTitle,email,description}= formData;
-        const data = {
-            image,
-            title,
-            subTitle,
-            sellerEmail:email,
-            description
-        }
-        console.log(data)
+      console.log(formData);
+      const { image, title, subTitle, sellerEmail, description, medicineName,btnText } =
+        formData;
+      const data = {
+        image,
+        title,
+        subTitle,
+        sellerEmail,
+        btnText,
+        medicineName,
+        description,
+        isActive: false,
+        status: "pending",
+        link: "/shop",
+      };
+      console.log(data);
       const res = await axisonsecure.post("/banner", data);
       if (res.data) {
         Swal.fire({
@@ -47,7 +53,6 @@ const AdvertiseRequest = () => {
           title: "Advertise Banner slider Added Successfully!",
         });
       }
-      
     } catch (err) {
       // If error
       Swal.fire({
@@ -113,7 +118,7 @@ const AdvertiseRequest = () => {
                 className="absolute top-2 right-2 text-xl font-bold"
                 onClick={() => setIsOpen(false)}
               >
-                <FaWindowClose className="text-primary cursor-pointer"/>
+                <FaWindowClose className="text-primary cursor-pointer" />
               </button>
               <h2 className="text-2xl font-bold mb-4 text-center">
                 Add Advertise
@@ -146,6 +151,22 @@ const AdvertiseRequest = () => {
                     <p className="text-red-500">{errors.title.message}</p>
                   )}
                 </div>
+                {/* medicine name */}
+                <div>
+                  <input
+                    type="text"
+                    {...register("medicineName", {
+                      required: "medicine name is required",
+                    })}
+                    placeholder="Medicine Name.."
+                    className="input w-full"
+                  />
+                  {errors.medicineName && (
+                    <p className="text-red-500">
+                      {errors.medicineName.message}
+                    </p>
+                  )}
+                </div>
 
                 {/* Sub Title */}
                 <div>
@@ -161,11 +182,27 @@ const AdvertiseRequest = () => {
                     <p className="text-red-500">{errors.subTitle.message}</p>
                   )}
                 </div>
+                {/* Sub Title */}
+                <div>
+                  <input
+                    type="text"
+                    {...register("btnText", {
+                      required: "btnText is required",
+                    })}
+                    placeholder="Button  Text"
+                    className="input w-full"
+                  />
+                  {errors.btnText && (
+                    <p className="text-red-500">{errors.btnText.message}</p>
+                  )}
+                </div>
 
                 <div>
                   <input
                     type="email"
-                    {...register("sellerEmail", { required: "Email is required" })}
+                    {...register("sellerEmail", {
+                      required: "Email is required",
+                    })}
                     value={user?.email}
                     className="input w-full"
                   />
@@ -185,11 +222,7 @@ const AdvertiseRequest = () => {
                   />
                 </div>
 
-                <Button
-                  children={"Request Advertise"}
-                  type="submit"
-                  
-                />
+                <Button children={"Request Advertise"} type="submit" />
               </form>
             </div>
           </motion.div>
