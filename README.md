@@ -6,7 +6,7 @@
 
 ## 🌐 Live Demo
 
-👉 [Visit MediHaat](https://your-live-site-link.com) *(Replace with your actual link)*
+👉 [Visit MediHaat](https://medihaat.netlify.app/) *(Replace with your actual link)*
 
 ---
 
