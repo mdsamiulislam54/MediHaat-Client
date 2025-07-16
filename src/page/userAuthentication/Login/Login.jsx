@@ -23,24 +23,21 @@ const Login = () => {
     UserAuth();
   const [loading, setLoading] = useState(false);
   const [loadingGoogle, setLoadingGoogle] = useState(false);
-  const location = useLocation();
- 
+  const { state } = useLocation();
 
-
-
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const onSubmit = (data) => {
     const { email, password } = data;
-    setLoading(true)
+    setLoading(true);
     loginWithEmailPassword(email, password)
       .then(() => {
         Swal.fire({
           title: "Login Successful!",
           icon: "success",
         });
-        navigate(location?.state?.pathname || "/");
-        setLoading(false)
+        navigate(state?.pathname || "/");
+        setLoading(false);
       })
       .catch((error) => {
         console.error(error);
@@ -49,7 +46,7 @@ const navigate = useNavigate();
           text: error.message,
           icon: "error",
         });
-        setLoading(false)
+        setLoading(false);
       });
   };
 
@@ -62,7 +59,7 @@ const navigate = useNavigate();
     }
 
     try {
-      setLoadingGoogle(true)
+      setLoadingGoogle(true);
       const res = await signWithGoogle();
       const loggedInUser = res.user;
 
@@ -75,8 +72,8 @@ const navigate = useNavigate();
         icon: "success",
         title: "Login Successful!",
       });
-         navigate(location?.state?.pathname || "/");
-      setLoading(false)
+      navigate(state?.pathname || "/");
+      setLoading(false);
     } catch (error) {
       console.error("Google Login Error:", error);
       Swal.fire({
@@ -84,7 +81,7 @@ const navigate = useNavigate();
         title: "Login Failed!",
         text: error.message,
       });
-      setLoadingGoogle(false)
+      setLoadingGoogle(false);
     }
   };
 
@@ -93,7 +90,7 @@ const navigate = useNavigate();
   return (
     <div>
       <div className="w-11/12 mx-auto my-5">
-      <PageTitle title={'Login'}/>
+        <PageTitle title={"Login"} />
         <Link
           to="/"
           className="inline-flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-full hover:bg-green-600 transition-all duration-300"
@@ -232,7 +229,7 @@ const navigate = useNavigate();
                   ></path>
                 </g>
               </svg>
-              {loadingGoogle ? <Loader/> :" Login with Google"}
+              {loadingGoogle ? <Loader /> : " Login with Google"}
             </button>
 
             {/* New User */}

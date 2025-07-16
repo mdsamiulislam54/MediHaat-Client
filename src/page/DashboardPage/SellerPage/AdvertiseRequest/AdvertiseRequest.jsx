@@ -11,13 +11,30 @@ import useAxiosSecure from "../../../../hooks/axisonsecure/axiosSecure";
 import { image, link } from "framer-motion/client";
 import { FaWindowClose } from "react-icons/fa";
 import PageTitle from "../../../../components/PageTitle/PageTitle";
+import { useQuery } from "@tanstack/react-query";
+import ErrorPage from "../../../ErrorPage/ErrorPage";
 
 const AdvertiseRequest = () => {
+   const axisonsecure = useAxiosSecure();
   const { user } = UserAuth();
-  const { data, isLoading, isError, error } = useGetapi(
-    `/seller/banner?email=${user?.email}`
-  );
-  const axisonsecure = useAxiosSecure();
+
+
+  const {data, isLoading,error} = useQuery({
+    queryKey:["banner"],
+    queryFn:async()=>{
+      try {
+        const res = await axisonsecure.get(`/seller/banner?email=${user?.email}`);
+        return res.data;
+      } catch (error) {
+       throw new Error(
+          error.response?.data?.message || "Error fetching users"
+        );
+      }
+    }
+  })
+
+
+ 
   const [isOpen, setIsOpen] = useState(false);
 
   // React Hook Form
@@ -29,7 +46,7 @@ const AdvertiseRequest = () => {
   } = useForm();
 
   if (isLoading) return <Loader />;
-  if (isError) return <p>{error.message}</p>;
+  if (error) return<ErrorPage message={error.message}/>;
 
   const onSubmit = async (formData) => {
     try {
@@ -85,7 +102,7 @@ const AdvertiseRequest = () => {
 
       {/* Existing Banners */}
       {!data || data.length === 0 ? (
-        <p>Banner is not found</p>
+        <p className="flex justify-center items-center min-h-screen">Banner is not found</p>
       ) : (
         <div className="overflow-x-auto">
           <table className="table">

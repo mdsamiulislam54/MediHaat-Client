@@ -4,9 +4,11 @@ import { useQuery } from "@tanstack/react-query";
 import Loader from "../../../../components/Loader/Loader";
 import { UserAuth } from "../../../../hooks/userAuth/userAuth";
 import PageTitle from "../../../../components/PageTitle/PageTitle";
+import useAxiosSecure from "../../../../hooks/axisonsecure/axiosSecure";
+import ErrorPage from "../../../ErrorPage/ErrorPage";
 
 const Mymedicine = () => {
-  const axiosInstanceCall = axiosinstance();
+  const axiosInstanceCall = useAxiosSecure();
   const [count, setCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(0);
   const [perPage, setPerPage] = useState(8);
@@ -18,20 +20,24 @@ const Mymedicine = () => {
   const { data, isLoading, error } = useQuery({
     queryKey: ["medicine", currentPage, perPage, sortOrder],
     queryFn: async () => {
-      const res = await axiosInstanceCall.get(
+        try {
+             const res = await axiosInstanceCall.get(
         `all-medicine?limit=${perPage}&page=${currentPage}&email=${user.email}&sort=${sortOrder}`
       );
       console.log(res);
       setCount(res.data.count);
       return res.data.result;
+        } catch (error) {
+           throw new Error(
+          error.response?.data?.message || "Error fetching users"
+        );
+        }
     },
   });
 
-  if (error) {
-    return <p>{error.message}</p>;
-  }
-  console.log(count);
-  console.log(totalPage);
+ if (error) return <ErrorPage message={error.message}/>;
+
+
   return (
     <div>
       <div className="px-4">

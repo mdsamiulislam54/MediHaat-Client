@@ -5,6 +5,7 @@ import useAxiosSecure from "../../../../hooks/axisonsecure/axiosSecure";
 import { UserAuth } from "../../../../hooks/userAuth/userAuth";
 import Loader from "../../../../components/Loader/Loader";
 import PageTitle from "../../../../components/PageTitle/PageTitle";
+import ErrorPage from "../../../ErrorPage/ErrorPage";
 
 const SellerPaymentHistory = () => {
   const [count, setCount] = useState(0);
@@ -19,11 +20,17 @@ const SellerPaymentHistory = () => {
   const { data, isLoading, error } = useQuery({
     queryKey: ["sellerPaymentHistory", user?.email,currentPage,perPage],
     queryFn: async () => {
-      const res = await axiosSecure.get(
+      try {
+        const res = await axiosSecure.get(
         `/seller-payment-history?sellerEmail=${user?.email}&page=${currentPage}&limit=${perPage}`
       );
       setCount(res?.data?.count);
       return res.data.result;
+      } catch (error) {
+         throw new Error(
+          error.response?.data?.message || "Error fetching users"
+        );
+      }
     },
   });
 
@@ -33,7 +40,7 @@ const SellerPaymentHistory = () => {
         <Loader />
       </div>
     );
-  if (error) return <p className="text-center text-red-500">{error.message}</p>;
+  if (error) return <ErrorPage message={error.message}/>;
 
   return (
     <div className="w-11/12 mx-auto my-10 min-h-screen">
