@@ -8,6 +8,7 @@ import {
 } from "react-icons/io5";
 import useAxiosSecure from "../../../hooks/axisonsecure/axiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import PageTitle from "../../../components/PageTitle/PageTitle";
 
 const DashboardHome = () => {
   const { user, role } = UserAuth();
@@ -31,7 +32,7 @@ const DashboardHome = () => {
 
   return (
     <div className="space-y-6">
-      {/* Welcome Message */}
+      <PageTitle title={'Dashboard'}/>
       <div className="bg-gradient-to-r from-primary to-blue-500 text-white p-6 rounded-xl shadow flex flex-col md:flex-row items-center justify-between">
         <div>
           <h2 className="text-2xl font-bold">

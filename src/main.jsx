@@ -7,12 +7,13 @@ import route from "./route/route/route.jsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import UserProvider from "./Contextapi/UserContext/userProvider.jsx";
 import AddToCarProvider from "./Contextapi/AddToCart/AddToCarProvider.jsx";
-
+import { HelmetProvider } from "react-helmet-async";
 
 const queryClient = new QueryClient();
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
+    <HelmetProvider>
     <QueryClientProvider client={queryClient}>
       <UserProvider>
         <AddToCarProvider>
@@ -20,5 +21,6 @@ createRoot(document.getElementById("root")).render(
         </AddToCarProvider>
       </UserProvider>
     </QueryClientProvider>
+    </HelmetProvider>
   </StrictMode>
 );

@@ -13,6 +13,7 @@ import { AnimatePresence } from "framer-motion";
 import { CartContext } from "../../Contextapi/AddToCart/cartContext";
 import { useLocation } from "react-router";
 import { FaSearch } from "react-icons/fa";
+import PageTitle from "../../components/PageTitle/PageTitle";
 
 const Shop = () => {
   const axiosInstanceCall = axiosinstance();
@@ -62,6 +63,7 @@ const Shop = () => {
   if (error) return <p className="text-center text-red-500">{error.message}</p>;
   return (
     <div className="min-h-screen">
+      <PageTitle title={'Shop'}/>
       <div className="w-11/12 mx-auto">
         {/* Banner */}
         <div className="my-4 relative">
