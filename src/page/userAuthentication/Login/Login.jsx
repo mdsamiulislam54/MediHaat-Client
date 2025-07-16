@@ -9,6 +9,7 @@ import { UserAuth } from "../../../hooks/userAuth/userAuth";
 import Swal from "sweetalert2";
 import { createUserIfNotExists } from "../../../hooks/useCreateUserWithGogle/useCreateUserWithGoogle";
 import Loader from "../../../components/Loader/Loader";
+import PageTitle from "../../../components/PageTitle/PageTitle";
 
 const Login = () => {
   const {
@@ -22,7 +23,8 @@ const Login = () => {
     UserAuth();
   const [loading, setLoading] = useState(false);
   const [loadingGoogle, setLoadingGoogle] = useState(false);
-  const {state} = useLocation();
+  const location = useLocation();
+ 
 
 
 
@@ -37,7 +39,7 @@ const navigate = useNavigate();
           title: "Login Successful!",
           icon: "success",
         });
-        navigate(state.pathname || "/");
+        navigate(location?.state?.pathname || "/");
         setLoading(false)
       })
       .catch((error) => {
@@ -73,7 +75,7 @@ const navigate = useNavigate();
         icon: "success",
         title: "Login Successful!",
       });
-      navigate(state.pathname || "/");
+         navigate(location?.state?.pathname || "/");
       setLoading(false)
     } catch (error) {
       console.error("Google Login Error:", error);
@@ -91,6 +93,7 @@ const navigate = useNavigate();
   return (
     <div>
       <div className="w-11/12 mx-auto my-5">
+      <PageTitle title={'Login'}/>
         <Link
           to="/"
           className="inline-flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-full hover:bg-green-600 transition-all duration-300"

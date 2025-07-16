@@ -12,6 +12,7 @@ import { updateProfile } from "firebase/auth";
 import Swal from "sweetalert2";
 import Loader from "../../../components/Loader/Loader";
 import Logo from "../../../components/Logo/Logo";
+import PageTitle from "../../../components/PageTitle/PageTitle";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -86,6 +87,7 @@ const SignUp = () => {
 
   return (
     <div className="w-11/12 mx-auto">
+      <PageTitle title={'Sign Up'}/>
       <div className="flex justify-between items-center m-8">
         <Link
           to="/"

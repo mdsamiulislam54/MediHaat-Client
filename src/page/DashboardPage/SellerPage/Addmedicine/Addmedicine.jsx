@@ -4,6 +4,7 @@ import { IoAddCircleOutline } from "react-icons/io5";
 import axiosinstance from "../../../../hooks/axiosInstance/axiosinstance";
 import Swal from "sweetalert2";
 import { UserAuth } from "../../../../hooks/userAuth/userAuth";
+import PageTitle from "../../../../components/PageTitle/PageTitle";
 
 const AddMedicineForm = () => {
   const axiosinstanceCall = axiosinstance();
@@ -50,6 +51,7 @@ const AddMedicineForm = () => {
 
   return (
     <div className="bg-white p-6 rounded-xl shadow max-w-4xl mx-auto">
+      <PageTitle title={'Add Medicine'}/>
       <h2 className="text-2xl font-bold text-primary mb-6 flex items-center gap-2">
         <IoAddCircleOutline /> Add New Medicine
       </h2>

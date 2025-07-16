@@ -4,6 +4,7 @@ import { UserAuth } from "../../../../hooks/userAuth/userAuth";
 import useAxiosSecure from "../../../../hooks/axisonsecure/axiosSecure";
 import Loader from "../../../../components/Loader/Loader";
 import ErrorPage from "../../../ErrorPage/ErrorPage";
+import PageTitle from "../../../../components/PageTitle/PageTitle";
 
 const MyOrders = () => {
   const { user } = UserAuth();
@@ -39,6 +40,7 @@ const MyOrders = () => {
   }
   return (
     <div className="min-h-screen my-10">
+      <PageTitle title={'My Orders'}/>
       <div>
         {myOrders?.length === 0 ? (
           <p>Your Order Not Found</p>

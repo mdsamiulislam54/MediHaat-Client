@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../../hooks/axisonsecure/axiosSecure";
 import { UserAuth } from "../../../../hooks/userAuth/userAuth";
 import Loader from "../../../../components/Loader/Loader";
+import PageTitle from "../../../../components/PageTitle/PageTitle";
 
 const SellerPaymentHistory = () => {
   const [count, setCount] = useState(0);
@@ -36,6 +37,7 @@ const SellerPaymentHistory = () => {
 
   return (
     <div className="w-11/12 mx-auto my-10 min-h-screen">
+      <PageTitle title={'Payment History'}/>
       <h2 className="text-2xl font-bold mb-6 text-center">Payment History</h2>
 
       <div className="overflow-x-auto">

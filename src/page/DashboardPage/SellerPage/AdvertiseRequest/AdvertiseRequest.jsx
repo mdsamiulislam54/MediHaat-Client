@@ -10,6 +10,7 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../../../hooks/axisonsecure/axiosSecure";
 import { image, link } from "framer-motion/client";
 import { FaWindowClose } from "react-icons/fa";
+import PageTitle from "../../../../components/PageTitle/PageTitle";
 
 const AdvertiseRequest = () => {
   const { user } = UserAuth();
@@ -76,6 +77,7 @@ const AdvertiseRequest = () => {
 
   return (
     <div className="px-4 pt-10">
+      <PageTitle title={'Advertise'}/>
       {/* Add Advertise Button */}
       <div className="flex justify-end mb-4">
         <Button onClick={() => setIsOpen(true)} children={"Add Advertise"} />

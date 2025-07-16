@@ -3,28 +3,29 @@ import axiosinstance from "../../../../hooks/axiosInstance/axiosinstance";
 import { useQuery } from "@tanstack/react-query";
 import Loader from "../../../../components/Loader/Loader";
 import { UserAuth } from "../../../../hooks/userAuth/userAuth";
+import PageTitle from "../../../../components/PageTitle/PageTitle";
 
 const Mymedicine = () => {
   const axiosInstanceCall = axiosinstance();
   const [count, setCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(0);
-  const [perPage, setPerPage] = useState(10);
+  const [perPage, setPerPage] = useState(8);
   const totalPage = Math.ceil(count / perPage) || 0;
   const pageArray = [...Array(totalPage).keys()];
-  const {user} = UserAuth()
+  const { user } = UserAuth();
+  const [sortOrder, setSortOrder] = useState("priceLowToHigh");
 
   const { data, isLoading, error } = useQuery({
-    queryKey: ["medicine", currentPage, perPage],
+    queryKey: ["medicine", currentPage, perPage, sortOrder],
     queryFn: async () => {
       const res = await axiosInstanceCall.get(
-        `all-medicine?limit=${perPage}&page=${currentPage}&email=${user.email}`
+        `all-medicine?limit=${perPage}&page=${currentPage}&email=${user.email}&sort=${sortOrder}`
       );
       console.log(res);
       setCount(res.data.count);
       return res.data.result;
     },
   });
-
 
   if (error) {
     return <p>{error.message}</p>;
@@ -34,11 +35,24 @@ const Mymedicine = () => {
   return (
     <div>
       <div className="px-4">
-        <h2>Total Medicines: {count}</h2>
+        <PageTitle title={"My Medicine"} />
+        <div className="my-4">
+          <label className="mr-2">Sort By Price: </label>
+          <select
+            className="select select-bordered"
+            value={sortOrder}
+            onChange={(e) => setSortOrder(e.target.value)}
+          >
+            <option value="asc">Price: Low to High</option>
+            <option value="desc">Price: High to Low</option>
+          </select>
+        </div>
 
         <div>
           {data?.length === 0 ? (
-            <p className="min-h-screen flex justify-center items-center">No medicines found.</p>
+            <p className="min-h-screen flex justify-center items-center">
+              No medicines found.
+            </p>
           ) : (
             <div className="overflow-x-auto">
               <table className="table table-zebra">
@@ -84,7 +98,7 @@ const Mymedicine = () => {
               </table>
             </div>
           )}
-        {/* pagination */}
+          {/* pagination */}
           <div className="flex justify-center items-center my-10">
             <button
               className="btn mx-4"

@@ -32,7 +32,7 @@ const DashboardHome = () => {
 
   return (
     <div className="space-y-6">
-      <PageTitle title={'Dashboard'}/>
+      <PageTitle title={'Dashboard Home'}/>
       <div className="bg-gradient-to-r from-primary to-blue-500 text-white p-6 rounded-xl shadow flex flex-col md:flex-row items-center justify-between">
         <div>
           <h2 className="text-2xl font-bold">

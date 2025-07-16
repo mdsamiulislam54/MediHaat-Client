@@ -9,6 +9,7 @@ import { UserAuth } from "../../hooks/userAuth/userAuth";
 import Swal from "sweetalert2";
 import axiosSecure from "../../hooks/axisonsecure/axiosSecure";
 import useAxiosSecure from "../../hooks/axisonsecure/axiosSecure";
+import PageTitle from "../../components/PageTitle/PageTitle";
 
 const Checkout = () => {
   const location = useLocation();
@@ -101,7 +102,8 @@ const Checkout = () => {
   };
 
   return (
-    <div className="w-11/12 mx-auto py-10">
+    <div className="w-11/<PageTitle title={''}/>12 mx-auto py-10">
+      <PageTitle title={'Checkout'}/>
       <h2 className="text-3xl font-semibold mb-8">Checkout</h2>
 
       {selectedItems.length === 0 ? (
