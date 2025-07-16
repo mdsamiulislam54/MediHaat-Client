@@ -5,9 +5,10 @@ import axiosinstance from "../../../../hooks/axiosInstance/axiosinstance";
 import Swal from "sweetalert2";
 import { UserAuth } from "../../../../hooks/userAuth/userAuth";
 import PageTitle from "../../../../components/PageTitle/PageTitle";
+import useAxiosSecure from "../../../../hooks/axisonsecure/axiosSecure";
 
 const AddMedicineForm = () => {
-  const axiosinstanceCall = axiosinstance();
+  const axiosinstanceCall = useAxiosSecure();
   const {user} = UserAuth()
   const {
     register,

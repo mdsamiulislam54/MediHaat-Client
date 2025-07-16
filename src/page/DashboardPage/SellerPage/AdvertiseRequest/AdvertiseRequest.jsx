@@ -19,7 +19,7 @@ const AdvertiseRequest = () => {
   const { user } = UserAuth();
 
 
-  const {data, isLoading,error} = useQuery({
+  const {data, isLoading,error,refetch} = useQuery({
     queryKey:["banner"],
     queryFn:async()=>{
       try {
@@ -79,6 +79,7 @@ const AdvertiseRequest = () => {
           icon: "success",
           title: "Advertise Banner slider Added Successfully!",
         });
+        refetch()
       }
     } catch (err) {
       // If error

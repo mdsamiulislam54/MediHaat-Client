@@ -6,6 +6,7 @@ import ReactPaginate from "react-paginate";
 import useAxiosSecure from "../../../../hooks/axisonsecure/axiosSecure";
 import ErrorPage from "../../../ErrorPage/ErrorPage";
 import PageTitle from "../../../../components/PageTitle/PageTitle";
+import Loader from "../../../../components/Loader/Loader";
 
 const PaymentHistory = () => {
   const axiosSecure = useAxiosSecure();
@@ -37,7 +38,7 @@ const PaymentHistory = () => {
 
 
 
-  if (isLoading) return <p className="text-center py-10">Loading...</p>;
+  if (isLoading) return <Loader/>;
   if (error)
     return <ErrorPage message={error.message}/>;
 
@@ -48,7 +49,7 @@ const PaymentHistory = () => {
 
   return (
     <div className="w-11/12 mx-auto py-10">
-      <PageTitle title={'My Payment History'}/>Console.log("");
+      <PageTitle title={'My Payment History'}/>;
       <h2 className="text-2xl font-semibold mb-6">My Payment History</h2>
 
       <div className="overflow-x-auto bg-base-100 p-2">

@@ -23,7 +23,8 @@ const Login = () => {
     UserAuth();
   const [loading, setLoading] = useState(false);
   const [loadingGoogle, setLoadingGoogle] = useState(false);
-  const { state } = useLocation();
+    const { state } = useLocation();
+    console.log(state)
 
   const navigate = useNavigate();
 
@@ -72,7 +73,7 @@ const Login = () => {
         icon: "success",
         title: "Login Successful!",
       });
-      navigate(state?.pathname || "/");
+      navigate(state?.pathname || '/');
       setLoading(false);
     } catch (error) {
       console.error("Google Login Error:", error);
