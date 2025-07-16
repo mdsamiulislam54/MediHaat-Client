@@ -23,7 +23,8 @@ import PaymentManagemendt from "../../page/AdminDashboardPage/PaymentManagement/
 import SalesReport from "../../page/AdminDashboardPage/SalesReport/SalesReport";
 import ManageBanner from "../../page/AdminDashboardPage/ManageBanner/ManageBanner";
 import MyOrders from "../../page/DashboardPage/UserDashboard/MyOrders/MyOrders";
-
+import PageNotFound from "../../page/PageNotFound/PageNotFound";
+import PrivateRoute from "../../page/PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -35,105 +36,125 @@ const router = createBrowserRouter([
         Component: Home,
       },
       {
-        path:'/shop',
-        Component:Shop
+        path: "/shop",
+        element: (
+          <PrivateRoute>
+            <Shop />
+          </PrivateRoute>
+        ),
       },
       {
-        path:'/medicine-details/:id',
-        element:<MedicineDetails/>
+        path: "/medicine-details/:id",
+        element: (
+          <PrivateRoute>
+            {" "}
+            <MedicineDetails />{" "}
+          </PrivateRoute>
+        ),
       },
       {
-        path:'/cart-page',
-        element:<Cart/>
+        path: "/cart-page",
+        element: <Cart />,
       },
       {
-        path:'/checkout',
-        element:<Checkout/>
+        path: "/checkout",
+        element: <Checkout />,
       },
       {
-        path:'/order-success',
-        element:<PaymentSuccess/>
-      }
-
+        path: "/order-success",
+        element: <PaymentSuccess />,
+      },
     ],
   },
-// userlayout
+  // userlayout
   {
-    path:'/',
-    Component:Userlayout,
-    children:[
+    path: "/",
+    Component: Userlayout,
+    children: [
       {
-        path:'/login',
-        element:<Login/>
+        path: "/login",
+        element: <Login />,
       },
       {
-        path:'/signup',
-        element:<SignUp/>
-      }
-    ]
+        path: "/signup",
+        element: <SignUp />,
+      },
+      {
+        path: "/*",
+        element: <PageNotFound />,
+      },
+    ],
   },
 
   // dashboard layout
   {
-    path:'/dashboard',
-    Component:DashboardLayout,
-    children:[
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <DashboardLayout />
+      </PrivateRoute>
+    ),
+    children: [
       {
-        index:true,
-        element:<DashboardHome/>
+        index: true,
+        element: <DashboardHome />,
       },
-        // user route
-        {
-          path:'user/payment-history',
-          element:<PaymentHistory/>
-        },
-        {
-          path:"/dashboard/my-orders",
-          element:<MyOrders/>
-        },
-        // seller route
-        {
-          path:'seller/add-medicine',
-          element:<Addmedicine/>
-        },
-        {
-          path:'seller/my-medicine',
-          element:<Mymedicine/>
-        },
-        {
-          path:'seller/advertise-request',
-          element:<AdvertiseRequest/>
-        },
-        {
-          path:'seller/payment-history',
-          element:<SellerPaymentHistory/>
-        },
+      // user route
+      {
+        path: "user/payment-history",
+        element: <PaymentHistory />,
+      },
+      {
+        path: "/dashboard/my-orders",
+        element: <MyOrders />,
+      },
+      // seller route
+      {
+        path: "seller/add-medicine",
+        element: <Addmedicine />,
+      },
+      {
+        path: "seller/my-medicine",
+        element: <Mymedicine />,
+      },
+      {
+        path: "seller/advertise-request",
+        element: <AdvertiseRequest />,
+      },
+      {
+        path: "seller/payment-history",
+        element: <SellerPaymentHistory />,
+      },
 
-        // admin route
-        {
-          path:'/dashboard/manage-users',
-          element:<ManageUsers/>
-        },
-        {
-          path:"/dashboard/manage-category",
-          element:<ManageCategory/>
-        },
+      // admin route
+      {
+        path: "/dashboard/manage-users",
+        element: <ManageUsers />,
+      },
+      {
+        path: "/dashboard/manage-category",
+        element: <ManageCategory />,
+      },
 
-        {
-          path:"/dashboard/payment-management",
-          element:<PaymentManagemendt/>
-        },
-        {
-          path:"/dashboard/sales-report",
-          element:<SalesReport/>
-        },
-        {
-          path:"/dashboard/manage-banner",
-          element:<ManageBanner/>
-        }
+      {
+        path: "/dashboard/payment-management",
+        element: <PaymentManagemendt />,
+      },
+      {
+        path: "/dashboard/sales-report",
+        element: <SalesReport />,
+      },
+      {
+        path: "/dashboard/manage-banner",
+        element: <ManageBanner />,
+      },
 
-    ]
-  }
+      {
+        path: "*",
+        element: <PageNotFound />,
+      },
+    ],
+  },
 ]);
 
 export default router;

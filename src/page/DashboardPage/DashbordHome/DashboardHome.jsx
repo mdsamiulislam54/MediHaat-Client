@@ -23,7 +23,7 @@ const DashboardHome = () => {
     queryKey: ["user order"],
     queryFn: async () => {
       const res = await axiosScure(`/user/orders?email=${user?.email}`);
-      return res?.data;
+      return res?.data?.result;
     },
   });
 

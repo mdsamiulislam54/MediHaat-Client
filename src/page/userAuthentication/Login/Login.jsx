@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import Button from "../../../components/Button/Button";
 import Logo from "../../../components/Logo/Logo";
 import { FaArrowLeftLong } from "react-icons/fa6";
@@ -22,6 +22,8 @@ const Login = () => {
     UserAuth();
   const [loading, setLoading] = useState(false);
   const [loadingGoogle, setLoadingGoogle] = useState(false);
+  const {state} = useLocation();
+
 
 
 const navigate = useNavigate();
@@ -35,7 +37,7 @@ const navigate = useNavigate();
           title: "Login Successful!",
           icon: "success",
         });
-        navigate("/");
+        navigate(state.pathname || "/");
         setLoading(false)
       })
       .catch((error) => {
@@ -71,7 +73,7 @@ const navigate = useNavigate();
         icon: "success",
         title: "Login Successful!",
       });
-      navigate("/");
+      navigate(state.pathname || "/");
       setLoading(false)
     } catch (error) {
       console.error("Google Login Error:", error);
