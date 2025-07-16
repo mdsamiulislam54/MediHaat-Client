@@ -5,6 +5,7 @@ import Button from "../../../components/Button/Button";
 import Loader from "../../../components/Loader/Loader";
 import Swal from "sweetalert2";
 import uploadImageToCloudinary from "../../../hooks/profileImagesUpload/profileImagesUpload";
+import ErrorPage from "../../ErrorPage/ErrorPage";
 
 const ManageCategory = () => {
   const axiosSecure = useAxiosSecure();
@@ -16,6 +17,11 @@ const ManageCategory = () => {
   const [updateModal, setUpdateModal] = useState(false);
   const [updatedData, setUpdatedData] = useState(false);
   const [updateImg, setUpdateImg] = useState("");
+  const [count, setCount] = useState(0);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [perPage, setPerPage] = useState(8);
+  const totalPage = Math.ceil(count / perPage) || 0;
+  const pageArray = [...Array(totalPage).keys()];
 
   const {
     data: category,
@@ -23,10 +29,20 @@ const ManageCategory = () => {
     error,
     refetch,
   } = useQuery({
-    queryKey: ["categories"],
+    queryKey: ["categories", currentPage, perPage],
     queryFn: async () => {
-      const res = await axiosSecure.get("/category");
-      return res.data;
+      try {
+        const res = await axiosSecure.get(
+          `/category?limit=${perPage}&page=${currentPage}`
+        );
+        console.log(res)
+        setCount(res?.data?.count)
+        return res.data.result;
+      } catch (error) {
+        throw new Error(
+          error?.response?.data?.message || "Error fetching categories"
+        );
+      }
     },
   });
 
@@ -37,7 +53,7 @@ const ManageCategory = () => {
       setUploading(true);
       let imageUrl;
       if (imageFile) {
-         imageUrl = await uploadImageToCloudinary(imageFile);
+        imageUrl = await uploadImageToCloudinary(imageFile);
       }
 
       const newCategory = {
@@ -137,7 +153,7 @@ const ManageCategory = () => {
   };
 
   if (isLoading) return <Loader />;
-  if (error) return <p className="text-red-500">{error.message}</p>;
+  if (error) return <ErrorPage message={error.message} />;
 
   return (
     <div>
@@ -185,6 +201,39 @@ const ManageCategory = () => {
             ))}
           </tbody>
         </table>
+
+        {/* pagination */}
+        <div className="flex justify-center items-center my-10">
+          <button
+            className="btn mx-4"
+            disabled={currentPage === 0}
+            onClick={() => setCurrentPage((prev) => prev - 1)}
+          >
+            Prev
+          </button>
+          <ul className="flex gap-4">
+            {pageArray?.map((page) => {
+              return (
+                <li
+                  key={page}
+                  className={`btn bg-gray-200 ${
+                    currentPage === page ? "bg-primary text-white" : ""
+                  }`}
+                  onClick={() => setCurrentPage(page)}
+                >
+                  {page + 1}
+                </li>
+              );
+            })}
+            <button
+              className="btn mx-4"
+              disabled={pageArray?.length - 1 === currentPage ? true : false}
+              onClick={() => setCurrentPage((prev) => prev + 1)}
+            >
+              Next
+            </button>
+          </ul>
+        </div>
       </div>
 
       {/* Add Category Modal */}
