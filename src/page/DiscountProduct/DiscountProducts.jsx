@@ -63,7 +63,7 @@ const DiscountProducts = () => {
         >
           {products.map((product) => (
             <SwiperSlide key={product.id}>
-              <div className="product-card shadow-md rounded-xl p-4 bg-white xl:h-[500px] h-[500px] transition-all duration-500 relative group my-10 hover:shadow-primary/70">
+              <div className="product-card shadow-md rounded-xl p-4 bg-white  transition-all duration-500 relative group my-10 hover:shadow-primary/70">
                 <div className="relative overflow-hidden rounded-lg mb-4">
                   <img
                     src={product.image}

@@ -78,7 +78,7 @@ const testimonials = [
 
 const TestimonialSection = () => {
   return (
-    <div className="w-11/12 mx-auto my-16">
+    <div className="w-11/12 mx-auto my-20">
       <h2 className="text-3xl font-bold text-center mb-10">
         What Our Customers Say
       </h2>
