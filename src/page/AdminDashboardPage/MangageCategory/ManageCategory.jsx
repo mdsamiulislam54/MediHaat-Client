@@ -16,7 +16,7 @@ const ManageCategory = () => {
   const [uploading, setUploading] = useState(false);
   const [updateModal, setUpdateModal] = useState(false);
   const [updatedData, setUpdatedData] = useState(false);
-  const [updateImg, setUpdateImg] = useState("");
+
   const [count, setCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(0);
   const [perPage, setPerPage] = useState(8);
@@ -35,8 +35,8 @@ const ManageCategory = () => {
         const res = await axiosSecure.get(
           `/category?limit=${perPage}&page=${currentPage}`
         );
-        console.log(res)
-        setCount(res?.data?.count)
+        console.log(res);
+        setCount(res?.data?.count);
         return res.data.result;
       } catch (error) {
         throw new Error(
@@ -201,39 +201,6 @@ const ManageCategory = () => {
             ))}
           </tbody>
         </table>
-
-        {/* pagination */}
-        <div className="flex justify-center items-center my-10">
-          <button
-            className="btn mx-4"
-            disabled={currentPage === 0}
-            onClick={() => setCurrentPage((prev) => prev - 1)}
-          >
-            Prev
-          </button>
-          <ul className="flex gap-4">
-            {pageArray?.map((page) => {
-              return (
-                <li
-                  key={page}
-                  className={`btn bg-gray-200 ${
-                    currentPage === page ? "bg-primary text-white" : ""
-                  }`}
-                  onClick={() => setCurrentPage(page)}
-                >
-                  {page + 1}
-                </li>
-              );
-            })}
-            <button
-              className="btn mx-4"
-              disabled={pageArray?.length - 1 === currentPage ? true : false}
-              onClick={() => setCurrentPage((prev) => prev + 1)}
-            >
-              Next
-            </button>
-          </ul>
-        </div>
       </div>
 
       {/* Add Category Modal */}
@@ -325,6 +292,39 @@ const ManageCategory = () => {
           </div>
         </div>
       )}
+
+      {/* pagination */}
+      <div className="flex justify-center items-center my-10">
+        <button
+          className="btn mx-4"
+          disabled={currentPage === 0}
+          onClick={() => setCurrentPage((prev) => prev - 1)}
+        >
+          Prev
+        </button>
+        <ul className="flex gap-4">
+          {pageArray?.map((page) => {
+            return (
+              <li
+                key={page}
+                className={`btn bg-gray-200 ${
+                  currentPage === page ? "bg-primary text-white" : ""
+                }`}
+                onClick={() => setCurrentPage(page)}
+              >
+                {page + 1}
+              </li>
+            );
+          })}
+          <button
+            className="btn mx-4"
+            disabled={pageArray?.length - 1 === currentPage ? true : false}
+            onClick={() => setCurrentPage((prev) => prev + 1)}
+          >
+            Next
+          </button>
+        </ul>
+      </div>
     </div>
   );
 };

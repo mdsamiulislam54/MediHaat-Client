@@ -1,34 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import useAxiosSecure from "../../../hooks/axisonsecure/axiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import Loader from "../../../components/Loader/Loader";
 import Swal from "sweetalert2";
+import ErrorPage from "../../ErrorPage/ErrorPage";
 
 const ManageBanner = () => {
   const axiosSecure = useAxiosSecure();
-
+  const [count, setCount] = useState(0);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [perPage, setPerPage] = useState(8);
+  const totalPage = Math.ceil(count / perPage) || 0;
+  const pageArray = [...Array(totalPage).keys()];
   const {
     data: banner,
     isLoading,
-    isError,
-    refetch
+    error,
+    refetch,
   } = useQuery({
-    queryKey: ["banner"],
+    queryKey: ["banner",currentPage,perPage],
     queryFn: async () => {
-      const res = await axiosSecure.get("/admin/banner");
-      return res?.data;
+      try {
+        const res = await axiosSecure.get(`/admin/banner?page=${currentPage}&limit=${perPage}`);
+        setCount(res?.data?.count)
+        return res?.data.banner;
+      } catch (error) {
+        throw new Error(
+          error?.response?.data?.message || "Error fetching categories"
+        );
+      }
     },
   });
 
   const handleBannerAdd = async (id) => {
     try {
       const res = await axiosSecure.patch(`/admin/banner/add/${id}`);
-      if (res.data.modifiedCount===1) {
+      if (res.data.modifiedCount === 1) {
         Swal.fire({
           icon: "success",
           title: "Banner added Successfully!",
         });
-        refetch()
+        refetch();
       }
     } catch (error) {
       console.log(error);
@@ -41,12 +53,12 @@ const ManageBanner = () => {
   const handleBannerRemove = async (id) => {
     try {
       const res = await axiosSecure.delete(`/admin/banner/remove/${id}`);
-      if (res.data.deletedCount ===1) {
+      if (res.data.deletedCount === 1) {
         Swal.fire({
           icon: "success",
           title: "Banner added Successfully!",
         });
-        refetch()
+        refetch();
       }
     } catch (error) {
       console.log(error);
@@ -57,8 +69,10 @@ const ManageBanner = () => {
     }
   };
 
+  if (error) return <ErrorPage message={error.message} />;
+
   return (
-    <div>
+    <div className="min-h-screen mt-10">
       <div>
         {isLoading ? (
           <Loader />
@@ -103,7 +117,12 @@ const ManageBanner = () => {
                       </button>
                     </td>
                     <td>
-                      <button onClick={()=>handleBannerRemove(ban._id)} className="btn btn-warning">Remove</button>
+                      <button
+                        onClick={() => handleBannerRemove(ban._id)}
+                        className="btn btn-warning"
+                      >
+                        Remove
+                      </button>
                     </td>
                   </tr>
                 ))}
@@ -111,6 +130,39 @@ const ManageBanner = () => {
             </table>
           </div>
         )}
+      </div>
+
+       {/* pagination */}
+      <div className="flex justify-center items-center my-10">
+        <button
+          className="btn mx-4"
+          disabled={currentPage === 0}
+          onClick={() => setCurrentPage((prev) => prev - 1)}
+        >
+          Prev
+        </button>
+        <ul className="flex gap-4">
+          {pageArray?.map((page) => {
+            return (
+              <li
+                key={page}
+                className={`btn bg-gray-200 ${
+                  currentPage === page ? "bg-primary text-white" : ""
+                }`}
+                onClick={() => setCurrentPage(page)}
+              >
+                {page + 1}
+              </li>
+            );
+          })}
+          <button
+            className="btn mx-4"
+            disabled={pageArray?.length - 1 === currentPage ? true : false}
+            onClick={() => setCurrentPage((prev) => prev + 1)}
+          >
+            Next
+          </button>
+        </ul>
       </div>
     </div>
   );

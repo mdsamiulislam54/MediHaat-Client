@@ -1,65 +1,99 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/axisonsecure/axiosSecure";
+import { useQuery } from "@tanstack/react-query";
+import Loader from "../../../components/Loader/Loader";
+import ErrorPage from "../../ErrorPage/ErrorPage";
 
 const ManageUsers = () => {
-  const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(false);
   const axiosSecure = useAxiosSecure();
 
-  useEffect(() => {
-    const fetchUsers = async () => {
+  const [search, setSearch] = useState("");
+  const [roleFilter, setRoleFilter] = useState("");
+  const [count, setCount] = useState(0);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [perPage, setPerPage] = useState(8);
+  const totalPage = Math.ceil(count / perPage) || 0;
+  const pageArray = [...Array(totalPage).keys()];
+
+  const {
+    data: users,
+    isLoading,
+    error,
+    refetch,
+  } = useQuery({
+    queryKey: ["users", search, roleFilter, currentPage, perPage],
+    queryFn: async () => {
       try {
-        setLoading(true);
-        const response = await axiosSecure.get("/admin/users");
-        setUsers(response.data);
+        const res = await axiosSecure.get(
+          `/admin/users?role=${roleFilter}&search=${search}&page=${currentPage}&limit=${perPage}`
+        );
+        console.log(res.data)
+        setCount(res?.data?.count);
+        return res.data?.result;
       } catch (error) {
-        console.error(error);
-      } finally {
-        setLoading(false);
+        throw new Error(
+          error.response?.data?.message || "Error fetching users"
+        );
       }
-    };
-    fetchUsers();
-  }, []);
+    },
+  });
 
   const handleRoleChange = async (userId, newRole) => {
     try {
-      console.log(userId, newRole);
-      const response = await axiosSecure.put("/admin/update-role", {
+      const res = await axiosSecure.put("/admin/update-role", {
         userId,
         newRole,
       });
-
+      refetch();
       Swal.fire({
         icon: "success",
         title: "Role Updated",
-        text: response.data.message,
+        text: res.data.message,
       });
-
-      setUsers(
-        users.map((user) =>
-          user._id === userId ? { ...user, role: newRole } : user
-        )
-      );
     } catch (error) {
       Swal.fire({
         icon: "error",
         title: "Error",
-        text: error.response.data.message,
+        text: error.response?.data?.message,
       });
     }
   };
 
+  if (error) return <ErrorPage message={error.message} />;
+
   return (
     <div className="w-11/12 mx-auto pt-20">
-      <h2 className="text-2xl font-bold mb-6">Manage Users</h2>
+      {/* Search & Sort UI */}
+      <div className="flex flex-wrap justify-between items-center mb-6 gap-4">
+        {/* Search */}
+        <input
+          type="text"
+          placeholder="Search by name or ID"
+          className="input input-bordered w-full md:w-1/3"
+          onChange={(e) => setSearch(e.target.value)}
+        />
 
-      {loading ? (
-        <div className="text-center">Loading...</div>
+        {/* Sort by role */}
+        <select
+          className="select select-bordered w-full md:w-1/4"
+          value={roleFilter}
+          onChange={(e) => setRoleFilter(e.target.value)}
+        >
+          <option value="">All Roles</option>
+          <option value="admin">Admin</option>
+          <option value="seller">Seller</option>
+          <option value="user">User</option>
+        </select>
+      </div>
+
+      {/* Table */}
+      {isLoading ? (
+        <Loader />
       ) : (
         <div className="overflow-x-auto">
-          <table className="table ">
-            {/* head */}
+          <h2 className="text-2xl font-bold mb-6">Manage Users</h2>
+          <table className="table">
             <thead>
               <tr>
                 <th>Profile</th>
@@ -71,18 +105,18 @@ const ManageUsers = () => {
               </tr>
             </thead>
             <tbody>
-              {users.map(({ _id, photoURL, name, role }) => (
+              {users?.map(({ _id, name, photoURL, role }) => (
                 <tr key={_id}>
                   <td>
                     <img
                       src={photoURL}
-                      alt="user profile"
+                      alt="profile"
                       className="w-10 h-10 rounded-full border"
                     />
                   </td>
                   <td>{name}</td>
                   <td>{role}</td>
-                  <td className="flex flex-wrap items-center gap-2">
+                  <td>
                     {role !== "admin" && (
                       <button
                         onClick={() => handleRoleChange(_id, "admin")}
@@ -91,19 +125,19 @@ const ManageUsers = () => {
                         Make Admin
                       </button>
                     )}
-                    </td>
-                    <td>
-                       {role !== "seller" && (
+                  </td>
+                  <td>
+                    {role !== "seller" && (
                       <button
                         onClick={() => handleRoleChange(_id, "seller")}
-                        className="btn sm btn-warning"
+                        className="btn btn-sm btn-warning"
                       >
                         Make Seller
                       </button>
                     )}
-                    </td>
-                    <td>
-                       {role !== "user" && (
+                  </td>
+                  <td>
+                    {role !== "user" && (
                       <button
                         onClick={() => handleRoleChange(_id, "user")}
                         className="btn btn-sm btn-accent text-white"
@@ -111,15 +145,46 @@ const ManageUsers = () => {
                         Downgrade
                       </button>
                     )}
-                    </td>
-                   
-                
+                  </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
       )}
+
+      {/* pagination */}
+      <div className="flex justify-center items-center my-10">
+        <button
+          className="btn mx-4"
+          disabled={currentPage === 0}
+          onClick={() => setCurrentPage((prev) => prev - 1)}
+        >
+          Prev
+        </button>
+        <ul className="flex gap-4">
+          {pageArray?.map((page) => {
+            return (
+              <li
+                key={page}
+                className={`btn bg-gray-200 ${
+                  currentPage === page ? "bg-primary text-white" : ""
+                }`}
+                onClick={() => setCurrentPage(page)}
+              >
+                {page + 1}
+              </li>
+            );
+          })}
+          <button
+            className="btn mx-4"
+            disabled={pageArray?.length - 1 === currentPage ? true : false}
+            onClick={() => setCurrentPage((prev) => prev + 1)}
+          >
+            Next
+          </button>
+        </ul>
+      </div>
     </div>
   );
 };
