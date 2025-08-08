@@ -6,13 +6,13 @@
 
 ## 🌐 Live Demo
 
-👉 [Visit MediHaat](https://medihaat.netlify.app/) *(Replace with your actual link)*
+👉 [Visit MediHaat](https://medihaat.netlify.app/) 
 
 ---
 
 ## 🧾 Description
 
-MediHaat is a feature-rich, role-based web application designed to streamline the online medicine shopping and selling experience. It supports multiple user roles: **User**, **Seller**, and **Admin** — each with their own dynamic dashboard and functionality.
+MediHaat is a feature-rich, role-based web application designed to streamline the online medicine shopping and selling experience. It supports multiple user roles: **User**, **Seller**, and **Admin** — each with their dynamic dashboard and functionality.
 
 ---
 
