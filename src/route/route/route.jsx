@@ -25,6 +25,7 @@ import ManageBanner from "../../page/AdminDashboardPage/ManageBanner/ManageBanne
 import MyOrders from "../../page/DashboardPage/UserDashboard/MyOrders/MyOrders";
 import PageNotFound from "../../page/PageNotFound/PageNotFound";
 import PrivateRoute from "../../page/PrivateRoute/PrivateRoute";
+import AboutPage from "../../page/AboutPage/AboutPage";
 
 const router = createBrowserRouter([
   {
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
         path: "/order-success",
         element: <PaymentSuccess />,
       },
+      {
+        path:'/about',
+        Component:AboutPage
+      }
     ],
   },
   // userlayout
