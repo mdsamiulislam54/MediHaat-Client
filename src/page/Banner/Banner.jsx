@@ -47,7 +47,7 @@ const Banner = () => {
     );
 
   return (
-    <div className="w-11/12 mx-auto my-2">
+    <div className="w-full mx-auto ">
       <Swiper
         loop={true}
         autoplay={{
@@ -59,11 +59,11 @@ const Banner = () => {
         pagination={{ clickable: true }}
         modules={[Autoplay, Pagination, Navigation]}
         onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-        className="rounded-xl overflow-hidden"
+        className=" overflow-hidden"
       >
         {data?.map((banner, index) => (
           <SwiperSlide key={index}>
-            <div className="relative w-full h-[250px] md:h-[600px]">
+            <div className="relative w-full h-[90vh]">
               <img
                 src={banner.image}
                 alt={banner.title}
@@ -81,10 +81,10 @@ const Banner = () => {
                     transition={{ duration: 0.8, ease: "easeIn" }}
                   >
                   
-                    <h2 className="text-xl md:text-6xl font-bold mb-2">
+                    <h2 className="text-2xl md:text-5xl font-bold tracking-wide mb-2">
                       {highlightPercentageText(banner.title)}
                     </h2>
-                    <p className="text-sm md:text-3xl mb-4">
+                    <p className="text-sm md:text-xl mb-4">
                       {banner.subTitle}
                     </p>
                     <Link href={banner.link || "/shop"} className="">
