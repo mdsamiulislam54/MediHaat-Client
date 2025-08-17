@@ -53,7 +53,7 @@ const testimonials = [
     id: 6,
     name: "Tanvir Alam",
     designation: "Customer",
-    image: "https://i.pravatar.cc/150?img=6",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLqLmx6atP8zfb8PC9C7AZGmKJgu5OahEEEA&s",
     review: "User-friendly site with useful filters. Fast support too!",
     rating: 4,
   },

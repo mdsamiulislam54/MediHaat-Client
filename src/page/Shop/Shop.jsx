@@ -61,6 +61,7 @@ const Shop = () => {
   };
 
   if (error) return <p className="text-center text-red-500">{error.message}</p>;
+  console.log(data)
   return (
     <div className="min-h-screen">
       <PageTitle title={'Shop'}/>
@@ -142,7 +143,7 @@ const Shop = () => {
                     >
                       <td>
                         <img
-                          src={medicine.imageURL}
+                          src={medicine.image}
                           alt={medicine.medicineName}
                           className="lg:w-[80px] w-[40px] h-auto rounded object-cover"
                         />

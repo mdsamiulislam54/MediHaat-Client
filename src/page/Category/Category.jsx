@@ -38,7 +38,7 @@ const Category = () => {
   if (error) return <ErrorPage message={error.message} />;
 
   return (
-    <div className="w-11/12 mx-auto py-8">
+    <div className="max-w-7xl mx-auto py-8">
       <h2 className="text-3xl font-bold mb-6 text-center">Shop by Category</h2>
       <Swiper
         spaceBetween={20}

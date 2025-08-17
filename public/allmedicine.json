@@ -1,0 +1,1941 @@
+[
+  {
+    "name": "Doxycycline 100mg",
+    "slug": "doxycycline-100mg",
+    "category": "Antibiotic",
+    "brand": "Pfizer",
+    "shortDescription": "Tetracycline antibiotic for acne, respiratory infections, and Lyme disease.",
+    "description": "Doxycycline is effective against a wide range of bacteria, protozoa, and spirochetes. Used for acne, respiratory infections, Lyme disease, malaria prophylaxis, and sexually transmitted infections. Inhibits protein synthesis. Take with food to reduce stomach upset, avoid dairy.",
+    "image": "https://www.imedix.com/wp-content/uploads/2024/03/Doxycycline-Hyclate-100mg.webp",
+    "price": 15.2,
+    "discountPrice": 13.5,
+    "stock": 350,
+    "sku": "DOXY-100-PF",
+    "tax": 5,
+    "status": "Active",
+    "isPrescription": true,
+    "dosageForm": "Capsule",
+    "strength": "100mg",
+    "expiryDate": "2024-12-31",
+    "metaTitle": "Doxycycline 100mg - Tetracycline Antibiotic",
+    "metaDescription": "Buy Doxycycline 100mg online. Effective for acne, respiratory infections, Lyme disease. Prescription required.",
+    "tags": ["antibiotic", "tetracycline", "acne", "respiratory", "lyme"],
+    "rating": 4.7,
+    "reviews": [],
+    "launchDate": "2025-03-01",
+    "productDetails": {
+      "indications": [
+        {"title": "Acne & Skin Infections", "description": "Treats moderate to severe acne and bacterial skin infections."},
+        {"title": "Respiratory Infections", "description": "Effective against pneumonia, bronchitis, sinusitis."},
+        {"title": "Lyme Disease & Malaria Prophylaxis", "description": "Prevents Lyme disease progression and malaria infection."}
+      ],
+      "dosageAdministration": [
+        {"userType": "Adult", "instruction": "100mg orally twice daily for 7-14 days. Take with food and water."},
+        {"userType": "Children", "instruction": "2mg/kg per dose orally twice daily. Consult pediatrician."},
+        {"userType": "Elderly", "instruction": "100mg once or twice daily. Monitor kidney and liver function."}
+      ],
+      "interaction": [
+        {"type": "Drug", "instruction": "Avoid combining with antacids or calcium supplements."},
+        {"type": "Food", "instruction": "Avoid dairy within 2 hours of dose; take with water."}
+      ],
+      "commonQuestions": [
+        {"question": "Can I take on empty stomach?", "answer": "Not recommended, may cause nausea. Take with food."},
+        {"question": "Missed dose?", "answer": "Take as soon as remembered. Do not double next dose."},
+        {"question": "Safe for children?", "answer": "Yes, at pediatric doses prescribed by doctor."},
+        {"question": "Side effects?", "answer": "Nausea, photosensitivity, stomach upset possible."},
+        {"question": "Alcohol allowed?", "answer": "Avoid alcohol during therapy."},
+        {"question": "Complete full course?", "answer": "Yes, to prevent bacterial resistance."}
+      ]
+    }
+  },
+  {
+    "name": "Levofloxacin 500mg",
+    "slug": "levofloxacin-500mg",
+    "category": "Antibiotic",
+    "brand": "Janssen",
+    "shortDescription": "Fluoroquinolone antibiotic for pneumonia and urinary tract infections.",
+    "description": "Levofloxacin treats pneumonia, sinusitis, prostatitis, skin infections, and urinary tract infections. Works by inhibiting bacterial DNA gyrase. Monitor for tendon rupture, nerve damage, and heart rhythm changes.",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6X2kCReW8U6Rx8GLVYPv133-Lb1U7Ad1aHw&s",
+    "price": 25.99,
+    "discountPrice": 23.5,
+    "stock": 150,
+    "sku": "LEVO-500-JN",
+    "tax": 5,
+    "status": "Active",
+    "isPrescription": true,
+    "dosageForm": "Tablet",
+    "strength": "500mg",
+    "expiryDate": "2025-04-30",
+    "metaTitle": "Levofloxacin 500mg - Fluoroquinolone Antibiotic",
+    "metaDescription": "Levofloxacin 500mg for pneumonia, UTIs, skin infections. Prescription required.",
+    "tags": ["antibiotic", "fluoroquinolone", "pneumonia", "uti", "skin infection"],
+    "rating": 4.5,
+    "reviews": [],
+    "launchDate": "2025-04-01",
+    "productDetails": {
+      "indications": [
+        {"title": "Respiratory Infections", "description": "Effective against pneumonia, bronchitis, and sinusitis."},
+        {"title": "UTIs", "description": "Treats complicated and uncomplicated urinary tract infections."},
+        {"title": "Skin & Soft Tissue Infections", "description": "Treats cellulitis, abscess, and wound infections."}
+      ],
+      "dosageAdministration": [
+        {"userType": "Adult", "instruction": "500mg orally once daily for 7-14 days."},
+        {"userType": "Elderly", "instruction": "500mg orally once daily. Monitor renal function."}
+      ],
+      "interaction": [
+        {"type": "Drug", "instruction": "Avoid NSAIDs and corticosteroids."},
+        {"type": "Food", "instruction": "Take with water; avoid dairy within 2 hours."}
+      ],
+      "commonQuestions": [
+        {"question": "Can I take with food?", "answer": "Yes, food does not affect absorption."},
+        {"question": "Missed dose?", "answer": "Take immediately; do not double dose."},
+        {"question": "Side effects?", "answer": "Nausea, dizziness, tendon rupture possible."},
+        {"question": "Alcohol allowed?", "answer": "Limit alcohol consumption."},
+        {"question": "Pregnant or breastfeeding?", "answer": "Consult doctor before use."},
+        {"question": "Complete full course?", "answer": "Yes, to prevent resistance."}
+      ]
+    }
+  },
+  {
+    "name": "Amoxicillin 500mg",
+    "slug": "amoxicillin-500mg",
+    "category": "Antibiotic",
+    "brand": "GlaxoSmithKline",
+    "shortDescription": "Penicillin antibiotic for respiratory and ear infections.",
+    "description": "Amoxicillin treats pneumonia, bronchitis, otitis media, and skin infections. Works by inhibiting bacterial cell wall synthesis. Safe for children and adults.",
+    "image": "https://wellonapharma.com/admincms/product_img/product_resize_img/amoxicillin-tablets_1732540129.jpg",
+    "price": 12.5,
+    "discountPrice": 11.0,
+    "stock": 500,
+    "sku": "AMOX-500-GSK",
+    "tax": 5,
+    "status": "Active",
+    "isPrescription": true,
+    "dosageForm": "Capsule",
+    "strength": "500mg",
+    "expiryDate": "2025-01-31",
+    "metaTitle": "Amoxicillin 500mg - Penicillin Antibiotic",
+    "metaDescription": "Buy Amoxicillin 500mg online. Treats respiratory and ear infections. Prescription required.",
+    "tags": ["antibiotic", "penicillin", "respiratory", "ear infection", "skin infection"],
+    "rating": 4.6,
+    "reviews": [],
+    "launchDate": "2025-02-01",
+    "productDetails": {
+      "indications": [
+        {"title": "Respiratory Infections", "description": "Treats pneumonia, bronchitis, and sinusitis."},
+        {"title": "Ear Infections", "description": "Effective for otitis media and inner ear infections."},
+        {"title": "Skin Infections", "description": "Treats cellulitis and minor wound infections."}
+      ],
+      "dosageAdministration": [
+        {"userType": "Adult", "instruction": "500mg orally every 8 hours for 7-10 days."},
+        {"userType": "Children", "instruction": "25mg/kg/day divided into 3 doses orally."}
+      ],
+      "interaction": [
+        {"type": "Drug", "instruction": "Avoid combining with bacteriostatic antibiotics."},
+        {"type": "Food", "instruction": "Can be taken with or without food."}
+      ],
+      "commonQuestions": [
+        {"question": "Can I take with food?", "answer": "Yes, food does not affect absorption."},
+        {"question": "Missed dose?", "answer": "Take as soon as remembered."},
+        {"question": "Side effects?", "answer": "Rash, nausea, diarrhea possible."},
+        {"question": "Pregnant or breastfeeding?", "answer": "Consult doctor."},
+        {"question": "Alcohol allowed?", "answer": "Limit alcohol consumption."},
+        {"question": "Complete full course?", "answer": "Yes, important for resistance prevention."}
+      ]
+    }
+  },
+  {
+    "name": "Ciprofloxacin 250mg",
+    "slug": "ciprofloxacin-250mg",
+    "category": "Antibiotic",
+    "brand": "Bayer",
+    "shortDescription": "Fluoroquinolone antibiotic for urinary tract infections and GI infections.",
+    "description": "Ciprofloxacin is used to treat UTIs, gastrointestinal infections, and respiratory infections. Inhibits bacterial DNA replication. Monitor tendon health.",
+    "image": "https://epharma.com.bd/storage/app/public/WzjsWEopOi9xTlYNI5TIp68Hc7vbbg2f9BX6X2iR.webp",
+    "price": 18.0,
+    "discountPrice": 16.5,
+    "stock": 200,
+    "sku": "CIPRO-250-BY",
+    "tax": 5,
+    "status": "Active",
+    "isPrescription": true,
+    "dosageForm": "Tablet",
+    "strength": "250mg",
+    "expiryDate": "2025-03-31",
+    "metaTitle": "Ciprofloxacin 250mg - Fluoroquinolone Antibiotic",
+    "metaDescription": "Ciprofloxacin 250mg for UTIs and GI infections. Prescription required.",
+    "tags": ["antibiotic", "fluoroquinolone", "UTI", "GI", "infection"],
+    "rating": 4.4,
+    "reviews": [],
+    "launchDate": "2025-03-01",
+    "productDetails": {
+      "indications": [
+        {"title": "UTIs", "description": "Treats complicated and uncomplicated urinary tract infections."},
+        {"title": "GI Infections", "description": "Effective for bacterial diarrhea and gastroenteritis."},
+        {"title": "Respiratory Infections", "description": "Treats pneumonia and bronchitis."}
+      ],
+      "dosageAdministration": [
+        {"userType": "Adult", "instruction": "250mg orally twice daily for 7-14 days."},
+        {"userType": "Elderly", "instruction": "250mg once or twice daily, monitor kidney function."}
+      ],
+      "interaction": [
+        {"type": "Drug", "instruction": "Avoid NSAIDs, antacids, and corticosteroids."},
+        {"type": "Food", "instruction": "Take with water; avoid dairy within 2 hours."}
+      ],
+      "commonQuestions": [
+        {"question": "Can I take with food?", "answer": "Yes, water or light meal recommended."},
+        {"question": "Missed dose?", "answer": "Take as soon as possible; do not double dose."},
+        {"question": "Side effects?", "answer": "Nausea, diarrhea, dizziness possible."},
+        {"question": "Alcohol allowed?", "answer": "Limit alcohol during treatment."},
+        {"question": "Pregnant or breastfeeding?", "answer": "Consult doctor before use."},
+        {"question": "Complete full course?", "answer": "Yes, to avoid resistance."}
+      ]
+    }
+  },
+  {
+    "name": "Azithromycin 250mg",
+    "slug": "azithromycin-250mg",
+    "category": "Antibiotic",
+    "brand": "Pfizer",
+    "shortDescription": "Macrolide antibiotic for respiratory and skin infections.",
+    "description": "Azithromycin treats respiratory tract infections, skin infections, and sexually transmitted infections. Inhibits bacterial protein synthesis. Once-daily dosing preferred.",
+    "image": "https://medex.com.bd/storage/images/packaging/azithrocin-250-mg-tablet-81101901493-i1-MUCDIs5YQCJDYOEZTcMk.jpg",
+    "price": 20.0,
+    "discountPrice": 18.5,
+    "stock": 180,
+    "sku": "AZI-250-PF",
+    "tax": 5,
+    "status": "Active",
+    "isPrescription": true,
+    "dosageForm": "Tablet",
+    "strength": "250mg",
+    "expiryDate": "2025-05-31",
+    "metaTitle": "Azithromycin 250mg - Macrolide Antibiotic",
+    "metaDescription": "Buy Azithromycin 250mg online for respiratory and skin infections. Prescription required.",
+    "tags": ["antibiotic", "macrolide", "respiratory", "skin infection", "STI"],
+    "rating": 4.6,
+    "reviews": [],
+    "launchDate": "2025-05-01",
+    "productDetails": {
+      "indications": [
+        {"title": "Respiratory Infections", "description": "Effective for pneumonia, bronchitis, sinusitis."},
+        {"title": "Skin Infections", "description": "Treats cellulitis and minor wound infections."},
+        {"title": "Sexually Transmitted Infections", "description": "Effective against chlamydia and gonorrhea."}
+      ],
+      "dosageAdministration": [
+        {"userType": "Adult", "instruction": "250mg orally once daily for 5 days."},
+        {"userType": "Children", "instruction": "10mg/kg once daily for 3-5 days. Consult pediatrician."}
+      ],
+      "interaction": [
+        {"type": "Drug", "instruction": "Avoid antacids or aluminum/magnesium supplements."},
+        {"type": "Food", "instruction": "Can take with or without food."}
+      ],
+      "commonQuestions": [
+        {"question": "Can I take with food?", "answer": "Yes, absorption not affected."},
+        {"question": "Missed dose?", "answer": "Take as soon as remembered."},
+        {"question": "Side effects?", "answer": "Diarrhea, nausea, mild rash possible."},
+        {"question": "Alcohol allowed?", "answer": "Limit alcohol during treatment."},
+        {"question": "Pregnant or breastfeeding?", "answer": "Consult doctor."},
+        {"question": "Complete full course?", "answer": "Yes, essential to prevent resistance."}
+      ]
+    }
+  },
+  
+  {
+    "name": "Wee Baby Baby Lotion 200ml",
+    "slug": "wee-baby-lotion-200ml",
+    "category": "Baby Care",
+    "brand": "Wee Baby",
+    "shortDescription": "Moisturizes and protects baby's delicate skin.",
+    "description": "Gentle lotion designed to moisturize and protect your baby's delicate skin. Suitable for daily use.",
+    "image": "https://om.kynobaby.com/wp-content/uploads/2025/02/6260156004213-1.jpg",
+    "price": 1800,
+    "discountPrice": 1650,
+    "stock": 500,
+    "sku": "WB-L200",
+    "tax": 5,
+    "status": "Active",
+    "isPrescription": false,
+    "dosageForm": "Lotion",
+    "strength": "200ml",
+    "expiryDate": "2026-12-31",
+    "metaTitle": "Wee Baby Baby Lotion 200ml - Baby Skin Care",
+    "metaDescription": "Buy Wee Baby Baby Lotion 200ml online. Gentle and moisturizing for baby's delicate skin.",
+    "tags": ["baby care", "lotion", "moisturizer", "skincare", "sensitive skin"],
+    "rating": 4.8,
+    "reviews": [],
+    "launchDate": "2025-01-01",
+    "productDetails": {
+      "indications": [
+        {"title": "Daily Moisturizing", "description": "Keeps baby's skin soft and hydrated every day."},
+        {"title": "Sensitive Skin Protection", "description": "Protects delicate skin from dryness and irritation."}
+      ],
+      "dosageAdministration": [
+        {"userType": "Baby", "instruction": "Apply a small amount on clean skin twice daily or as needed."}
+      ],
+      "interaction": [],
+      "commonQuestions": [
+        {"question": "Can I use on newborns?", "answer": "Yes, suitable for newborns."},
+        {"question": "How often should I apply?", "answer": "Twice daily or as needed."},
+        {"question": "Is it fragrance-free?", "answer": "Yes, gentle and safe."},
+        {"question": "Any side effects?", "answer": "No major side effects reported."},
+        {"question": "Can it be used on face?", "answer": "Yes, safe for face and body."}
+      ]
+    }
+  },
+  {
+    "name": "Wee Baby Natural Protective Baby Spray 100ml",
+    "slug": "wee-baby-protective-spray-100ml",
+    "category": "Baby Care",
+    "brand": "Wee Baby",
+    "shortDescription": "Natural protection for sensitive baby skin.",
+    "description": "Baby spray with natural ingredients, providing protection and soothing sensitive skin.",
+    "image": "https://www.elryan.com/img/600/600/resize/catalog/product/6/7/67fb70a73f29b8002022cc180899852-96959.jpg",
+    "price": 2340,
+    "discountPrice": 2200,
+    "stock": 300,
+    "sku": "WB-S100",
+    "tax": 5,
+    "status": "Active",
+    "isPrescription": false,
+    "dosageForm": "Spray",
+    "strength": "100ml",
+    "expiryDate": "2026-11-30",
+    "metaTitle": "Wee Baby Protective Baby Spray 100ml",
+    "metaDescription": "Natural protective spray for sensitive baby skin. Soothing and safe for daily use.",
+    "tags": ["baby care", "spray", "natural", "protective", "sensitive skin"],
+    "rating": 4.7,
+    "reviews": [],
+    "launchDate": "2025-02-15",
+    "productDetails": {
+      "indications": [
+        {"title": "Skin Protection", "description": "Soothes and protects delicate baby skin from irritation."},
+        {"title": "All-Day Comfort", "description": "Maintains skin comfort throughout the day."}
+      ],
+      "dosageAdministration": [
+        {"userType": "Baby", "instruction": "Spray lightly on baby’s skin 2-3 times a day."}
+      ],
+      "interaction": [],
+      "commonQuestions": [
+        {"question": "Is it safe for newborns?", "answer": "Yes, formulated for sensitive skin."},
+        {"question": "How many sprays per day?", "answer": "2-3 sprays per day."},
+        {"question": "Can it be used on face?", "answer": "Yes, safe for face and body."},
+        {"question": "Does it contain alcohol?", "answer": "No, alcohol-free."},
+        {"question": "Any fragrance?", "answer": "Mild, baby-safe fragrance."}
+      ]
+    }
+  },
+  {
+    "name": "Wee Baby Organic Certified Rash Cream 75ml",
+    "slug": "wee-baby-rash-cream-75ml",
+    "category": "Baby Care",
+    "brand": "Wee Baby",
+    "shortDescription": "Organic cream to soothe diaper rashes.",
+    "description": "Certified organic rash cream, effective for soothing and preventing diaper rashes in babies.",
+    "image": "https://anayase.com/_next/image?url=https%3A%2F%2Fapi.anayase.com%2Fproductimages%2F1748080335654_WEE%20BABY%20ORGANIC%20CERTIFIED%20RASH%20CREAM%2075%20ML.webp&w=3840&q=75",
+    "price": 1800,
+    "discountPrice": 1650,
+    "stock": 400,
+    "sku": "WB-RC75",
+    "tax": 5,
+    "status": "Active",
+    "isPrescription": false,
+    "dosageForm": "Cream",
+    "strength": "75ml",
+    "expiryDate": "2026-09-30",
+    "metaTitle": "Wee Baby Organic Rash Cream 75ml",
+    "metaDescription": "Soothes and protects baby skin from diaper rashes. Certified organic.",
+    "tags": ["baby care", "rash cream", "organic", "diaper rash", "skincare"],
+    "rating": 4.9,
+    "reviews": [],
+    "launchDate": "2025-03-20",
+    "productDetails": {
+      "indications": [
+        {"title": "Diaper Rash", "description": "Prevents and treats diaper rash."},
+        {"title": "Skin Soothing", "description": "Soothes irritated skin effectively."}
+      ],
+      "dosageAdministration": [
+        {"userType": "Baby", "instruction": "Apply a thin layer on affected area 2-3 times daily."}
+      ],
+      "interaction": [],
+      "commonQuestions": [
+        {"question": "Can I use daily?", "answer": "Yes, safe for daily use."},
+        {"question": "Is it organic?", "answer": "Yes, certified organic."},
+        {"question": "Any side effects?", "answer": "No major side effects."},
+        {"question": "Can it be used on newborns?", "answer": "Yes, suitable for newborns."},
+        {"question": "Can I use under diaper?", "answer": "Yes, perfectly safe."}
+      ]
+    }
+  },
+  {
+    "name": "Wee Baby Sunscreen Cream 75ml",
+    "slug": "wee-baby-sunscreen-75ml",
+    "category": "Baby Care",
+    "brand": "Wee Baby",
+    "shortDescription": "Gentle sun protection for babies.",
+    "description": "Provides gentle sun protection for sensitive baby skin. SPF suitable for outdoor use.",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkvITtSzNG8lmxHv7z1pfx952HSCC9DkWIfQ&s",
+    "price": 2880,
+    "discountPrice": 2600,
+    "stock": 350,
+    "sku": "WB-SC75",
+    "tax": 5,
+    "status": "Active",
+    "isPrescription": false,
+    "dosageForm": "Cream",
+    "strength": "75ml",
+    "expiryDate": "2026-08-31",
+    "metaTitle": "Wee Baby Sunscreen Cream 75ml",
+    "metaDescription": "Protect baby's sensitive skin from sun. Gentle SPF cream.",
+    "tags": ["baby care", "sunscreen", "spf", "sun protection", "sensitive skin"],
+    "rating": 4.8,
+    "reviews": [],
+    "launchDate": "2025-04-01",
+    "productDetails": {
+      "indications": [
+        {"title": "Sun Protection", "description": "Protects baby's skin from harmful UV rays."},
+        {"title": "Outdoor Use", "description": "Ideal for playtime and outdoor activities."}
+      ],
+      "dosageAdministration": [
+        {"userType": "Baby", "instruction": "Apply evenly on exposed skin before sun exposure."}
+      ],
+      "interaction": [],
+      "commonQuestions": [
+        {"question": "Safe for newborns?", "answer": "Yes, for babies 6 months and older."},
+        {"question": "Reapply?", "answer": "Every 2-3 hours during sun exposure."},
+        {"question": "Waterproof?", "answer": "Lightly water-resistant."},
+        {"question": "Any fragrance?", "answer": "Mild and baby-safe."},
+        {"question": "Can be used daily?", "answer": "Yes, safe for daily use."}
+      ]
+    }
+  },
+  {
+    "name": "Wee Baby Baby Hair & Body Shampoo 500ml",
+    "slug": "wee-baby-shampoo-500ml",
+    "category": "Baby Care",
+    "brand": "Wee Baby",
+    "shortDescription": "Mild shampoo for hair and body.",
+    "description": "Gentle shampoo suitable for both hair and body, ensures cleanliness without irritation.",
+    "image": "https://m.media-amazon.com/images/I/51ffTTRKUYL.jpg",
+    "price": 1935,
+    "discountPrice": 1800,
+    "stock": 450,
+    "sku": "WB-HB500",
+    "tax": 5,
+    "status": "Active",
+    "isPrescription": false,
+    "dosageForm": "Shampoo",
+    "strength": "500ml",
+    "expiryDate": "2026-07-31",
+    "metaTitle": "Wee Baby Hair & Body Shampoo 500ml",
+    "metaDescription": "Mild shampoo for baby’s hair and body. Gentle and safe.",
+    "tags": ["baby care", "shampoo", "hair care", "body care", "gentle"],
+    "rating": 4.7,
+    "reviews": [],
+    "launchDate": "2025-05-01",
+    "productDetails": {
+      "indications": [
+        {"title": "Hair & Body Cleaning", "description": "Cleans hair and body gently without irritation."},
+        {"title": "Mild Formula", "description": "Safe for daily use and sensitive skin."}
+      ],
+      "dosageAdministration": [
+        {"userType": "Baby", "instruction": "Apply small amount, lather and rinse thoroughly."}
+      ],
+      "interaction": [],
+      "commonQuestions": [
+        {"question": "Can it be used on newborns?", "answer": "Yes, suitable for newborns."},
+        {"question": "Frequency?", "answer": "Daily or as needed."},
+        {"question": "Tear-free?", "answer": "Yes, gentle on eyes."},
+        {"question": "Fragrance?", "answer": "Mild, baby-safe fragrance."},
+        {"question": "Safe for scalp?", "answer": "Yes, dermatologically tested."}
+      ]
+    }
+  },
+
+  {
+    "name": "Femina Multivitamin Tablets",
+    "slug": "femina-multivitamin-tablets",
+    "category": "Women's Health",
+    "brand": "Femina",
+    "shortDescription": "Daily multivitamin for overall women’s wellness.",
+    "description": "Supports immunity, energy, and daily health. Contains essential vitamins and minerals.",
+    "image": "https://esbamaxestore.com/cdn/shop/files/5450ROC507W.png?v=1695226283",
+    "price": 450,
+    "discountPrice": 400,
+    "stock": 300,
+    "sku": "FEM-VIT-30",
+    "tax": 5,
+    "status": "Active",
+    "isPrescription": false,
+    "dosageForm": "Tablet",
+    "strength": "30 Tablets",
+    "expiryDate": "2026-12-31",
+    "metaTitle": "Femina Multivitamin Tablets - Women's Health",
+    "metaDescription": "Boost immunity, energy, and overall wellness.",
+    "tags": ["women", "vitamin", "immunity", "energy", "wellness"],
+    "rating": 4.7,
+    "reviews": [],
+    "launchDate": "2025-01-10",
+    
+    "productDetails": {
+      "indications": [
+        {"title": "Daily Nutrition", "description": "Provides essential vitamins and minerals."},
+        {"title": "Immunity Support", "description": "Boosts immune system strength."}
+      ],
+      "dosageAdministration": [
+        {"userType": "Adult", "instruction": "Take 1 tablet daily after meal."}
+      ],
+      "interaction": [
+        {"type": "Drug", "instruction": "Avoid other multivitamins at the same time."}
+      ],
+      "commonQuestions": [
+        {"question": "Can I take during pregnancy?", "answer": "Consult doctor before use."},
+        {"question": "Safe for lactating mothers?", "answer": "Yes, but consult physician."},
+        {"question": "Side effects?", "answer": "Mild digestive discomfort possible."},
+        {"question": "Duration for results?", "answer": "4-6 weeks for noticeable effects."},
+        {"question": "Can I take on empty stomach?", "answer": "Recommended after meals."}
+      ]
+    }
+  },
+  {
+    "name": "LadyCare Iron + Folic Acid Tablets",
+    "slug": "ladycare-iron-folic-acid-tablets",
+    "category": "Women's Health",
+    "brand": "LadyCare",
+    "shortDescription": "Prevents anemia and supports prenatal health.",
+    "description": "Rich in iron and folic acid. Supports women’s reproductive health and prevents anemia.",
+    "image": "https://m.media-amazon.com/images/I/61eT6ddMr-L._UF350,350_QL50_.jpg",
+    "price": 350,
+    "discountPrice": 320,
+    "stock": 250,
+    "sku": "LC-IFA-30",
+    "tax": 5,
+    "status": "Active",
+    "isPrescription": true,
+    "dosageForm": "Tablet",
+    "strength": "30 Tablets",
+    "expiryDate": "2026-11-30",
+    "metaTitle": "LadyCare Iron & Folic Acid - Women's Health",
+    "metaDescription": "Prevent anemia, support prenatal health.",
+    "tags": ["iron", "folic acid", "women", "anemia", "prenatal"],
+    "rating": 4.8,
+    "reviews": [],
+    "launchDate": "2025-02-01",
+    
+    "productDetails": {
+      "indications": [
+        {"title": "Prevent Anemia", "description": "Maintains healthy hemoglobin levels."},
+        {"title": "Prenatal Support", "description": "Supports fetal development."}
+      ],
+      "dosageAdministration": [
+        {"userType": "Adult", "instruction": "Take 1 tablet daily after meal."}
+      ],
+      "interaction": [
+        {"type": "Drug", "instruction": "Avoid antacids within 2 hours of dose."}
+      ],
+      "commonQuestions": [
+        {"question": "Can I take during pregnancy?", "answer": "Yes, recommended."},
+        {"question": "Side effects?", "answer": "Mild constipation possible."},
+        {"question": "How long to see results?", "answer": "Hemoglobin improves in 3-4 weeks."},
+        {"question": "Can I take with multivitamins?", "answer": "Check for overlapping iron content."},
+        {"question": "Prescription needed?", "answer": "Yes, consult doctor."}
+      ]
+    }
+  },
+  {
+    "name": "Herbal Fem Care Capsules",
+    "slug": "herbal-fem-care-capsules",
+    "category": "Women's Health",
+    "brand": "HerbalLife",
+    "shortDescription": "Supports menstrual health and hormonal balance.",
+    "description": "Relieves menstrual discomfort, regulates cycles, and maintains hormonal balance.",
+    "image": "https://store.wintrustltd.com/wp-content/uploads/2022/11/w10.jpg",
+    "price": 550,
+    "discountPrice": 500,
+    "stock": 200,
+    "sku": "HF-CARE-30",
+    "tax": 5,
+    "status": "Active",
+    "isPrescription": false,
+    "dosageForm": "Capsule",
+    "strength": "30 Capsules",
+    "expiryDate": "2026-10-31",
+    "metaTitle": "Herbal Fem Care Capsules - Menstrual Health",
+    "metaDescription": "Relieves menstrual discomfort and balances hormones.",
+    "tags": ["herbal", "menstrual", "women", "hormonal balance", "discomfort"],
+    "rating": 4.6,
+    "reviews": [],
+    "launchDate": "2025-03-10",
+    
+    "productDetails": {
+      "indications": [
+        {"title": "Menstrual Discomfort", "description": "Reduces cramps and pain."},
+        {"title": "Hormonal Balance", "description": "Helps regulate menstrual cycles."}
+      ],
+      "dosageAdministration": [
+        {"userType": "Adult", "instruction": "Take 1 capsule daily during meals."}
+      ],
+      "interaction": [],
+      "commonQuestions": [
+        {"question": "Safe for all ages?", "answer": "Suitable for women above 18."},
+        {"question": "Any side effects?", "answer": "No major side effects reported."},
+        {"question": "Can I take during pregnancy?", "answer": "Consult doctor."},
+        {"question": "Duration of use?", "answer": "Use daily for at least 3 months."},
+        {"question": "Can I take with other supplements?", "answer": "Yes, generally safe."}
+      ]
+    }
+  },
+
+  
+  {
+    "name": "Menovita Calcium + Vitamin D Tablets",
+    "slug": "menovita-calcium-vitamin-d-tablets",
+    "category": "Women's Health",
+    "brand": "Menovita",
+    "shortDescription": "Strengthens bones and supports overall bone health.",
+    "description": "Provides essential calcium and vitamin D to prevent osteoporosis, maintain bone density, and support muscle function.",
+    "image": "https://i.ebayimg.com/images/g/M40AAeSwgjxoNE9P/s-l400.jpg",
+    "price": 500,
+    "discountPrice": 450,
+    "stock": 320,
+    "sku": "MV-CALD-30",
+    "tax": 5,
+    "status": "Active",
+    "isPrescription": false,
+    "dosageForm": "Tablet",
+    "strength": "30 Tablets",
+    "expiryDate": "2026-08-31",
+    "metaTitle": "Menovita Calcium + Vitamin D - Women's Health",
+    "metaDescription": "Maintain strong bones and prevent osteoporosis.",
+    "tags": ["calcium", "vitamin D", "bone health", "women", "osteoporosis"],
+    "rating": 4.6,
+    "reviews": [],
+    "launchDate": "2025-04-01",
+   
+    "productDetails": {
+      "indications": [
+        {"title": "Bone Health", "description": "Prevents bone density loss."},
+        {"title": "Muscle Function", "description": "Supports proper muscle activity."}
+      ],
+      "dosageAdministration": [
+        {"userType": "Adult", "instruction": "Take 1 tablet daily after meal."}
+      ],
+      "interaction": [],
+      "commonQuestions": [
+        {"question": "Can I take with iron supplements?", "answer": "Yes, but at different times."},
+        {"question": "Any side effects?", "answer": "Mild constipation may occur."},
+        {"question": "Duration for results?", "answer": "3 months for improved bone strength."},
+        {"question": "Safe for pregnant women?", "answer": "Yes, consult doctor for dosage."},
+        {"question": "Can I take on empty stomach?", "answer": "Take after meal for best absorption."}
+      ]
+    }
+  },
+  {
+    "name": "PhytoBalance Hormone Support Capsules",
+    "slug": "phytobalance-hormone-support-capsules",
+    "category": "Women's Health",
+    "brand": "PhytoLife",
+    "shortDescription": "Balances female hormones and reduces PMS symptoms.",
+    "description": "Contains natural plant extracts that help regulate menstrual cycles, relieve PMS, and support hormonal balance.",
+    "image": "https://i5.walmartimages.com/asr/cc2abbaf-24b2-436c-96fa-e4aea7b6eacc.750005a7ef5615900f7d68e92a4e6381.jpeg",
+    "price": 600,
+    "discountPrice": 550,
+    "stock": 270,
+    "sku": "PB-HORM-30",
+    "tax": 5,
+    "status": "Active",
+    "isPrescription": false,
+    "dosageForm": "Capsule",
+    "strength": "30 Capsules",
+    "expiryDate": "2026-07-31",
+    "metaTitle": "PhytoBalance Hormone Support - Women's Health",
+    "metaDescription": "Supports hormonal balance and reduces PMS discomfort.",
+    "tags": ["hormone", "PMS", "women", "herbal", "balance"],
+    "rating": 4.7,
+    "reviews": [],
+    "launchDate": "2025-04-15",
+    
+    "productDetails": {
+      "indications": [
+        {"title": "PMS Relief", "description": "Reduces mood swings and cramps."},
+        {"title": "Hormonal Balance", "description": "Regulates menstrual cycles."}
+      ],
+      "dosageAdministration": [
+        {"userType": "Adult", "instruction": "Take 1 capsule twice daily after meals."}
+      ],
+      "interaction": [],
+      "commonQuestions": [
+        {"question": "Safe for teenagers?", "answer": "Suitable for women above 18."},
+        {"question": "Any side effects?", "answer": "No major side effects reported."},
+        {"question": "Can I take during pregnancy?", "answer": "Not recommended."},
+        {"question": "Duration of use?", "answer": "3-6 months for best results."},
+        {"question": "Can I take with other supplements?", "answer": "Yes, generally safe."}
+      ]
+    }
+  },
+  {
+    "name": "OvaCare Probiotic for Women",
+    "slug": "ovacare-probiotic-for-women",
+    "category": "Women's Health",
+    "brand": "OvaCare",
+    "shortDescription": "Maintains vaginal and gut health for women.",
+    "description": "Contains beneficial bacteria to support vaginal microbiome, digestion, and immunity.",
+    "image": "https://www.goodlife.co.ke/wp-content/smush-webp/2022/07/Ovacare.jpg.webp",
+    "price": 700,
+    "discountPrice": 650,
+    "stock": 260,
+    "sku": "OC-PRO-30",
+    "tax": 5,
+    "status": "Active",
+    "isPrescription": false,
+    "dosageForm": "Capsule",
+    "strength": "30 Capsules",
+    "expiryDate": "2026-06-30",
+    "metaTitle": "OvaCare Probiotic - Women's Health",
+    "metaDescription": "Supports gut and vaginal health, improves immunity.",
+    "tags": ["probiotic", "women", "vaginal health", "gut", "immunity"],
+    "rating": 4.8,
+    "reviews": [],
+    "launchDate": "2025-05-01",
+    
+    "productDetails": {
+      "indications": [
+        {"title": "Vaginal Health", "description": "Maintains healthy vaginal flora."},
+        {"title": "Digestive Health", "description": "Supports gut microbiome balance."}
+      ],
+      "dosageAdministration": [
+        {"userType": "Adult", "instruction": "Take 1 capsule daily after meal."}
+      ],
+      "interaction": [],
+      "commonQuestions": [
+        {"question": "Can I take during pregnancy?", "answer": "Consult doctor before use."},
+        {"question": "Safe for all adult women?", "answer": "Yes."},
+        {"question": "Duration for results?", "answer": "4 weeks for noticeable benefits."},
+        {"question": "Any side effects?", "answer": "Generally safe, mild bloating possible."},
+        {"question": "Can I take with antibiotics?", "answer": "Take at different times, 2 hours apart."}
+      ]
+    }
+  },
+  {
+    "name": "WomEase Herbal Menstrual Relief",
+    "slug": "womease-herbal-menstrual-relief",
+    "category": "Women's Health",
+    "brand": "HerbalLife",
+    "shortDescription": "Relieves menstrual cramps naturally.",
+    "description": "Herbal capsules containing extracts like ginger, chamomile, and cinnamon to reduce cramps and discomfort.",
+    "image": "https://www.gaiaherbs.com/cdn/shop/files/Gaia-Herbs-Period-Cramp-Relief_LAA91060_101_PDP_HR.png?v=1701885119",
+    "price": 500,
+    "discountPrice": 450,
+    "stock": 240,
+    "sku": "WE-MEN-30",
+    "tax": 5,
+    "status": "Active",
+    "isPrescription": false,
+    "dosageForm": "Capsule",
+    "strength": "30 Capsules",
+    "expiryDate": "2026-05-31",
+    "metaTitle": "WomEase Herbal Menstrual Relief",
+    "metaDescription": "Natural relief from menstrual cramps.",
+    "tags": ["herbal", "menstrual", "women", "cramps", "pain relief"],
+    "rating": 4.6,
+    "reviews": [],
+    "launchDate": "2025-05-15",
+    
+    "productDetails": {
+      "indications": [
+        {"title": "Menstrual Cramp Relief", "description": "Reduces pain and discomfort during periods."},
+        {"title": "Natural Ingredients", "description": "No chemical additives, herbal extracts used."}
+      ],
+      "dosageAdministration": [
+        {"userType": "Adult", "instruction": "Take 1-2 capsules daily during period."}
+      ],
+      "interaction": [],
+      "commonQuestions": [
+        {"question": "Can I take outside period?", "answer": "Yes, safe for daily use."},
+        {"question": "Any side effects?", "answer": "No major side effects."},
+        {"question": "Duration for relief?", "answer": "Within first 2-3 hours of taking capsule."},
+        {"question": "Safe with other supplements?", "answer": "Yes."},
+        {"question": "Can teenagers use?", "answer": "Yes, above 15 years old."}
+      ]
+    }
+  },
+  {
+    "name": "LactaMom Breastfeeding Support Capsules",
+    "slug": "lactamom-breastfeeding-support-capsules",
+    "category": "Women's Health",
+    "brand": "LactaMom",
+    "shortDescription": "Enhances milk production and maternal nutrition.",
+    "description": "Supports lactating mothers with herbal ingredients to boost milk supply and overall wellness.",
+    "image": "https://m.media-amazon.com/images/I/712VOvwi48L._UF1000,1000_QL80_.jpg",
+    "price": 600,
+    "discountPrice": 550,
+    "stock": 260,
+    "sku": "LM-BF-30",
+    "tax": 5,
+    "status": "Active",
+    "isPrescription": false,
+    "dosageForm": "Capsule",
+    "strength": "30 Capsules",
+    "expiryDate": "2026-04-30",
+    "metaTitle": "LactaMom Breastfeeding Support - Women's Health",
+    "metaDescription": "Boosts milk production and maternal health.",
+    "tags": ["breastfeeding", "milk supply", "lactation", "herbal", "women"],
+    "rating": 4.7,
+    "reviews": [],
+    "launchDate": "2025-06-01",
+   
+    "productDetails": {
+      "indications": [
+        {"title": "Lactation Support", "description": "Boosts milk production."},
+        {"title": "Maternal Nutrition", "description": "Supports mother's overall health."}
+      ],
+      "dosageAdministration": [
+        {"userType": "Adult", "instruction": "Take 2 capsules daily after meals."}
+      ],
+      "interaction": [],
+      "commonQuestions": [
+        {"question": "Safe for infants?", "answer": "Yes, ingredients are safe for breastfeeding."},
+        {"question": "Side effects?", "answer": "No major side effects."},
+        {"question": "Duration for effect?", "answer": "Within 1-2 weeks."},
+        {"question": "Can I take with vitamins?", "answer": "Yes, safe."},
+        {"question": "Prescription required?", "answer": "Not required."}
+      ]
+    }
+  },
+  {
+    "name": "ReproCare Fertility Support Tablets",
+    "slug": "reprocare-fertility-support-tablets",
+    "category": "Women's Health",
+    "brand": "ReproCare",
+    "shortDescription": "Supports female fertility and reproductive health.",
+    "description": "Enhances reproductive health, balances hormones, and supports ovulation with herbal ingredients.",
+    "image": "https://d3ckuu7lxvlwp2.cloudfront.net/products/rId3b6IN1Vro35YsLlNLTpd4uhDlzBmFkpSP7Nrz.png",
+    "price": 750,
+    "discountPrice": 700,
+    "stock": 250,
+    "sku": "RC-FERT-30",
+    "tax": 5,
+    "status": "Active",
+    "isPrescription": false,
+    "dosageForm": "Tablet",
+    "strength": "30 Tablets",
+    "expiryDate": "2026-03-31",
+    "metaTitle": "ReproCare Fertility Support - Women's Health",
+    "metaDescription": "Supports fertility, reproductive health, and hormonal balance.",
+    "tags": ["fertility", "women", "ovulation", "herbal", "hormonal balance"],
+    "rating": 4.8,
+    "reviews": [],
+    "launchDate": "2025-06-15",
+    
+    "productDetails": {
+      "indications": [
+        {"title": "Fertility Support", "description": "Enhances reproductive health and ovulation."},
+        {"title": "Hormonal Balance", "description": "Helps regulate hormones naturally."}
+      ],
+      "dosageAdministration": [
+        {"userType": "Adult", "instruction": "Take 1 tablet daily after meal."}
+      ],
+      "interaction": [],
+      "commonQuestions": [
+        {"question": "Can I take during pregnancy?", "answer": "Not recommended, use pre-conception."},
+        {"question": "Any side effects?", "answer": "No significant side effects."},
+        {"question": "Duration for results?", "answer": "Use for 3-6 months for best results."},
+        {"question": "Safe with other supplements?", "answer": "Yes, generally safe."},
+        {"question": "Prescription required?", "answer": "No, over-the-counter."}
+      ]
+    }
+  },
+
+  {
+    "name": "Digital Blood Pressure Monitor",
+    "slug": "digital-blood-pressure-monitor",
+    "category": "Medical Device",
+    "brand": "Omron",
+    "shortDescription": "Automatic digital blood pressure monitor for home use.",
+    "description": "Omron digital blood pressure monitor provides accurate, easy-to-read results with memory storage. Ideal for daily monitoring of hypertension.",
+    "image": "https://labtexbd.com/wp-content/uploads/2021/11/Digital-Blood-Pressure-Machine-Price-in-BD.jpg",
+    "price": 3200,
+    "discountPrice": 2900,
+    "stock": 120,
+    "sku": "OMRON-BP-01",
+    "tax": 5,
+    "status": "Active",
+    "isPrescription": false,
+    "dosageForm": "Device",
+    "strength": "N/A",
+    "expiryDate": "2030-12-31",
+    "metaTitle": "Omron Digital Blood Pressure Monitor",
+    "metaDescription": "Buy Omron BP Monitor online. Accurate, easy-to-use device for daily blood pressure monitoring.",
+    "tags": ["blood pressure", "hypertension", "monitor", "device"],
+    "rating": 4.7,
+    "reviews": [],
+    "launchDate": "2025-03-01",
+    "productDetails": {
+      "indications": [
+        {"title": "Hypertension Monitoring", "description": "Helps monitor high blood pressure at home."},
+        {"title": "Daily Checkups", "description": "Useful for patients with heart conditions."}
+      ],
+      "dosageAdministration": [
+        {"userType": "Adult", "instruction": "Wrap cuff around arm and press start button."}
+      ],
+      "interaction": [],
+      "commonQuestions": [
+        {"question": "Does it need prescription?", "answer": "No, can be purchased directly."},
+        {"question": "Battery required?", "answer": "Yes, AA batteries needed."},
+        {"question": "Memory function?", "answer": "Yes, stores up to 60 readings."}
+      ]
+    }
+  },
+  {
+    "name": "Accu-Chek Glucometer Kit",
+    "slug": "accu-chek-glucometer-kit",
+    "category": "Medical Device",
+    "brand": "Accu-Chek",
+    "shortDescription": "Portable glucometer kit with 50 test strips.",
+    "description": "Accu-Chek glucometer provides fast and reliable blood glucose readings. Includes test strips and lancets for convenient home use.",
+    "image": "https://www.healthklin.com/image/cache/catalog/PRODUCTIMAGES/accu-chek-guide-meter-225x350.jpg",
+    "price": 1800,
+    "discountPrice": 1600,
+    "stock": 200,
+    "sku": "AC-GM-50",
+    "tax": 5,
+    "status": "Active",
+    "isPrescription": false,
+    "dosageForm": "Device",
+    "strength": "N/A",
+    "expiryDate": "2029-11-30",
+    "metaTitle": "Accu-Chek Glucometer Kit",
+    "metaDescription": "Buy Accu-Chek glucometer with 50 strips. Reliable and portable device for diabetes management.",
+    "tags": ["diabetes", "sugar test", "glucometer", "device"],
+    "rating": 4.6,
+    "reviews": [],
+    "launchDate": "2025-04-15",
+    "productDetails": {
+      "indications": [
+        {"title": "Blood Sugar Testing", "description": "Helps monitor blood glucose levels daily."}
+      ],
+      "dosageAdministration": [
+        {"userType": "Adult", "instruction": "Insert strip, prick finger, apply drop of blood."}
+      ],
+      "interaction": [],
+      "commonQuestions": [
+        {"question": "Does it include strips?", "answer": "Yes, 50 strips included."},
+        {"question": "Is calibration required?", "answer": "No, auto-calibrated system."},
+        {"question": "Portable?", "answer": "Yes, small and lightweight."}
+      ]
+    }
+  },
+  {
+    "name": "Digital Thermometer",
+    "slug": "digital-thermometer",
+    "category": "Medical Device",
+    "brand": "Dr. Trust",
+    "shortDescription": "Fast and accurate digital thermometer.",
+    "description": "Dr. Trust digital thermometer provides reliable readings in 30 seconds. Suitable for oral, rectal, and underarm use.",
+    "image": "https://wealzin.com.bd/wp-content/uploads/2022/06/scan-digital-infrared-ear-thermometer-for-kids.jpg",
+    "price": 450,
+    "discountPrice": 400,
+    "stock": 300,
+    "sku": "DT-THERMO-01",
+    "tax": 5,
+    "status": "Active",
+    "isPrescription": false,
+    "dosageForm": "Device",
+    "strength": "N/A",
+    "expiryDate": "2030-01-01",
+    "metaTitle": "Dr. Trust Digital Thermometer",
+    "metaDescription": "Buy Dr. Trust digital thermometer online. Accurate and fast temperature readings.",
+    "tags": ["fever", "thermometer", "temperature", "device"],
+    "rating": 4.5,
+    "reviews": [],
+    "launchDate": "2025-02-20",
+    "productDetails": {
+      "indications": [
+        {"title": "Fever Monitoring", "description": "Measures body temperature quickly and safely."}
+      ],
+      "dosageAdministration": [
+        {"userType": "Adult", "instruction": "Place under tongue or armpit until beep."},
+        {"userType": "Children", "instruction": "Prefer underarm method for safety."}
+      ],
+      "interaction": [],
+      "commonQuestions": [
+        {"question": "Can it be used for babies?", "answer": "Yes, underarm method is safe."},
+        {"question": "Is it reusable?", "answer": "Yes, disinfect before reuse."},
+        {"question": "Waterproof?", "answer": "Yes, probe is waterproof."}
+      ]
+    }
+  },
+  {
+    "name": "Pulse Oximeter",
+    "slug": "pulse-oximeter",
+    "category": "Medical Device",
+    "brand": "ChoiceMMed",
+    "shortDescription": "Portable fingertip pulse oximeter for SpO2 and pulse rate.",
+    "description": "ChoiceMMed pulse oximeter provides instant oxygen saturation and pulse rate readings. Compact and easy to carry.",
+    "image": "https://www.auruminstitute.org/sourcing/media/com_eshop/products/resized/00001-500x500.jpg",
+    "price": 1500,
+    "discountPrice": 1350,
+    "stock": 180,
+    "sku": "CM-POX-01",
+    "tax": 5,
+    "status": "Active",
+    "isPrescription": false,
+    "dosageForm": "Device",
+    "strength": "N/A",
+    "expiryDate": "2030-06-30",
+    "metaTitle": "ChoiceMMed Pulse Oximeter",
+    "metaDescription": "Buy fingertip pulse oximeter. Monitors oxygen saturation and pulse rate instantly.",
+    "tags": ["oxygen", "pulse oximeter", "SpO2", "device"],
+    "rating": 4.8,
+    "reviews": [],
+    "launchDate": "2025-05-10",
+    "productDetails": {
+      "indications": [
+        {"title": "Oxygen Monitoring", "description": "Measures blood oxygen saturation."},
+        {"title": "Pulse Rate", "description": "Monitors heart rate instantly."}
+      ],
+      "dosageAdministration": [
+        {"userType": "Adult", "instruction": "Place finger inside device and press start."}
+      ],
+      "interaction": [],
+      "commonQuestions": [
+        {"question": "Is it rechargeable?", "answer": "No, uses AAA batteries."},
+        {"question": "Can athletes use it?", "answer": "Yes, widely used in sports."},
+        {"question": "Portable?", "answer": "Yes, pocket-sized."}
+      ]
+    }
+  },
+  {
+    "name": "Nebulizer Machine",
+    "slug": "nebulizer-machine",
+    "category": "Medical Device",
+    "brand": "Philips Respironics",
+    "shortDescription": "Compact nebulizer machine for respiratory therapy.",
+    "description": "Philips nebulizer delivers medication directly to the lungs. Ideal for asthma, COPD, and respiratory patients.",
+    "image": "https://cdn.shopify.com/s/files/1/0807/8068/9707/files/WhatsApp_Image_2025-01-09_at_6.29.25_PM.jpg?v=1751954394&width=450",
+    "price": 3500,
+    "discountPrice": 3200,
+    "stock": 75,
+    "sku": "PH-NB-01",
+    "tax": 5,
+    "status": "Active",
+    "isPrescription": false,
+    "dosageForm": "Device",
+    "strength": "N/A",
+    "expiryDate": "2031-12-31",
+    "metaTitle": "Philips Respironics Nebulizer Machine",
+    "metaDescription": "Buy Philips nebulizer for asthma and COPD treatment. Effective respiratory therapy device.",
+    "tags": ["asthma", "nebulizer", "respiratory", "device"],
+    "rating": 4.7,
+    "reviews": [],
+    "launchDate": "2025-07-01",
+    "productDetails": {
+      "indications": [
+        {"title": "Asthma", "description": "Provides relief during asthma attacks."},
+        {"title": "Respiratory Therapy", "description": "Delivers medicine directly to lungs."}
+      ],
+      "dosageAdministration": [
+        {"userType": "Adult", "instruction": "Add prescribed solution and inhale via mask."},
+        {"userType": "Children", "instruction": "Use child mask provided in kit."}
+      ],
+      "interaction": [],
+      "commonQuestions": [
+        {"question": "Is it noisy?", "answer": "Low noise technology."},
+        {"question": "Does it need prescription?", "answer": "No, can be bought directly."},
+        {"question": "Portable?", "answer": "Yes, compact design."}
+      ]
+    }
+  },
+  {
+    "name": "First Aid Kit",
+    "slug": "first-aid-kit",
+    "category": "Medical Device",
+    "brand": "MediSafe",
+    "shortDescription": "Complete first aid kit for home and travel use.",
+    "description": "MediSafe first aid kit includes bandages, antiseptic, scissors, gloves, and emergency supplies. Essential for homes, offices, and travel.",
+    "image": "https://cdn11.bigcommerce.com/s-ffd8e/images/stencil/1280x1280/products/134/486/Grab_N_Go_tm_First_Aid_Kit_Perfect_Car_travel_kit_Alton_Doom_and_Bloom__01614.1558383335.jpg?c=2",
+    "price": 1200,
+    "discountPrice": 1000,
+    "stock": 250,
+    "sku": "MS-FAK-01",
+    "tax": 5,
+    "status": "Active",
+    "isPrescription": false,
+    "dosageForm": "Kit",
+    "strength": "N/A",
+    "expiryDate": "2029-08-15",
+    "metaTitle": "MediSafe First Aid Kit",
+    "metaDescription": "Buy complete first aid kit for home and travel. Includes emergency medical supplies.",
+    "tags": ["first aid", "emergency", "safety", "kit"],
+    "rating": 4.9,
+    "reviews": [],
+    "launchDate": "2025-01-10",
+    "productDetails": {
+      "indications": [
+        {"title": "Emergency Care", "description": "Provides essential tools for first aid."},
+        {"title": "Travel Safety", "description": "Portable kit for outdoor and travel use."}
+      ],
+      "dosageAdministration": [
+        {"userType": "All", "instruction": "Use items as required for minor injuries."}
+      ],
+      "interaction": [],
+      "commonQuestions": [
+        {"question": "What items are included?", "answer": "Bandages, antiseptic, scissors, gloves, etc."},
+        {"question": "Portable?", "answer": "Yes, comes in a compact bag."},
+        {"question": "Reusable?", "answer": "Yes, refill items when used."}
+      ]
+    }
+  },
+
+
+  {
+    "name": "Blood Pressure Monitor",
+    "slug": "blood-pressure-monitor",
+    "category": "Heart Care",
+    "brand": "HealthTrack",
+    "shortDescription": "Easy-to-use digital monitor for tracking blood pressure at home.",
+    "description": "HealthTrack Blood Pressure Monitor provides accurate readings of systolic and diastolic blood pressure. Suitable for adults and elderly. Portable and easy to use.",
+    "image": "https://m.media-amazon.com/images/I/71mMYXH7i6L._AC_SL1500_.jpg",
+    "price": 2200,
+    "discountPrice": 2000,
+    "stock": 150,
+    "sku": "HT-BPM-01",
+    "tax": 5,
+    "status": "Active",
+    "isPrescription": false,
+    "dosageForm": "Device",
+    "strength": "N/A",
+    "expiryDate": "2030-12-31",
+    "metaTitle": "HealthTrack Blood Pressure Monitor",
+    "metaDescription": "Monitor your blood pressure at home with HealthTrack Blood Pressure Monitor.",
+    "tags": ["blood pressure", "heart", "monitor", "health"],
+    "rating": 4.8,
+    "reviews": [],
+    "launchDate": "2025-03-01",
+    
+    "productDetails": {
+      "indications": [
+        {"title": "Hypertension Monitoring", "description": "Track blood pressure regularly to manage hypertension."},
+        {"title": "Heart Health Check", "description": "Helps monitor overall cardiovascular health."}
+      ],
+      "dosageAdministration": [
+        {"userType": "Adult", "instruction": "Use once or twice daily, following device instructions."}
+      ],
+      "interaction": [],
+      "commonQuestions": [
+        {"question": "Is it battery operated?", "answer": "Yes, runs on AA batteries."},
+        {"question": "Can children use it?", "answer": "Not recommended for children under 12."}
+      ]
+    }
+  },
+  {
+    "name": "Cholesterol Test Kit",
+    "slug": "cholesterol-test-kit",
+    "category": "Heart Care",
+    "brand": "CardioCheck",
+    "shortDescription": "At-home kit for quick and reliable cholesterol level testing.",
+    "description": "CardioCheck Cholesterol Test Kit allows you to measure total cholesterol, HDL, LDL, and triglycerides from a simple finger-prick sample. Accurate and easy to use.",
+    "image": "https://m.media-amazon.com/images/I/71d2EiWnoWL.jpg",
+    "price": 1800,
+    "discountPrice": 1650,
+    "stock": 120,
+    "sku": "CC-CHK-01",
+    "tax": 5,
+    "status": "Active",
+    "isPrescription": false,
+    "dosageForm": "Kit",
+    "strength": "N/A",
+    "expiryDate": "2030-12-31",
+    "metaTitle": "CardioCheck Cholesterol Test Kit",
+    "metaDescription": "Test cholesterol levels at home with CardioCheck Cholesterol Test Kit.",
+    "tags": ["cholesterol", "heart", "test", "kit"],
+    "rating": 4.7,
+    "reviews": [],
+    "launchDate": "2025-03-10",
+   
+   
+    "productDetails": {
+      "indications": [
+        {"title": "Heart Disease Risk", "description": "Monitor cholesterol to prevent heart disease."},
+        {"title": "Health Check", "description": "Part of regular cardiovascular health check."}
+      ],
+      "dosageAdministration": [
+        {"userType": "Adult", "instruction": "Use as per kit instructions; collect sample and read results."}
+      ],
+      "interaction": [],
+      "commonQuestions": [
+        {"question": "Do I need fasting?", "answer": "Yes, 9-12 hours fasting recommended."},
+        {"question": "How accurate is it?", "answer": "Provides results comparable to lab tests."}
+      ]
+    }
+  },
+  {
+    "name": "Omega-3 Fish Oil Supplement",
+    "slug": "omega-3-fish-oil-supplement",
+    "category": "Heart Care",
+    "brand": "NutriHeart",
+    "shortDescription": "Supports healthy heart function and reduces risk of cardiovascular issues.",
+    "description": "NutriHeart Omega-3 Fish Oil contains EPA and DHA to promote cardiovascular health, lower triglycerides, and support overall heart function.",
+    "image": "https://ukdirectbd.com/wp-content/uploads/2024/01/Untitled-triple-3.png",
+    "price": 950,
+    "discountPrice": 850,
+    "stock": 200,
+    "sku": "NH-O3-60",
+    "tax": 5,
+    "status": "Active",
+    "isPrescription": false,
+    "dosageForm": "Capsule",
+    "strength": "60 Capsules",
+    "expiryDate": "2026-12-31",
+    "metaTitle": "NutriHeart Omega-3 Fish Oil",
+    "metaDescription": "Supports heart health with NutriHeart Omega-3 Fish Oil Supplement.",
+    "tags": ["omega-3", "heart", "fish oil", "cardio"],
+    "rating": 4.6,
+    "reviews": [],
+    "launchDate": "2025-04-01",
+   
+    "productDetails": {
+      "indications": [
+        {"title": "Heart Function", "description": "Supports cardiovascular function and circulation."},
+        {"title": "Triglyceride Reduction", "description": "Helps lower blood triglyceride levels."}
+      ],
+      "dosageAdministration": [
+        {"userType": "Adult", "instruction": "Take 2 capsules daily after meal."}
+      ],
+      "interaction": [
+        {"type": "Drug", "instruction": "Consult doctor if taking anticoagulants."}
+      ],
+      "commonQuestions": [
+        {"question": "Can I take with food?", "answer": "Yes, recommended with meals."},
+        {"question": "Any side effects?", "answer": "Minor fishy aftertaste possible."}
+      ]
+    }
+  },
+  {
+    "name": "Aspirin Low-Dose Tablets",
+    "slug": "aspirin-low-dose-tablets",
+    "category": "Heart Care",
+    "brand": "Bayer",
+    "shortDescription": "Improves blood flow and reduces clot risk.",
+    "description": "Bayer Low-Dose Aspirin is recommended for cardiovascular health. Helps prevent blood clots, heart attacks, and strokes under doctor supervision.",
+    "image": "https://pics.walgreens.com/prodimg/534041/450.jpg",
+    "price": 350,
+    "discountPrice": 300,
+    "stock": 400,
+    "sku": "BY-ASP-75",
+    "tax": 5,
+    "status": "Active",
+    "isPrescription": true,
+    "dosageForm": "Tablet",
+    "strength": "75mg",
+    "expiryDate": "2026-05-31",
+    "metaTitle": "Bayer Low-Dose Aspirin",
+    "metaDescription": "Supports cardiovascular health and reduces clot risk.",
+    "tags": ["aspirin", "heart", "blood flow", "clot prevention"],
+    "rating": 4.7,
+    "reviews": [],
+    "launchDate": "2025-04-10",
+    "salesCount": 850,
+   
+    "productDetails": {
+      "indications": [
+        {"title": "Clot Prevention", "description": "Reduces risk of heart attack and stroke."},
+        {"title": "Cardiovascular Health", "description": "Supports overall heart function."}
+      ],
+      "dosageAdministration": [
+        {"userType": "Adult", "instruction": "Take 1 tablet daily with water."}
+      ],
+      "interaction": [
+        {"type": "Drug", "instruction": "Avoid with anticoagulants without doctor advice."}
+      ],
+      "commonQuestions": [
+        {"question": "Can I take on empty stomach?", "answer": "Take with food to avoid stomach upset."},
+        {"question": "Any side effects?", "answer": "Possible mild stomach irritation."}
+      ]
+    }
+  },
+  {
+    "name": "Portable ECG Machine",
+    "slug": "portable-ecg-machine",
+    "category": "Heart Care",
+    "brand": "HeartMonitor",
+    "shortDescription": "Compact portable ECG machine for monitoring heart rhythm.",
+    "description": "HeartMonitor Portable ECG Machine helps detect arrhythmias, monitor heart rate, and provide instant ECG readings at home or clinic.",
+    "image": "https://static.wixstatic.com/media/c3f028_18ea18b03ba243ae9d586b783146efa2~mv2.jpg/v1/fill/w_260,h_260,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/1.jpg",
+    "price": 7500,
+    "discountPrice": 7000,
+    "stock": 50,
+    "sku": "HM-ECG-01",
+    "tax": 5,
+    "status": "Active",
+    "isPrescription": true,
+    "dosageForm": "Device",
+    "strength": "N/A",
+    "expiryDate": "2030-12-31",
+    "metaTitle": "HeartMonitor Portable ECG Machine",
+    "metaDescription": "Monitor your heart rhythm anywhere with portable ECG machine.",
+    "tags": ["ECG", "heart", "monitor", "device"],
+    "rating": 4.9,
+    "reviews": [],
+    "launchDate": "2025-05-01",
+   
+    "productDetails": {
+      "indications": [
+        {"title": "Heart Rhythm Monitoring", "description": "Detects arrhythmias and abnormal heart rates."},
+        {"title": "Portable Checkup", "description": "Monitor ECG at home or clinic conveniently."}
+      ],
+      "dosageAdministration": [
+        {"userType": "All", "instruction": "Follow device instructions for ECG measurement."}
+      ],
+      "interaction": [],
+      "commonQuestions": [
+        {"question": "Is it portable?", "answer": "Yes, lightweight and easy to carry."},
+        {"question": "Can I use at home?", "answer": "Yes, suitable for home monitoring."}
+      ]
+    }
+  },
+
+  {
+    "name": "Vitamin C 500mg",
+    "slug": "vitamin-c-500mg",
+    "category": "Vitamin",
+    "brand": "NutriBoost",
+    "shortDescription": "Supports immunity and overall health.",
+    "description": "NutriBoost Vitamin C 500mg helps boost immunity, supports skin health, and acts as an antioxidant.",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqnFrshNC3WyzwHrzZH88Ok7uy23vlEIF-pg&s",
+    "price": 250,
+    "discountPrice": 220,
+    "stock": 300,
+    "sku": "NB-VC-500",
+    "tax": 5,
+    "status": "Active",
+    "isPrescription": false,
+    "dosageForm": "Tablet",
+    "strength": "500mg",
+    "expiryDate": "2026-12-31",
+    "metaTitle": "NutriBoost Vitamin C 500mg",
+    "metaDescription": "Boost your immunity with NutriBoost Vitamin C 500mg.",
+    "tags": ["vitamin c", "immunity", "antioxidant", "health"],
+    "rating": 4.8,
+    "reviews": [],
+    "launchDate": "2025-03-01",
+    "productDetails": {
+      "indications": [
+        {"title": "Immunity Boost", "description": "Supports the immune system."},
+        {"title": "Skin Health", "description": "Promotes healthy skin and collagen synthesis."}
+      ],
+      "dosageAdministration": [
+        {"userType": "Adult", "instruction": "Take 1 tablet daily after meal."}
+      ],
+      "interaction": [],
+      "commonQuestions": [
+        {"question": "Can I take on empty stomach?", "answer": "Yes, but preferably after meal."},
+        {"question": "Any side effects?", "answer": "Generally safe, mild stomach upset possible."},
+        {"question": "Can I take with other medications?", "answer": "Yes, consult doctor if on prescription drugs."},
+        {"question": "Recommended daily dosage?", "answer": "1 tablet daily unless advised otherwise."},
+        {"question": "Duration to see benefits?", "answer": "Usually 2-4 weeks for noticeable effects."}
+      ]
+    }
+  },
+  {
+    "name": "Vitamin D3 1000 IU",
+    "slug": "vitamin-d3-1000-iu",
+    "category": "Vitamin",
+    "brand": "SunHealth",
+    "shortDescription": "Supports bone and immune health.",
+    "description": "SunHealth Vitamin D3 1000 IU helps maintain bone density, supports immune system, and aids calcium absorption.",
+    "image": "https://www.goodlife.co.ke/wp-content/smush-webp/2025/05/1107789.png.webp",
+    "price": 300,
+    "discountPrice": 270,
+    "stock": 280,
+    "sku": "SH-VD3-1000",
+    "tax": 5,
+    "status": "Active",
+    "isPrescription": false,
+    "dosageForm": "Capsule",
+    "strength": "1000 IU",
+    "expiryDate": "2026-11-30",
+    "metaTitle": "SunHealth Vitamin D3 1000 IU",
+    "metaDescription": "Support bone and immune health with Vitamin D3 1000 IU.",
+    "tags": ["vitamin d3", "bone health", "immunity", "calcium"],
+    "rating": 4.7,
+    "reviews": [],
+    "launchDate": "2025-04-01",
+    "productDetails": {
+      "indications": [
+        {"title": "Bone Health", "description": "Maintains bone density and strength."},
+        {"title": "Immune Support", "description": "Enhances immune system function."}
+      ],
+      "dosageAdministration": [
+        {"userType": "Adult", "instruction": "Take 1 capsule daily after meal."}
+      ],
+      "interaction": [],
+      "commonQuestions": [
+        {"question": "Can I take with calcium?", "answer": "Yes, they complement each other."},
+        {"question": "Side effects?", "answer": "Generally safe, rare mild headache possible."},
+        {"question": "Can I take daily?", "answer": "Yes, follow recommended dose."},
+        {"question": "Suitable for children?", "answer": "Consult pediatrician for under 12."},
+        {"question": "Best time to take?", "answer": "Preferably with breakfast or lunch."}
+      ]
+    }
+  },
+  {
+    "name": "Vitamin B12 1000mcg",
+    "slug": "vitamin-b12-1000mcg",
+    "category": "Vitamin",
+    "brand": "LifeBoost",
+    "shortDescription": "Supports energy, nerves, and red blood cell formation.",
+    "description": "LifeBoost Vitamin B12 1000mcg promotes nerve health, reduces fatigue, and supports red blood cell production.",
+    "image": "https://m.media-amazon.com/images/I/71S42Svyh3L._UF1000,1000_QL80_.jpg",
+    "price": 350,
+    "discountPrice": 320,
+    "stock": 260,
+    "sku": "LB-B12-1000",
+    "tax": 5,
+    "status": "Active",
+    "isPrescription": false,
+    "dosageForm": "Tablet",
+    "strength": "1000mcg",
+    "expiryDate": "2026-10-31",
+    "metaTitle": "LifeBoost Vitamin B12 1000mcg",
+    "metaDescription": "Boost energy and nerve health with Vitamin B12.",
+    "tags": ["vitamin b12", "energy", "nervous system", "blood"],
+    "rating": 4.7,
+    "reviews": [],
+    "launchDate": "2025-05-01",
+    "productDetails": {
+      "indications": [
+        {"title": "Energy Support", "description": "Reduces fatigue and supports energy metabolism."},
+        {"title": "Nerve Health", "description": "Maintains healthy nervous system."}
+      ],
+      "dosageAdministration": [
+        {"userType": "Adult", "instruction": "Take 1 tablet daily after meal."}
+      ],
+      "interaction": [],
+      "commonQuestions": [
+        {"question": "Safe for daily use?", "answer": "Yes, follow recommended dosage."},
+        {"question": "Any side effects?", "answer": "Generally safe, rare mild diarrhea possible."},
+        {"question": "Can I take with other vitamins?", "answer": "Yes, consult doctor for combination."},
+        {"question": "Duration to see benefits?", "answer": "2-4 weeks for noticeable improvement."},
+        {"question": "Suitable for vegetarians?", "answer": "Check label, usually vegetarian-friendly."}
+      ]
+    }
+  },
+  {
+    "name": "Vitamin E 400 IU",
+    "slug": "vitamin-e-400-iu",
+    "category": "Vitamin",
+    "brand": "NutraCare",
+    "shortDescription": "Antioxidant supporting skin and heart health.",
+    "description": "NutraCare Vitamin E 400 IU protects cells from oxidative stress, supports skin health, and maintains cardiovascular health.",
+    "image": "https://wealzin.com.bd/wp-content/uploads/2022/03/natures-truth-high-potency-vitamin-e-400-iu-100-capsules.jpg",
+    "price": 400,
+    "discountPrice": 360,
+    "stock": 240,
+    "sku": "NC-VE-400",
+    "tax": 5,
+    "status": "Active",
+    "isPrescription": false,
+    "dosageForm": "Capsule",
+    "strength": "400 IU",
+    "expiryDate": "2026-09-30",
+    "metaTitle": "NutraCare Vitamin E 400 IU",
+    "metaDescription": "Protect cells and support heart & skin health with Vitamin E.",
+    "tags": ["vitamin e", "antioxidant", "skin", "heart"],
+    "rating": 4.6,
+    "reviews": [],
+    "launchDate": "2025-06-01",
+    "productDetails": {
+      "indications": [
+        {"title": "Antioxidant Support", "description": "Protects cells from oxidative damage."},
+        {"title": "Skin & Heart Health", "description": "Maintains healthy skin and cardiovascular system."}
+      ],
+      "dosageAdministration": [
+        {"userType": "Adult", "instruction": "Take 1 capsule daily after meal."}
+      ],
+      "interaction": [],
+      "commonQuestions": [
+        {"question": "Safe with food?", "answer": "Yes, take with meal for better absorption."},
+        {"question": "Any side effects?", "answer": "Rare nausea or diarrhea possible."},
+        {"question": "Can I take with other vitamins?", "answer": "Yes, consult doctor if unsure."},
+        {"question": "Duration to see benefits?", "answer": "Usually 4-6 weeks."},
+        {"question": "Suitable for vegetarians?", "answer": "Check label."}
+      ]
+    }
+  },
+  {
+    "name": "Multivitamin Adult 50+",
+    "slug": "multivitamin-adult-50-plus",
+    "category": "Vitamin",
+    "brand": "WellAge",
+    "shortDescription": "Supports overall health and energy for adults over 50.",
+    "description": "WellAge Multivitamin 50+ contains essential vitamins and minerals to support immunity, energy, and bone health in older adults.",
+    "image": "https://m.media-amazon.com/images/I/61FhJbAaYyL._UF894,1000_QL80_.jpg",
+    "price": 500,
+    "discountPrice": 450,
+    "stock": 220,
+    "sku": "WA-MV-50+",
+    "tax": 5,
+    "status": "Active",
+    "isPrescription": false,
+    "dosageForm": "Tablet",
+    "strength": "60 Tablets",
+    "expiryDate": "2026-08-31",
+    "metaTitle": "WellAge Multivitamin Adult 50+",
+    "metaDescription": "Complete multivitamin for adults over 50 to maintain health.",
+    "tags": ["multivitamin", "senior", "immunity", "energy", "bone health"],
+    "rating": 4.7,
+    "reviews": [],
+    "launchDate": "2025-07-01",
+    "productDetails": {
+      "indications": [
+        {"title": "Overall Health", "description": "Supports general well-being."},
+        {"title": "Energy & Immunity", "description": "Boosts energy and immune function."}
+      ],
+      "dosageAdministration": [
+        {"userType": "Adult", "instruction": "Take 1 tablet daily after meal."}
+      ],
+      "interaction": [],
+      "commonQuestions": [
+        {"question": "Safe for daily use?", "answer": "Yes, follow recommended dose."},
+        {"question": "Any side effects?", "answer": "Generally safe, mild digestive discomfort possible."},
+        {"question": "Can I take with medications?", "answer": "Consult doctor if on prescription drugs."},
+        {"question": "Duration to see benefits?", "answer": "4-6 weeks for noticeable improvement."},
+        {"question": "Suitable for seniors?", "answer": "Yes, specifically formulated for 50+ adults."}
+      ]
+    }
+  },
+
+
+
+  {
+    "name": "Ashwagandha Capsules",
+    "slug": "ashwagandha-capsules",
+    "category": "Ayurveda & Herbal",
+    "brand": "HerbalLife",
+    "shortDescription": "Supports stress relief and mental health.",
+    "description": "Ashwagandha Capsules help reduce stress, improve mood, and enhance overall mental and physical well-being.",
+    "image": "https://m.media-amazon.com/images/I/61Emg-Gxp0L._UF1000,1000_QL80_.jpg",
+    "price": 450,
+    "discountPrice": 400,
+    "stock": 300,
+    "sku": "HL-ASH-60",
+    "tax": 5,
+    "status": "Active",
+    "isPrescription": false,
+    "dosageForm": "Capsule",
+    "strength": "60 Capsules",
+    "expiryDate": "2026-12-31",
+    "metaTitle": "Ashwagandha Capsules - HerbalLife",
+    "metaDescription": "Natural stress relief and mental health support with Ashwagandha.",
+    "tags": ["ashwagandha", "stress relief", "herbal", "mental health"],
+    "rating": 4.7,
+    "reviews": [],
+    "launchDate": "2025-03-01",
+    "productDetails": {
+      "indications": [
+        {"title": "Stress Relief", "description": "Helps reduce anxiety and stress levels."},
+        {"title": "Energy & Vitality", "description": "Improves stamina and overall energy."}
+      ],
+      "dosageAdministration": [
+        {"userType": "Adult", "instruction": "Take 1 capsule twice daily after meal."}
+      ],
+      "interaction": [],
+      "commonQuestions": [
+        {"question": "Can I take daily?", "answer": "Yes, follow the recommended dose."},
+        {"question": "Any side effects?", "answer": "Generally safe, mild drowsiness possible."},
+        {"question": "Can I take with other herbs?", "answer": "Yes, consult a doctor if combining with prescription drugs."},
+        {"question": "Duration to see benefits?", "answer": "2-4 weeks of regular use."},
+        {"question": "Suitable for seniors?", "answer": "Yes, safe for adults over 18."}
+      ]
+    }
+  },
+  {
+    "name": "Turmeric Curcumin Capsules",
+    "slug": "turmeric-curcumin-capsules",
+    "category": "Ayurveda & Herbal",
+    "brand": "NutraHerb",
+    "shortDescription": "Supports joint and anti-inflammatory health.",
+    "description": "Turmeric Curcumin Capsules help reduce inflammation, improve joint mobility, and act as a natural antioxidant.",
+    "image": "https://m.media-amazon.com/images/I/51if-GnlNgL._UF1000,1000_QL80_.jpg",
+    "price": 500,
+    "discountPrice": 450,
+    "stock": 280,
+    "sku": "NH-TC-60",
+    "tax": 5,
+    "status": "Active",
+    "isPrescription": false,
+    "dosageForm": "Capsule",
+    "strength": "60 Capsules",
+    "expiryDate": "2026-11-30",
+    "metaTitle": "Turmeric Curcumin Capsules - NutraHerb",
+    "metaDescription": "Natural joint support and anti-inflammatory benefit with Turmeric Curcumin.",
+    "tags": ["turmeric", "curcumin", "joint health", "anti-inflammatory"],
+    "rating": 4.8,
+    "reviews": [],
+    "launchDate": "2025-04-01",
+    "productDetails": {
+      "indications": [
+        {"title": "Joint Health", "description": "Reduces joint pain and stiffness."},
+        {"title": "Anti-Inflammatory", "description": "Helps control inflammation naturally."}
+      ],
+      "dosageAdministration": [
+        {"userType": "Adult", "instruction": "Take 1 capsule twice daily after meal."}
+      ],
+      "interaction": [],
+      "commonQuestions": [
+        {"question": "Can I take with meals?", "answer": "Yes, recommended with food."},
+        {"question": "Side effects?", "answer": "Generally safe, mild stomach upset possible."},
+        {"question": "Suitable for long-term use?", "answer": "Yes, safe when taken as directed."},
+        {"question": "Can I combine with other supplements?", "answer": "Yes, consult doctor for specific combinations."},
+        {"question": "How soon will I notice effects?", "answer": "Usually 3-6 weeks."}
+      ]
+    }
+  },
+  {
+    "name": "Triphala Tablets",
+    "slug": "triphala-tablets",
+    "category": "Ayurveda & Herbal",
+    "brand": "AyurWell",
+    "shortDescription": "Supports digestion and detoxification.",
+    "description": "Triphala Tablets help improve digestion, detoxify the body naturally, and support regular bowel movements.",
+    "image": "https://www.baidyanathayurved.com/cdn/shop/files/Triphala-front_8c31a457-3106-486b-a5c2-4a2a949f9f38.jpg?v=1744115205&width=1080",
+    "price": 350,
+    "discountPrice": 320,
+    "stock": 260,
+    "sku": "AW-TR-60",
+    "tax": 5,
+    "status": "Active",
+    "isPrescription": false,
+    "dosageForm": "Tablet",
+    "strength": "60 Tablets",
+    "expiryDate": "2026-10-31",
+    "metaTitle": "Triphala Tablets - AyurWell",
+    "metaDescription": "Improve digestion and detox naturally with Triphala Tablets.",
+    "tags": ["triphala", "digestion", "detox", "herbal"],
+    "rating": 4.6,
+    "reviews": [],
+    "launchDate": "2025-05-01",
+    "productDetails": {
+      "indications": [
+        {"title": "Digestive Health", "description": "Supports healthy digestion."},
+        {"title": "Detoxification", "description": "Helps eliminate toxins naturally."}
+      ],
+      "dosageAdministration": [
+        {"userType": "Adult", "instruction": "Take 1 tablet twice daily after meals."}
+      ],
+      "interaction": [],
+      "commonQuestions": [
+        {"question": "Can I take on empty stomach?", "answer": "Preferably after meals."},
+        {"question": "Any side effects?", "answer": "Generally safe, mild laxative effect possible."},
+        {"question": "Can I take daily?", "answer": "Yes, follow recommended dosage."},
+        {"question": "Suitable for elderly?", "answer": "Yes, safe for adults over 18."},
+        {"question": "Duration to see benefits?", "answer": "2-4 weeks of regular use."}
+      ]
+    }
+  },
+  {
+    "name": "Giloy Capsules",
+    "slug": "giloy-capsules",
+    "category": "Ayurveda & Herbal",
+    "brand": "HerbalLife",
+    "shortDescription": "Supports immunity and detox.",
+    "description": "Giloy Capsules help boost immunity, reduce inflammation, and detoxify the body naturally.",
+    "image": "https://images-static.nykaa.com/media/catalog/product/f/d/fd37fc6HIMAA00000032_1.jpg",
+    "price": 400,
+    "discountPrice": 370,
+    "stock": 250,
+    "sku": "HL-GI-60",
+    "tax": 5,
+    "status": "Active",
+    "isPrescription": false,
+    "dosageForm": "Capsule",
+    "strength": "60 Capsules",
+    "expiryDate": "2026-09-30",
+    "metaTitle": "Giloy Capsules - HerbalLife",
+    "metaDescription": "Natural immunity booster and detox with Giloy Capsules.",
+    "tags": ["giloy", "immunity", "detox", "herbal"],
+    "rating": 4.7,
+    "reviews": [],
+    "launchDate": "2025-06-01",
+    "productDetails": {
+      "indications": [
+        {"title": "Immunity Support", "description": "Boosts natural immunity."},
+        {"title": "Detoxification", "description": "Helps remove toxins from the body."}
+      ],
+      "dosageAdministration": [
+        {"userType": "Adult", "instruction": "Take 1 capsule twice daily after meals."}
+      ],
+      "interaction": [],
+      "commonQuestions": [
+        {"question": "Can I take daily?", "answer": "Yes, as directed."},
+        {"question": "Any side effects?", "answer": "Generally safe, mild nausea possible."},
+        {"question": "Can I take with other herbs?", "answer": "Yes, consult doctor if combining with prescription drugs."},
+        {"question": "Duration to see benefits?", "answer": "2-4 weeks."},
+        {"question": "Suitable for seniors?", "answer": "Yes, safe for adults over 18."}
+      ]
+    }
+  },
+  {
+    "name": "Trikatu Powder Capsules",
+    "slug": "trikatu-powder-capsules",
+    "category": "Ayurveda & Herbal",
+    "brand": "NutraHerb",
+    "shortDescription": "Supports digestion and metabolism.",
+    "description": "Trikatu Powder Capsules help improve digestion, enhance metabolism, and support respiratory health naturally.",
+    "image": "https://m.media-amazon.com/images/I/61XUVXKUlxL._UF1000,1000_QL80_.jpg",
+    "price": 380,
+    "discountPrice": 350,
+    "stock": 240,
+    "sku": "NH-TP-60",
+    "tax": 5,
+    "status": "Active",
+    "isPrescription": false,
+    "dosageForm": "Capsule",
+    "strength": "60 Capsules",
+    "expiryDate": "2026-08-31",
+    "metaTitle": "Trikatu Powder Capsules - NutraHerb",
+    "metaDescription": "Improve digestion, metabolism and respiratory health naturally with Trikatu.",
+    "tags": ["trikatu", "digestion", "metabolism", "herbal"],
+    "rating": 4.6,
+    "reviews": [],
+    "launchDate": "2025-07-01",
+    "productDetails": {
+      "indications": [
+        {"title": "Digestive Support", "description": "Enhances digestive functions."},
+        {"title": "Metabolism & Energy", "description": "Supports energy and metabolism."}
+      ],
+      "dosageAdministration": [
+        {"userType": "Adult", "instruction": "Take 1 capsule twice daily after meals."}
+      ],
+      "interaction": [],
+      "commonQuestions": [
+        {"question": "Can I take daily?", "answer": "Yes, follow recommended dose."},
+        {"question": "Any side effects?", "answer": "Generally safe, mild heartburn possible."},
+        {"question": "Suitable for seniors?", "answer": "Yes, safe for adults over 18."},
+        {"question": "Duration to see effects?", "answer": "3-5 weeks."},
+        {"question": "Can I combine with other herbal supplements?", "answer": "Yes, consult doctor if unsure."}
+      ]
+    }
+  },
+
+
+
+
+  {
+    "name": "Paracetamol 500mg",
+    "slug": "paracetamol-500mg",
+    "category": "Painkiller",
+    "brand": "PharmaCare",
+    "shortDescription": "Reduces pain and fever effectively.",
+    "description": "Paracetamol 500mg helps relieve mild to moderate pain like headaches, body pain, and reduces fever. Safe for adults and children.",
+    "image": "https://cdn2.arogga.com/eyJidWNrZXQiOiJhcm9nZ2EiLCJrZXkiOiJQcm9kdWN0LXBfaW1hZ2VzXC8xNDUzOVwvMTQ1MzktUGFyYWNldGFtb2wtNTAwbWctY2U3MGJzLmpwZWciLCJlZGl0cyI6W119",
+    "price": 10,
+    "discountPrice": 9,
+    "stock": 500,
+    "sku": "PC-500-01",
+    "tax": 5,
+    "status": "Active",
+    "isPrescription": false,
+    "dosageForm": "Tablet",
+    "strength": "500mg",
+    "expiryDate": "2026-05-31",
+    "metaTitle": "Paracetamol 500mg - Pain Relief",
+    "metaDescription": "Relieve pain and reduce fever with Paracetamol 500mg.",
+    "tags": ["painkiller", "paracetamol", "fever", "headache", "body pain"],
+    "rating": 4.8,
+    "reviews": [],
+    "launchDate": "2025-01-15",
+    "productDetails": {
+      "indications": [
+        {"title": "Pain Relief", "description": "Effective for headache, body pain, and minor aches."},
+        {"title": "Fever Reduction", "description": "Reduces mild to moderate fever."}
+      ],
+      "dosageAdministration": [
+        {"userType": "Adult", "instruction": "Take 1 tablet every 6-8 hours as needed, max 4 tablets/day."},
+        {"userType": "Children", "instruction": "Use pediatric formulation as per doctor advice."}
+      ],
+      "interaction": [],
+      "commonQuestions": [
+        {"question": "Can I take with food?", "answer": "Yes, can be taken with or without food."},
+        {"question": "Side effects?", "answer": "Generally safe, rare nausea or allergic reactions."},
+        {"question": "Pregnant or breastfeeding?", "answer": "Consult doctor before use."},
+        {"question": "Can I take daily?", "answer": "Only as needed, follow dosage instructions."},
+        {"question": "Maximum dose?", "answer": "Do not exceed 4 tablets in 24 hours."}
+      ]
+    }
+  },
+  {
+    "name": "Ibuprofen 400mg",
+    "slug": "ibuprofen-400mg",
+    "category": "Painkiller",
+    "brand": "MedLife",
+    "shortDescription": "Reduces inflammation, pain, and fever.",
+    "description": "Ibuprofen 400mg provides relief from pain due to inflammation, headache, dental pain, and menstrual cramps. Anti-inflammatory properties help reduce swelling.",
+    "image": "https://5.imimg.com/data5/SELLER/Default/2023/6/319597573/MH/NE/SR/135658020/ibuprofen-400-mg-bp-tablets.jpg",
+    "price": 15,
+    "discountPrice": 13,
+    "stock": 400,
+    "sku": "IB-400-01",
+    "tax": 5,
+    "status": "Active",
+    "isPrescription": false,
+    "dosageForm": "Tablet",
+    "strength": "400mg",
+    "expiryDate": "2026-06-30",
+    "metaTitle": "Ibuprofen 400mg - Pain & Inflammation Relief",
+    "metaDescription": "Relieve pain and inflammation naturally with Ibuprofen 400mg.",
+    "tags": ["painkiller", "ibuprofen", "inflammation", "fever", "headache"],
+    "rating": 4.7,
+    "reviews": [],
+    "launchDate": "2025-02-10",
+    "productDetails": {
+      "indications": [
+        {"title": "Pain Relief", "description": "Effective for headaches, body pain, and menstrual cramps."},
+        {"title": "Anti-Inflammatory", "description": "Reduces inflammation and swelling."}
+      ],
+      "dosageAdministration": [
+        {"userType": "Adult", "instruction": "Take 1 tablet every 6-8 hours as needed, max 3 tablets/day."}
+      ],
+      "interaction": [],
+      "commonQuestions": [
+        {"question": "Can I take on empty stomach?", "answer": "Best taken after food to avoid stomach upset."},
+        {"question": "Any side effects?", "answer": "May cause mild stomach upset or dizziness."},
+        {"question": "Pregnancy safe?", "answer": "Consult doctor before use."},
+        {"question": "Can I take with paracetamol?", "answer": "Yes, can be combined for enhanced pain relief."},
+        {"question": "Duration to feel effect?", "answer": "Usually within 30 minutes."}
+      ]
+    }
+  },
+  {
+    "name": "Diclofenac 50mg",
+    "slug": "diclofenac-50mg",
+    "category": "Painkiller",
+    "brand": "HealFast",
+    "shortDescription": "Relieves moderate pain and inflammation.",
+    "description": "Diclofenac 50mg is an NSAID that helps reduce pain, swelling, and stiffness due to arthritis, injury, or muscle pain.",
+    "image": "https://medex.com.bd/storage/images/packaging/diclofen-50-mg-tablet-96520122605-i1-O03ywdySxRc8S8ak80X1.webp",
+    "price": 20,
+    "discountPrice": 18,
+    "stock": 350,
+    "sku": "DF-50-01",
+    "tax": 5,
+    "status": "Active",
+    "isPrescription": true,
+    "dosageForm": "Tablet",
+    "strength": "50mg",
+    "expiryDate": "2026-07-31",
+    "metaTitle": "Diclofenac 50mg - Pain & Inflammation",
+    "metaDescription": "Treat moderate pain and inflammation with Diclofenac 50mg.",
+    "tags": ["painkiller", "diclofenac", "NSAID", "arthritis", "muscle pain"],
+    "rating": 4.6,
+    "reviews": [],
+    "launchDate": "2025-03-01",
+    "productDetails": {
+      "indications": [
+        {"title": "Muscle & Joint Pain", "description": "Reduces pain from arthritis, injury, or muscle strain."},
+        {"title": "Inflammation", "description": "Helps reduce swelling and stiffness."}
+      ],
+      "dosageAdministration": [
+        {"userType": "Adult", "instruction": "Take 1 tablet twice daily after meals."}
+      ],
+      "interaction": [],
+      "commonQuestions": [
+        {"question": "Can I take long-term?", "answer": "Only under doctor supervision."},
+        {"question": "Side effects?", "answer": "May cause stomach upset, dizziness, or mild headache."},
+        {"question": "Can I take with food?", "answer": "Yes, recommended."},
+        {"question": "Pregnancy safe?", "answer": "Not recommended."},
+        {"question": "Can I combine with other painkillers?", "answer": "Consult doctor first."}
+      ]
+    }
+  },
+  {
+    "name": "Naproxen 250mg",
+    "slug": "naproxen-250mg",
+    "category": "Painkiller",
+    "brand": "MediPlus",
+    "shortDescription": "Long-lasting relief from pain and inflammation.",
+    "description": "Naproxen 250mg provides effective relief from headaches, muscle pain, and arthritis-related discomfort with extended action.",
+    "image": "https://cdn2.arogga.com/eyJidWNrZXQiOiJhcm9nZ2EiLCJrZXkiOiJQcm9kdWN0LXBfaW1hZ2VzXC8xMjUzMlwvMTI1MzItbmFwcm94LTI1MC1jb3B5LTN2dHRtbC5qcGVnIiwiZWRpdHMiOltdfQ==",
+    "price": 18,
+    "discountPrice": 16,
+    "stock": 300,
+    "sku": "NP-250-01",
+    "tax": 5,
+    "status": "Active",
+    "isPrescription": true,
+    "dosageForm": "Tablet",
+    "strength": "250mg",
+    "expiryDate": "2026-08-31",
+    "metaTitle": "Naproxen 250mg - Pain & Inflammation Relief",
+    "metaDescription": "Effective and long-lasting relief from pain and inflammation with Naproxen 250mg.",
+    "tags": ["painkiller", "naproxen", "NSAID", "muscle pain", "arthritis"],
+    "rating": 4.7,
+    "reviews": [],
+    "launchDate": "2025-03-15",
+    "productDetails": {
+      "indications": [
+        {"title": "Pain Relief", "description": "Relieves moderate pain from muscles, joints, and headaches."},
+        {"title": "Anti-Inflammatory", "description": "Reduces inflammation and swelling."}
+      ],
+      "dosageAdministration": [
+        {"userType": "Adult", "instruction": "Take 1 tablet twice daily after meals."}
+      ],
+      "interaction": [],
+      "commonQuestions": [
+        {"question": "Can I take daily?", "answer": "Only under doctor guidance."},
+        {"question": "Side effects?", "answer": "May cause stomach upset or dizziness."},
+        {"question": "Pregnancy safe?", "answer": "Not recommended."},
+        {"question": "Can I take with other NSAIDs?", "answer": "Avoid combination without doctor's advice."},
+        {"question": "Duration to feel effect?", "answer": "30-60 minutes."}
+      ]
+    }
+  },
+  {
+    "name": "Aspirin 75mg",
+    "slug": "aspirin-75mg",
+    "category": "Painkiller",
+    "brand": "CardioPharma",
+    "shortDescription": "Mild pain relief and cardiovascular support.",
+    "description": "Aspirin 75mg helps relieve mild pain, reduce inflammation, and supports heart health by thinning blood and preventing clot formation.",
+    "image": "https://online-pharmacy4u.co.uk/cdn/shop/files/aspirin-02_1024x1024@2x.webp?v=1703147115",
+    "price": 12,
+    "discountPrice": 10,
+    "stock": 450,
+    "sku": "AS-75-01",
+    "tax": 5,
+    "status": "Active",
+    "isPrescription": false,
+    "dosageForm": "Tablet",
+    "strength": "75mg",
+    "expiryDate": "2026-09-30",
+    "metaTitle": "Aspirin 75mg - Pain Relief & Heart Support",
+    "metaDescription": "Relieve mild pain and support heart health with Aspirin 75mg.",
+    "tags": ["painkiller", "aspirin", "anti-inflammatory", "heart", "mild pain"],
+    "rating": 4.8,
+    "reviews": [],
+    "launchDate": "2025-04-01",
+    "productDetails": {
+      "indications": [
+        {"title": "Mild Pain Relief", "description": "Effective for headaches, minor aches, and body pain."},
+        {"title": "Heart Support", "description": "Helps prevent blood clots and support cardiovascular health."}
+      ],
+      "dosageAdministration": [
+        {"userType": "Adult", "instruction": "Take 1 tablet daily or as directed by doctor."}
+      ],
+      "interaction": [],
+      "commonQuestions": [
+        {"question": "Can I take on empty stomach?", "answer": "Best taken after food to avoid stomach upset."},
+        {"question": "Side effects?", "answer": "May cause mild stomach irritation or bleeding."},
+        {"question": "Pregnancy safe?", "answer": "Consult doctor before use."},
+        {"question": "Can I combine with other painkillers?", "answer": "Avoid without doctor's guidance."},
+        {"question": "Duration to feel effect?", "answer": "Usually within 30-60 minutes."}
+      ]
+    }
+  }
+
+
+
+
+
+]

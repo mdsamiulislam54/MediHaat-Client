@@ -1,0 +1,94 @@
+{
+  "id": "prod001",
+  "name": "Paracetamol 500mg",
+  "slug": "paracetamol-500mg",
+  "category": "Medicine",
+  "brand": "GSK",
+  "shortDescription": "Relieves pain & fever, safe for adults & children.",
+  "description": "Paracetamol is used to relieve mild to moderate pain, including headache, toothache, menstrual cramps, muscle aches, and to reduce fever. It works by blocking the production of prostaglandins in the brain, which are responsible for pain and fever. Overdose can cause liver damage or failure. Do not exceed recommended dose. Consult a doctor if pain persists for more than 3 days or fever lasts more than 3 days. Safe for adults and children when used according to instructions.",
+  "image": "https://cdn.pixabay.com/photo/2018/01/04/08/15/pills-3060450_960_720.jpg",
+  "gallery": [
+    "https://cdn.pixabay.com/photo/2018/01/04/08/15/pills-3060450_960_720.jpg",
+    "https://cdn.pixabay.com/photo/2016/03/26/13/09/pills-1284302_960_720.jpg"
+  ],
+  "price": 5.5,
+  "discountPrice": 4.95,
+  "stock": 1200,
+  "sku": "PARA-500-GSK",
+  "tax": 5,
+  "status": "Active",
+  "isPrescription": false,
+  "dosageForm": "Tablet",
+  "strength": "500mg",
+  "ingredients": ["Paracetamol 500mg"],
+  "expiryDate": "2025-08-31",
+  "weight": 0.05,
+  "metaTitle": "Paracetamol 500mg - Pain Relief & Fever Reducer",
+  "metaDescription": "Buy Paracetamol 500mg online. Effective for pain relief and fever reduction. Safe for adults and children.",
+  "tags": ["pain relief", "fever", "analgesic", "headache", "muscle pain"],
+  "rating": 4.5,
+  "reviews": [],
+  "featured": true,
+  "specialOffer": true,
+  "isNewArrival": true,
+  "isTrending": false,
+  "launchDate": "2025-07-01",
+  "salesCount": 120,
+  "viewsCount": 500,
+  "productDetails": {
+    "indications": [
+      {
+        "title": "Fever",
+        "description": "Helps in reducing body temperature caused by fever. Can be used for adults and children. Monitor body temperature regularly."
+      },
+      {
+        "title": "Headache",
+        "description": "Effective for mild to moderate headache relief, including tension and migraine. Do not exceed recommended daily dosage."
+      },
+      {
+        "title": "Mild Pain",
+        "description": "Relieves minor body aches, toothache, muscle pain, and menstrual cramps. Not suitable for severe pain without doctor consultation."
+      }
+    ],
+    "dosageAdministration": [
+      {
+        "userType": "Adult",
+        "instruction": "Take 500mg every 6 hours as needed. Do not exceed 4g per 24 hours. Swallow with water. Avoid taking with alcohol or other liver-toxic drugs."
+      },
+      {
+        "userType": "Children",
+        "instruction": "10mg per kg per dose every 6 hours. Consult a pediatrician before use. Monitor for signs of overdose or allergic reaction."
+      }
+    ],
+    "interaction": [
+      {
+        "type": "Drug Interaction",
+        "instruction": "Avoid combining with other hepatotoxic drugs or high doses of alcohol as it can increase liver toxicity."
+      },
+      {
+        "type": "Food / Drink Interaction",
+        "instruction": "Safe with most foods. Avoid alcohol. Can be taken with meals to reduce stomach discomfort."
+      }
+    ],
+    "commonQuestions": [
+      {
+        "question": "Can I take Paracetamol on an empty stomach?",
+        "answer": "Yes, it is generally safe for adults, but taking with food can reduce stomach discomfort."
+      },
+      {
+        "question": "What should I do if I miss a dose?",
+        "answer": "Take as soon as you remember. Do not double the next dose to make up for the missed one."
+      },
+      {
+        "question": "Can I use Paracetamol for children?",
+        "answer": "Yes, only in recommended doses based on weight and age. Always consult a pediatrician before giving medicine to children."
+      },
+      {
+        "question": "What are the side effects?",
+        "answer": "Generally safe if used correctly. Possible side effects include nausea, rash, or allergic reaction. Overdose can cause severe liver damage."
+      }
+    ]
+  },
+  "createdAt": "2025-07-01T08:00:00Z",
+  "updatedAt": "2025-07-10T12:00:00Z"
+}
