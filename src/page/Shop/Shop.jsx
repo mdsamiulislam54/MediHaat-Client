@@ -105,7 +105,7 @@ const Shop = () => {
         ) : medicines.length === 0 ? (
           <p className="text-center text-red-500">No medicines found.</p>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 font-rubik">
             {medicines.map((medicine) => (
               <div
                 key={medicine._id}
@@ -121,7 +121,7 @@ const Shop = () => {
                     {Math.round(((medicine.price - medicine.discountPrice) / medicine.price) * 100)}%
                   </p>
                 </div>
-                <h3 className="text-lg font-semibold mb-1 line-clamp-1">{medicine.name}</h3>
+                <h3 className="text-md font-semibold mb-1 line-clamp-1">{medicine.name}</h3>
                 <p className="text-gray-600 text-sm line-clamp-2 mb-2">
                   {medicine.shortDescription || medicine.genericName}
                 </p>
