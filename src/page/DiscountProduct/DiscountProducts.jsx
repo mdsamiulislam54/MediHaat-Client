@@ -38,7 +38,7 @@ const DiscountProducts = () => {
   }
 
   return (
-    <div className="my-20">
+    <div className="py-16">
       <div className="w-11/12 mx-auto">
         <h2 className="text-3xl font-bold mb-10 text-center">
           Discounted Products
