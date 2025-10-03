@@ -36,24 +36,24 @@ const Banner = () => {
     );
 
   return (
-    <div className="w-full mx-auto ">
+    <div className="w-full mx-auto lg:min-h-[80vh] shadow flex justify-center items-center" >
       <Swiper
         loop={true}
         autoplay={{
-          delay: 10000,
+          delay: 5000,
           disableOnInteraction: false,
         }}
        
-        
+        speed={1000}
         pagination={{ clickable: true }}
         modules={[Autoplay, Pagination, ]}
         onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-        className="overflow-hidden lg:h-[80vh] shadow"
+        className="overflow-hidden  "
       >
         {data?.map((banner, index) => (
           <SwiperSlide key={index}>
-            <div className="w-full flex items-center ">
-              <div className="custom-container flex flex-col lg:flex-row justify-between items-center gap-6 h-full">
+            <div className="w-full flex items-center justify-center ">
+              <div className="custom-container flex flex-col lg:flex-row justify-between items-center gap-6 h-full bg-pri">
                 {activeIndex === index && (
                   <>
                     {/* Left Text */}
