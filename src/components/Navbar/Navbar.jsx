@@ -64,7 +64,7 @@ const Navbar = () => {
         </Link>
       </li>
       <li>
-        <Link to="/services" className="hover:bg-primary/15 p-2  ">
+        <Link to="/shop" className="hover:bg-primary/15 p-2  ">
           Services
         </Link>
       </li>
@@ -148,13 +148,7 @@ const Navbar = () => {
                     <FiHome className="text-lg" />
                     Dashboard
                   </NavLink>
-                  <NavLink
-                    to="/update-profile"
-                    className="flex items-center gap-3 text-gray-700 hover:text-primary hover:bg-gray-50 p-2 rounded-lg transition"
-                  >
-                    <FiUser className="text-lg" />
-                    Update Profile
-                  </NavLink>
+                
                   <button
                     onClick={handleLogOut}
                     className="flex items-center gap-3 text-gray-700 hover:text-primary hover:bg-gray-50 p-2 rounded-lg transition cursor-pointer"

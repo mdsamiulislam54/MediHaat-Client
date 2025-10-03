@@ -1,35 +1,39 @@
-import React, { useState } from "react";
-import { useForm } from "react-hook-form";
-import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
+
+
 import { Link, useLocation, useNavigate } from "react-router";
-import Button from "../../../components/Button/Button";
-import Logo from "../../../components/Logo/Logo";
 import { FaArrowLeftLong } from "react-icons/fa6";
+import { useState } from "react";
+import Logo from "../../../components/Logo/Logo";
 import { UserAuth } from "../../../hooks/userAuth/userAuth";
 import Swal from "sweetalert2";
 import { createUserIfNotExists } from "../../../hooks/useCreateUserWithGogle/useCreateUserWithGoogle";
-import Loader from "../../../components/Loader/Loader";
-import PageTitle from "../../../components/PageTitle/PageTitle";
 
 const Login = () => {
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm();
-  const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const { loginWithEmailPassword, signWithGoogle, user, setUser, setRole } =
     UserAuth();
-  const [loading, setLoading] = useState(false);
-  const [loadingGoogle, setLoadingGoogle] = useState(false);
-    const { state } = useLocation();
-    console.log(state)
-
+  const { state } = useLocation();
   const navigate = useNavigate();
+  // auto fill function
+  const handleAutoFill = (role) => {
+    if (role === "admin") {
+      setEmail("admin.123@gmail.com");
+      setPassword("Admin123");
+    } else if (role === "seller") {
+      setEmail("seller@gmail.com");
+      setPassword("Seller123");
+    } else if (role === "user") {
+      setEmail("user@gmail.com");
+      setPassword("User123");
+    }
+  };
 
-  const onSubmit = (data) => {
-    const { email, password } = data;
+  const onSubmit = (e) => {
+
+    e.preventDefault()
+    console.log(email, password)
     setLoading(true);
     loginWithEmailPassword(email, password)
       .then(() => {
@@ -50,7 +54,6 @@ const Login = () => {
         setLoading(false);
       });
   };
-
   const handleGoogleLogin = async () => {
     if (user) {
       return Swal.fire({
@@ -60,7 +63,7 @@ const Login = () => {
     }
 
     try {
-      setLoadingGoogle(true);
+    
       const res = await signWithGoogle();
       const loggedInUser = res.user;
 
@@ -82,126 +85,109 @@ const Login = () => {
         title: "Login Failed!",
         text: error.message,
       });
-      setLoadingGoogle(false);
+     
     }
   };
 
-  const termsAccepted = watch("terms");
-
   return (
-    <div>
-      <div className="custom-container my-5">
-        <PageTitle title={"Login"} />
-        <Link
-          to="/"
-          className="inline-flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-full hover:bg-green-600 transition-all duration-300"
-        >
-          <FaArrowLeftLong className="text-lg" />
-          <span className="hidden sm:inline">Back to Home</span>
-        </Link>
-      </div>
-      <div className="min-h-screen flex flex-col-reverse md:flex-row items-center bg-background custom-container">
+    <div className="bg-gray-100 py-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 custom-container bg-white shadow relative min-h-[90vh] ">
+        {/* Back Button */}
+        <div className="absolute top-2 left-4 bg-gray-200 p-2 rounded-full z-10">
+          <Link to="/">
+            <FaArrowLeftLong className="text-sm" />
+          </Link>
+        </div>
+
         {/* Left: Image Section */}
-        <div className="w-full md:w-4/12 h-[300px] md:h-screen flex-1">
+        <div className="flex items-center justify-center h-full">
           <img
             src="https://img.freepik.com/free-vector/healthcare-smart-card-abstract-concept-illustration_335657-3843.jpg"
             alt="Login Illustration"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover rounded-md"
           />
         </div>
 
         {/* Right: Form Section */}
-        <div className="w-full md:w-1/2 flex items-center justify-center py-10 flex-1">
-          <div className="w-full max-w-md bg-white p-8 rounded-lg shadow-lg">
+        <div className="flex items-center justify-center h-full bg-white">
+          <div className="w-full max-w-md p-6">
+            {/* Logo + Heading */}
             <div className="text-center mb-6">
               <Logo color="text-primary" />
-              <h2 className="text-2xl font-bold text-text">Login</h2>
+              <h2 className="text-2xl font-bold text-gray-800">Login</h2>
+              <p className="text-gray-500 text-sm mt-1">
+                Welcome back! Please login to your account.
+              </p>
             </div>
 
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-              {/* Email */}
+            {/* Form */}
+            <form className="space-y-4" onSubmit={onSubmit}>
+              {/* Role Buttons */}
+              <div className="flex justify-end gap-3">
+                <button
+                  type="button"
+                  onClick={() => handleAutoFill("user")}
+                  className="btn btn-sm bg-primary/80 btn-outline border-gray-300 hover:bg-primary text-white"
+                >
+                  User
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleAutoFill("seller")}
+                  className="btn btn-sm bg-primary/80 btn-outline border-gray-300 hover:bg-primary text-white"
+                >
+                  Seller
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleAutoFill("admin")}
+                  className="btn btn-sm bg-primary/80 btn-outline border-gray-300 hover:bg-primary text-white"
+                >
+                  Admin
+                </button>
+              </div>
+
+              {/* Email Field */}
               <div>
-                <label className="text-text font-medium">Email</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Email
+                </label>
                 <input
                   type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
                   placeholder="Enter your email"
-                  {...register("email", { required: "Email is required" })}
-                  className="input input-bordered w-full mt-1"
                 />
-                {errors.email && (
-                  <p className="text-red-500 text-sm mt-1">
-                    {errors.email.message}
-                  </p>
-                )}
               </div>
 
-              {/* Password */}
+              {/* Password Field */}
               <div>
-                <label className="text-text font-medium">Password</label>
-                <div className="relative">
-                  <input
-                    type={showPassword ? "text" : "password"}
-                    placeholder="Enter your password"
-                    {...register("password", {
-                      required: "Password is required",
-                    })}
-                    className="input input-bordered w-full mt-1"
-                  />
-                  <span
-                    onClick={() => setShowPassword(!showPassword)}
-                    className="absolute top-3 right-3 text-gray-500 cursor-pointer text-lg"
-                  >
-                    {showPassword ? <FaEyeSlash /> : <FaEye />}
-                  </span>
-                </div>
-                {errors.password && (
-                  <p className="text-red-500 text-sm mt-1">
-                    {errors.password.message}
-                  </p>
-                )}
-              </div>
-
-              {/* Terms & Conditions */}
-              <div className="flex items-center gap-2 mt-2">
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Password
+                </label>
                 <input
-                  type="checkbox"
-                  {...register("terms", {
-                    required: "You must accept Terms & Conditions",
-                  })}
-                  className="checkbox checkbox-primary"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+                  placeholder="Enter your password"
                 />
-                <p className="text-sm">
-                  I agree to the{" "}
-                  <Link to="/terms" className="text-primary underline">
-                    Terms & Conditions
-                  </Link>
-                </p>
               </div>
-              {errors.terms && (
-                <p className="text-red-500 text-sm">{errors.terms.message}</p>
-              )}
 
               {/* Login Button */}
-              <Button
+              <button
                 type="submit"
-                children={!loading && "Login"}
-                loader={loading}
-                disabled={!termsAccepted}
-                className={"w-full  "}
-              ></Button>
+                className="w-full bg-primary text-white font-semibold py-2 rounded-md hover:bg-primary/90 transition"
+              >
+                Login
+              </button>
             </form>
 
-            {/* Divider */}
-            <div className="flex items-center gap-4 my-4">
-              <div className="border border-gray-300 w-full"></div>
-              <p className="text-gray-400 text-sm">OR</p>
-              <div className="border border-gray-300 w-full"></div>
-            </div>
-
-            {/* Google Sign In */}
+            <div className="divider">OR</div>
             <button
               onClick={handleGoogleLogin}
-              className="btn bg-white text-black border-[#e5e5e5] btn-block hover:bg-primary hover:text-white transition-all duration-300"
+              className="btn bg-gray-800 text-white   btn-block  transition-all duration-300"
             >
               <svg
                 aria-label="Google logo"
@@ -230,14 +216,14 @@ const Login = () => {
                   ></path>
                 </g>
               </svg>
-              {loadingGoogle ? <Loader /> : " Login with Google"}
+               Login with Google"
             </button>
 
-            {/* New User */}
-            <p className="text-center text-sm text-gray-500 mt-4">
-              New here?{" "}
-              <Link to="/signup" className="text-primary hover:underline">
-                Create an account
+            {/* Footer */}
+            <p className="text-sm text-gray-600 text-center mt-4">
+              Don’t have an account?{" "}
+              <Link to="/signUo" className="text-primary hover:underline">
+                Register
               </Link>
             </p>
           </div>
@@ -245,6 +231,6 @@ const Login = () => {
       </div>
     </div>
   );
-};
+}
 
-export default Login;
+export default Login

@@ -29,12 +29,12 @@ const AboutPage = () => {
             </section>
 
             {/* Who We Are */}
-            <section className="max-w-7xl mx-auto py-12 px-6 grid md:grid-cols-2 gap-10 items-center">
+            <section className="custom-container  py-12 px-6 grid md:grid-cols-2 gap-10">
                 <img
-                    src="https://img.freepik.com/free-photo/inventory-two-druggists-lab-coats-process-inventory-drugstore_259150-57974.jpg?t=st=1755361444~exp=1755365044~hmac=6e3962816e070803119a1803f51ef54c3bd51005e670055b9989c146994126ca&w=1480"
+                    src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?q=80&w=847&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                     alt="about page title images"
                     loading="lazy"
-                    className="rounded-2xl "
+                    className="rounded-2xl h-[400px] w-full object-cover "
                 />
                 <div>
                     <h2 className="text-xl font-bold font-rubik tracking-wide mb-4">Who We Are</h2>
@@ -169,7 +169,7 @@ const AboutPage = () => {
             </section>
 
             {/* Call to Action */}
-            <section className="bg-gradient-to-r from-primary to-primary/90 py-12 px-6 text-center text-white">
+            <section className=" custom-container rounded-box bg-gradient-to-r from-primary to-primary/90 py-12 px-6 text-center text-white mb-10">
                 <h2 className="text-[24px] font-rubik tracking-wide font-bold mb-4">
                     Your health is our priority.
                 </h2>
