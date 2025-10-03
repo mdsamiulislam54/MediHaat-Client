@@ -1,12 +1,12 @@
 import { AnimatePresence, motion } from "framer-motion";
-import React from "react";
+
 import { FaWindowClose } from "react-icons/fa";
 import Button from "../../components/Button/Button";
 
 const MedicineDetails = ({ medicine, onClose }) => {
   console.log(medicine);
   return (
-    <div className="fixed inset-0 bg-primary/10 flex justify-center items-center z-100 mt-10">
+    <div className="fixed inset-0 bg-black/50 flex justify-center items-center z-100 mt-10">
  
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}

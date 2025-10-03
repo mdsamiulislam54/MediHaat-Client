@@ -8,19 +8,19 @@ import { UserAuth } from "../../hooks/userAuth/userAuth";
 import MedicineDetails from "./MedicineDetails";
 import { AnimatePresence } from "framer-motion";
 import { CartContext } from "../../Contextapi/AddToCart/cartContext";
-import { useLocation } from "react-router";
+import { Link, useLocation } from "react-router";
 import { FaSearch } from "react-icons/fa";
 import PageTitle from "../../components/PageTitle/PageTitle";
-
+import { MdOutlineAddShoppingCart } from "react-icons/md";
 const Shop = () => {
   const axiosInstanceCall = axiosinstance();
-  const { user } = UserAuth();
+
   const [currentPage, setCurrentPage] = useState(0);
-  const [perPage, setPerPage] = useState(10);
+  const [perPage, setPerPage] = useState(20);
   const { addToCart } = useContext(CartContext);
   const location = useLocation();
   const categoryName = location.state?.category;
-  const [sortOrder, setSortOrder] = useState(""); // "asc" | "desc"
+  const [sortOrder, setSortOrder] = useState("");
   const [searchText, setSearchText] = useState("");
 
   const { data, isLoading, error } = useQuery({
@@ -59,18 +59,22 @@ const Shop = () => {
   return (
     <div className="min-h-screen">
       <PageTitle title={"Shop"} />
-      <div className="w-11/12 mx-auto">
-        {/* Banner */}
-        <div className="my-4 relative">
-          <img
-            className="w-full h-[400px] object-center object-cover rounded-xl"
-            src="https://img.freepik.com/free-photo/pharmacist-work_23-2150600102.jpg?t=st=1752303511~exp=1752307111~hmac=05a78a3bb2e8468bfe7d35e7d813a773ab0dbfa22bf639bd70296f1318d6313f&w=1380"
-            alt=""
-          />
-          <div className="absolute inset-0 bg-black/40 rounded-xl flex justify-center items-center text-white">
-            <h2 className="text-3xl font-bold underline">Shop</h2>
+      {/* Banner */}
+      <div className=" relative">
+        <img
+          className="w-full h-[200px] object-center object-cover "
+          src="https://live.themewild.com/medion/assets/img/breadcrumb/01.jpg"
+          alt=""
+        />
+        <div className="absolute inset-0  bg-black/40 text-white flex items-center justify-center">
+          <div>
+            <h2 className="text-3xl font-bold  flex items-center gap-2"><MdOutlineAddShoppingCart />Shop</h2>
+
           </div>
         </div>
+      </div>
+      <div className="custom-container">
+
 
         {/* Search & Sort */}
         <div className="flex flex-col md:flex-row items-center justify-between my-6 gap-4">
@@ -111,7 +115,9 @@ const Shop = () => {
                 key={medicine._id}
                 className="bg-white shadow-md rounded-lg overflow-hidden p-4 flex flex-col justify-between group hover:shadow-xl transition-shadow duration-300"
               >
-                <div className="relative overflow-hidden rounded-lg mb-4">
+                <div className="relative overflow-hidden rounded-lg mb-4"
+                onClick={()=>addToCart(cart)}
+                >
                   <img
                     src={medicine.image}
                     alt={medicine.name}
@@ -122,10 +128,10 @@ const Shop = () => {
                   </p>
                 </div>
                 <h3 className="text-md font-semibold mb-1 line-clamp-1">{medicine.name}</h3>
-                <p className="text-gray-600 text-sm line-clamp-2 mb-2">
+                <p className="text-gray-600 text-sm  mb-2 line-clamp-1">
                   {medicine.shortDescription || medicine.genericName}
                 </p>
-                <div className="flex justify-between items-center   gap-3 items-center mt-auto mb-4">
+                <div className="flex justify-between items-center   gap-3  mt-auto mb-4">
                   <div className="flex items-center gap-2">
                     <span className="text-lg font-bold text-green-600">
                       ${medicine.discountPrice}
@@ -136,7 +142,7 @@ const Shop = () => {
                   </div>
                   <div>
                     <p className="text-sm flex justify-center">
-                      <span className="font-bold">Brand : </span>
+                     
                       {medicine.brand}
                     </p>
                   </div>

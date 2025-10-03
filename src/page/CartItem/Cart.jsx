@@ -80,7 +80,7 @@ const Cart = () => {
   };
 
   return (
-    <div className="w-11/12 mx-auto px-4 py-8 min-h-screen">
+    <div className="custom-container px-4 py-8 min-h-screen">
       <PageTitle title={'Cart'}/>
       {cart.length !== 0 && (
         <div className="flex justify-end mb-4">

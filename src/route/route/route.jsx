@@ -26,6 +26,8 @@ import MyOrders from "../../page/DashboardPage/UserDashboard/MyOrders/MyOrders";
 import PageNotFound from "../../page/PageNotFound/PageNotFound";
 import PrivateRoute from "../../page/PrivateRoute/PrivateRoute";
 import AboutPage from "../../page/AboutPage/AboutPage";
+import Faq from "../../page/Faq/Faq";
+import Contact from "../../page/Contact/Contact";
 
 const router = createBrowserRouter([
   {
@@ -39,9 +41,9 @@ const router = createBrowserRouter([
       {
         path: "/shop",
         element: (
-          <PrivateRoute>
+          
             <Shop />
-          </PrivateRoute>
+         
         ),
       },
       {
@@ -68,6 +70,14 @@ const router = createBrowserRouter([
       {
         path:'/about',
         Component:AboutPage
+      },
+      {
+        path:'/faq',
+        Component:Faq
+      },
+      {
+        path:'/contact',
+        Component:Contact
       }
     ],
   },

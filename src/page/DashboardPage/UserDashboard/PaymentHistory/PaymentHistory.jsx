@@ -48,7 +48,7 @@ const PaymentHistory = () => {
   console.log(pageArray);
 
   return (
-    <div className="w-11/12 mx-auto py-10">
+    <div className="custom-container py-10">
       <PageTitle title={'My Payment History'}/>;
       <h2 className="text-2xl font-semibold mb-6">My Payment History</h2>
 

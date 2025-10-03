@@ -90,7 +90,7 @@ const Login = () => {
 
   return (
     <div>
-      <div className="w-11/12 mx-auto my-5">
+      <div className="custom-container my-5">
         <PageTitle title={"Login"} />
         <Link
           to="/"
@@ -100,7 +100,7 @@ const Login = () => {
           <span className="hidden sm:inline">Back to Home</span>
         </Link>
       </div>
-      <div className="min-h-screen flex flex-col-reverse md:flex-row items-center bg-background w-11/12 mx-auto">
+      <div className="min-h-screen flex flex-col-reverse md:flex-row items-center bg-background custom-container">
         {/* Left: Image Section */}
         <div className="w-full md:w-4/12 h-[300px] md:h-screen flex-1">
           <img

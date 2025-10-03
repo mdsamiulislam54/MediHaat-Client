@@ -63,7 +63,7 @@ const ManageUsers = () => {
   if (error) return <ErrorPage message={error.message} />;
 
   return (
-    <div className="w-11/12 mx-auto pt-20">
+    <div className="custom-container pt-20">
       {/* Search & Sort UI */}
       <div className="flex flex-wrap justify-between items-center mb-6 gap-4">
         {/* Search */}

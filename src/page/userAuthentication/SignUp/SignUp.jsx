@@ -86,7 +86,7 @@ const SignUp = () => {
 
 
   return (
-    <div className="w-11/12 mx-auto">
+    <div className="custom-container">
       <PageTitle title={'Sign Up'}/>
       <div className="flex justify-between items-center m-8">
         <Link
@@ -98,7 +98,7 @@ const SignUp = () => {
         </Link>
       </div>
 
-      <div className="w-11/12 mx-auto my-10 flex flex-col-reverse md:flex-row items-center gap-10">
+      <div className="custom-container my-10 flex flex-col-reverse md:flex-row items-center gap-10">
         {/* Left Image */}
         <div className="flex-1">
           <img

@@ -3,7 +3,7 @@ import React from "react";
 
 const axiosinstance = () => {
   const instance = axios.create({
-    baseURL: "http://localhost:5000/api/",
+    baseURL: "https://medihaat-server.vercel.app/api/",
   });
 
   return instance;

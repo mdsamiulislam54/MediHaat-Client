@@ -8,7 +8,7 @@ import Button from "../Button/Button";
 const Footer = () => {
   return (
     <div className=" bg-gradient-to-br from-green-100 to-white  text-gray-700 pt-12 pb-6">
-      <div className="w-11/12 mx-auto grid md:grid-cols-4 gap-10">
+      <div className="custom-container grid md:grid-cols-4 gap-10">
         {/* Logo + Description */}
         <div>
           <div className="text-start inline-block">

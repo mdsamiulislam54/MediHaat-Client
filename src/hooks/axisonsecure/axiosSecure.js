@@ -6,7 +6,7 @@ import { UserAuth } from "../userAuth/userAuth";
 const useAxiosSecure = () => {
   const { user } = UserAuth();
   const instance = axios.create({
-    baseURL: `http://localhost:5000/api/`,
+    baseURL: `https://medihaat-server.vercel.app/api/`,
   });
 
   instance.interceptors.request.use(

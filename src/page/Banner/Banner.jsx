@@ -8,6 +8,7 @@ import "swiper/css/pagination";
 import { useState } from "react";
 import { Link } from "react-router";
 import Button from "../../components/Button/Button";
+import Loader from "../../components/Loader/Loader";
 
 const Banner = () => {
   const instance = axiosinstance();
@@ -38,7 +39,7 @@ const Banner = () => {
     });
   };
 
-  if (isLoading) return <div className="text-center py-10">Loading...</div>;
+  if (isLoading) return <div className="text-center py-10 min-h-screen flex justify-center items-center"><Loader/></div>;
   if (error)
     return (
       <div className="text-center py-10 text-red-500">

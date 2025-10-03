@@ -43,7 +43,7 @@ const SellerPaymentHistory = () => {
   if (error) return <ErrorPage message={error.message}/>;
 
   return (
-    <div className="w-11/12 mx-auto my-10 min-h-screen">
+    <div className="custom-container my-10 min-h-screen">
       <PageTitle title={'Payment History'}/>
       <h2 className="text-2xl font-bold mb-6 text-center">Payment History</h2>
 

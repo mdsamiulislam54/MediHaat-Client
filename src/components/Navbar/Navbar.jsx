@@ -186,7 +186,7 @@ const Navbar = () => {
             : " shadow py-3 relative z-100 "
         }`}
       >
-        <div className="flex items-center justify-between w-11/12 mx-auto   ">
+        <div className="flex items-center justify-between custom-container   ">
           {/* logo */}
           <div className="flex items-center">
             <Link to="/" className="text-xl font-bold">

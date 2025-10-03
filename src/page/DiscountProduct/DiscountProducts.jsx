@@ -9,6 +9,7 @@ import useAxiosSecure from "../../hooks/axisonsecure/axiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import { CartContext } from "../../Contextapi/AddToCart/cartContext";
 import { Link } from "react-router";
+import Loader from "../../components/Loader/Loader";
 
 const DiscountProducts = () => {
   const axiossecure = useAxiosSecure();
@@ -22,7 +23,7 @@ const DiscountProducts = () => {
     },
   });
 
-  if (isLoading) return <div className="text-center py-10">Loading products...</div>;
+  if (isLoading) return <div className="text-center py-10 min-h-screen flex justify-center items-center"><Loader/></div>;
   if (error) return <div className="text-center text-red-500">{error}</div>;
 
   return (

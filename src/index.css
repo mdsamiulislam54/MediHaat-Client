@@ -47,3 +47,7 @@ body{
     transform: translateY(0);
   }
 }
+
+.custom-container {
+   @apply w-full max-w-[1280px] mx-auto px-4;
+}

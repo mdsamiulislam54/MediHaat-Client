@@ -14,14 +14,14 @@ const PaymentSuccess = () => {
 
   if (!orderDetails) {
     return (
-      <div className="w-11/12 mx-auto py-10 text-center text-gray-500">
+      <div className="custom-container py-10 text-center text-gray-500">
         No order details found.
       </div>
     );
   }
 
   return (
-    <div className="w-11/12 mx-auto py-16 flex flex-col items-center text-gray-800">
+    <div className="custom-container py-16 flex flex-col items-center text-gray-800">
       <FaCheckCircle className="text-green-600 text-7xl mb-4" />
       <h2 className="text-3xl font-semibold mb-2">Payment Successful!</h2>
       <p className="text-gray-600 mb-8">Thank you for your purchase.</p>
