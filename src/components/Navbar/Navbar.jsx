@@ -106,13 +106,7 @@ const Navbar = () => {
         </Link>
       </li>
 
-      {/* Language Select */}
-      <li className="list-none">
-        <select className="bg-white text-primary border-2 border-primary px-4 py-2 rounded-md text-sm">
-          <option>English</option>
-          <option>Bangla</option>
-        </select>
-      </li>
+     
 
       {/* Join Button */}
       {!user ? (
@@ -182,7 +176,7 @@ const Navbar = () => {
       <nav
         className={` ${
           scrollY > 50
-            ? "fixed-nav bg-gradient-to-br relative from-green-100 to-white shadow py-3"
+            ? "fixed-nav bg-gradient-to-br relative bg-white shadow py-3"
             : " shadow py-3 relative z-100 "
         }`}
       >

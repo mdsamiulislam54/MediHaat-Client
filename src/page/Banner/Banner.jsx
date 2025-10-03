@@ -22,24 +22,12 @@ const Banner = () => {
     },
   });
 
-  const highlightPercentageText = (text) => {
-    const percentRegex = /\d+%/g; // Detects any percentage like 30%, 50%, etc.
-    return text.split(percentRegex).map((part, index, arr) => {
-      // If part matches the percentage, highlight that part
-      if (index < arr.length - 1) {
-        const match = text.match(percentRegex)[index];
-        return (
-          <>
-            {part}
-            <span key={index} className="text-primary font-bold">{match}</span>
-          </>
-        );
-      }
-      return part;
-    });
-  };
-
-  if (isLoading) return <div className="text-center py-10 min-h-screen flex justify-center items-center"><Loader/></div>;
+  if (isLoading)
+    return (
+      <div className="text-center py-10 min-h-screen flex justify-center items-center">
+        <Loader />
+      </div>
+    );
   if (error)
     return (
       <div className="text-center py-10 text-red-500">
@@ -52,49 +40,68 @@ const Banner = () => {
       <Swiper
         loop={true}
         autoplay={{
-          delay: 5000,
+          delay: 10000,
           disableOnInteraction: false,
         }}
-        navigation={true}
-        speed={1500}
+       
+        
         pagination={{ clickable: true }}
-        modules={[Autoplay, Pagination, Navigation]}
+        modules={[Autoplay, Pagination, ]}
         onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-        className=" overflow-hidden"
+        className="overflow-hidden lg:h-[80vh] shadow"
       >
         {data?.map((banner, index) => (
           <SwiperSlide key={index}>
-            <div className="relative w-full h-[90vh]">
-              <img
-                src={banner.image}
-                alt={banner.title}
-                className="w-full h-full object-cover"
-              />
-
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-center text-white px-4">
-                {/* Animate text only on active slide */}
+            <div className="w-full flex items-center ">
+              <div className="custom-container flex flex-col lg:flex-row justify-between items-center gap-6 h-full">
                 {activeIndex === index && (
-                  <motion.div
-                    key={activeIndex}
-                    initial={{ opacity: 0, y: 200 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: "easeIn" }}
-                  >
-                  
-                    <h2 className="text-2xl md:text-5xl font-bold tracking-wide mb-2">
-                      {highlightPercentageText(banner.title)}
-                    </h2>
-                    <p className="text-sm md:text-xl mb-4">
-                      {banner.subTitle}
-                    </p>
-                    <Link href={banner.link || "/shop"} className="">
-                      <Button
-                        children={banner.btnText}
-                        className={"text-white"}
+                  <>
+                    {/* Left Text */}
+                    <motion.div
+                      key={activeIndex}
+                      initial={{ x: -50, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{ duration: 0.8 }}
+                      className="flex-1 text-center lg:text-left"
+                    >
+                      <p className="uppercase text-sm lg::text-base tracking-widest text-primary font-semibold">
+                        {banner.title || "Easy Health Care"}
+                      </p>
+                      <h2 className="text-4xl lg:text-5xl font-bold leading-tight mb-4">
+                        {banner.heading || (
+                          <>
+                            Medicine & Health Care{" "}
+                            <span className="text-primary">For Your</span>{" "}
+                            Family
+                          </>
+                        )}
+                      </h2>
+                      <p className="text-sm md:text-lg text-gray-600 mb-5 max-w-xl">
+                        {banner.subTitle +
+                          "We provide quality medicine and health care products for your family with trusted service."}
+                      </p>
+
+                      <Link to={banner.link || "/shop"}>
+                        <Button
+                          children={banner.btnText || "Shop Now"}
+                          className={"text-black"}
+                        />
+                      </Link>
+                    </motion.div>
+
+                    {/* Right Image */}
+                    <div
+                      
+                      className="lg:flex-1 flex justify-center my-10 lg:my-0 "
+                    >
+                      <img
+                        src={banner.image}
+                        alt="banner"
+                        className="w-[24rem] lg:w-[28rem] drop-shadow-lg  "
                       />
-                    </Link>
-                  </motion.div>
+                      
+                    </div>
+                  </>
                 )}
               </div>
             </div>

@@ -28,8 +28,8 @@ const DiscountProducts = () => {
 
   return (
     <div className="py-16">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl font-bold mb-10 text-center">Discounted Products</h2>
+      <div className="custom-container">
+        <h2 className="text-3xl font-bold mb-8 text-center">Discounted Products</h2>
 
         <Swiper
           spaceBetween={20}

@@ -38,13 +38,13 @@ const Category = () => {
   if (error) return <ErrorPage message={error.message} />;
 
   return (
-    <div className="max-w-7xl mx-auto py-8">
+    <div className="custom-container py-16">
       <h2 className="text-3xl font-bold mb-6 text-center">Shop by Category</h2>
       <Swiper
         spaceBetween={20}
         slidesPerView={2}
         breakpoints={{
-          640: { slidesPerView: 3 },
+          640: { slidesPerView: 2 },
           768: { slidesPerView: 3 },
           1024: { slidesPerView: 4 },
           1280: { slidesPerView: 6 },
