@@ -11,7 +11,10 @@ import {
 } from "react-icons/fa";
 import { useNavigate } from "react-router";
 
-const CheckoutForm = ({ data, selectedItems, totalPay, totalQuantity }) => {
+const CheckoutForm = ({ paymentData }) => {
+  const { totalPay, data, formData
+  } = paymentData;
+  console.log(paymentData)
   const stripe = useStripe();
   const elements = useElements();
   const [error, setError] = useState("");
@@ -30,12 +33,7 @@ const CheckoutForm = ({ data, selectedItems, totalPay, totalQuantity }) => {
 
     try {
       setLoading(true);
-      console.log
-      Swal.fire({
-        title: "Processing Payment...",
-        allowOutsideClick: false,
-        didOpen: () => Swal.showLoading(),
-      });
+
 
       // PaymentIntent create
       const res = await axiosSecure.post("/create-payment-intent", {
@@ -72,33 +70,26 @@ const CheckoutForm = ({ data, selectedItems, totalPay, totalQuantity }) => {
       if (paymentIntent.status === "succeeded") {
         // order details create
         const orderDetails = {
-          customerName: data.name,
-          email: data.email,
-          totalAmount: totalPay,
+          customerName: formData.name,
+          email: formData.email,
+          totalAmount:
+            data.price - (data.price * data.discount) / 100,
           orderStatus: "pending",
+          paymentMethod:"card",
           payStatus: "paid",
-          paymentMethod: data.payment, 
-          paymentIntentId: paymentIntent.id,
-          totalQuantity: totalQuantity,
-          products: selectedItems.map((item) => ({
-            id: item._id,
-            images: item.imageURL,
-
-            company: item.manufacturer,
-            name: item.name,
-            price: item.price,
-            discount: item.discount,
-            sellerEmail: item.sellerEmail,
-            sellerName: item.sellerName,
-            quantity: item.quantity,
-            medicineType: item.medicineType,
-            expiryDate: item.expiryDate,
-            category: item.category,
-            afterDiscount: item.price - (item.price * item.discount) / 100,
-          })),
+          paymentIntentId: `${formData.name}${new Date().toLocaleDateString()}`,
+          totalQuantity: 1,
+          products: {
+            id: data._id,
+            image: data.image,
+            name: data.name,
+            price: data.price,
+            discount: data.discount,
+            category: data.category,
+          },
         };
 
-        console.log(orderDetails)
+        console.log("formData",orderDetails)
 
         await axiosSecure.post("/order-history", orderDetails);
 
@@ -120,11 +111,12 @@ const CheckoutForm = ({ data, selectedItems, totalPay, totalQuantity }) => {
     }
   };
 
+
   return (
     <div>
       <form onSubmit={handleSubmit} className="space-y-5">
         <div>
-          <div className="flex items-center gap-3 my-3 justify-center">
+          <div className="flex datas-center gap-3 my-3 justify-center">
             <FaCcVisa className="text-3xl text-blue-600" />
             <FaCcMastercard className="text-3xl text-red-600" />
             <FaCcPaypal className="text-3xl text-blue-800" />

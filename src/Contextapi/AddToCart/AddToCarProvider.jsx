@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { CartContext } from "./cartContext";
+import { toast } from "react-toastify";
 
 const AddToCarProvider = ({ children }) => {
   const [cart, setCart] = useState(() => {
@@ -17,37 +18,24 @@ const AddToCarProvider = ({ children }) => {
     const existingCartItem = cart.find((cartItem) => cartItem._id === item._id);
 
     if (existingCartItem) {
-      return Swal.fire({
-        icon: "error",
-        title: "This item is already in the cart!",
-      });
+      return toast.error( "This item is already in the cart!")
     }
 
     const updatedCart = [...cart, item];
     setCart(updatedCart);
-
-    Swal.fire({
-      icon: "success",
-      title: "Item added to cart!",
-    });
+    toast.success("Item added to cart!")
+    
   };
 
   const removeCart = (item) => {
     const updatedCart = cart.filter((cartItem) => cartItem._id !== item._id);
     setCart(updatedCart);
-
-    Swal.fire({
-      icon: "success",
-      title: "Item removed from cart!",
-    });
+    toast.success("Item removed from cart!")
   };
 
   const allDelete = () => {
     if (cart.length === 0) {
-      return Swal.fire({
-        icon: "info",
-        title: "Your cart is already empty!",
-      });
+      toast.error("Your cart is already empty!")
     }
 
     Swal.fire({
@@ -61,7 +49,7 @@ const AddToCarProvider = ({ children }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         setCart([]);
-        Swal.fire("Cleared!", "Your cart is now empty.", "success");
+        toast.success("Cleared!", "Your cart is now empty.", "success")
       }
     });
   };

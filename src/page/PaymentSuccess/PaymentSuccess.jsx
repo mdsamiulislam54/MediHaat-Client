@@ -1,14 +1,14 @@
 import React, { useRef } from "react";
-import { useLocation, useNavigate } from "react-router";
+import { useLocation } from "react-router";
 import { FaCheckCircle } from "react-icons/fa";
 import { useReactToPrint } from "react-to-print";
 import Logo from "../../components/Logo/Logo";
 
 const PaymentSuccess = () => {
   const location = useLocation();
-  const navigate = useNavigate();
+ 
   const orderDetails = location.state;
-
+  console.log(orderDetails)
   const contentRef = useRef();
   const handlePrint = useReactToPrint({ contentRef });
 
@@ -71,31 +71,31 @@ const PaymentSuccess = () => {
         {/* Product List */}
         <div className="mb-4">
           <h4 className="text-lg font-semibold mb-2">Medicine</h4>
-          {orderDetails.products.map((item, index) => (
+        
             <div
-              key={index}
+              
               className="flex items-center justify-between border-t-2 border-dotted border-primary  py-2"
             >
               <div className="flex items-center space-x-3">
                 <img
-                  src={item.images}
-                  alt={item.name}
+                  src={orderDetails.products.image}
+                  alt={orderDetails.products.name}
                   className="w-12 h-12 rounded object-contain"
                 />
-                <div className="grid grid-cols-2">
-                  <p className="font-semibold">{item.name}</p>
-                  <p className="text-sm text-gray-500">#{item.id}</p>
-                  <p className="text-sm">Category: {item.category}</p>
-                  <p className="text-sm">Seller: {item.sellerName}</p>
+                <div className="flex flex-col gap-1">
+                  <p className="font-semibold line-clamp-1">{orderDetails.products.name}</p>
+                  <p className="text-sm text-gray-500">#{orderDetails.products.id}</p>
+                  <p className="text-sm">Category: {orderDetails.products.category}</p>
+                 
                 </div>
               </div>
               <div>
                 <p className="font-semibold">
-                  ${item.afterDiscount.toFixed(2)}
+                  ${orderDetails.totalAmount}
                 </p>
               </div>
             </div>
-          ))}
+        
         </div>
       </div>
       {/* Footer */}

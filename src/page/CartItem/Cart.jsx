@@ -5,21 +5,20 @@ import { MdDeleteForever } from "react-icons/md";
 import Button from "../../components/Button/Button";
 import { Link, useNavigate } from "react-router";
 import PageTitle from "../../components/PageTitle/PageTitle";
+import { toast } from "react-toastify";
 
 const Cart = () => {
   const { cart, removeCart, allDelete } = useContext(CartContext);
-  const [selectedItems, setSelectedItems] = useState([]);
+  const [selectedItem, setSelectedItem] = useState(null);
   const [quantities, setQuantities] = useState({});
   const navigate = useNavigate();
 
-  // Handle Select Multiple
+  // Handle Single Select
   const handleSelect = (item) => {
-    const isSelected = selectedItems.find((i) => i._id === item._id);
-    if (isSelected) {
-      const updated = selectedItems.filter((i) => i._id !== item._id);
-      setSelectedItems(updated);
+    if (selectedItem && selectedItem._id === item._id) {
+      setSelectedItem(null); // আবার ক্লিক করলে unselect হবে
     } else {
-      setSelectedItems([...selectedItems, item]);
+      setSelectedItem(item); // নতুন item select হবে
       setQuantities((prev) => ({
         ...prev,
         [item._id]: prev[item._id] || 1,
@@ -42,46 +41,15 @@ const Cart = () => {
     }));
   };
 
-  // Total calculation for selected items
-  const totalPrice = selectedItems.reduce(
-    (acc, item) => acc + item.price * (quantities[item._id] || 1),
-    0
-  );
-
-  const totalDiscount = selectedItems.reduce(
-    (acc, item) =>
-      acc +
-      ((item.price * item.discount) / 100) * (quantities[item._id] || 1),
-    0
-  );
-
-  const totalQuantity = selectedItems.reduce(
-    (acc, item) => acc + (quantities[item._id] || 1),
-    0
-  );
-
-  // Checkout handler
-  const handleCheckout = () => {
-    if (selectedItems.length === 0) {
-      Swal.fire({
-        icon: "warning",
-        title: "Please select at least one product to checkout!",
-      });
-      return;
-    }
-    navigate("/checkout", {
-      state: {
-        selectedItems,
-        totalQuantity,
-        totalPrice,
-        totalDiscount
-      },
-    });
+  // Checkout function
+  const handleCheckout = (id) => {
+    navigate(`/checkout/${id}`);
   };
 
+  console.log("Selected Item:", selectedItem);
   return (
     <div className="custom-container px-4 py-8 min-h-screen">
-      <PageTitle title={'Cart'}/>
+      <PageTitle title={"Cart"} />
       {cart.length !== 0 && (
         <div className="flex justify-end mb-4">
           <button
@@ -123,22 +91,20 @@ const Cart = () => {
                 </thead>
                 <tbody>
                   {cart.map((item) => {
-                    const isSelected = selectedItems.find(
-                      (i) => i._id === item._id
-                    );
+                    const isSelected = selectedItem?._id === item._id;
                     return (
                       <tr key={item._id} className="border-t">
                         <td className="p-3">
                           <input
                             type="checkbox"
-                            checked={!!isSelected}
+                            checked={isSelected}
                             onChange={() => handleSelect(item)}
                             className="checkbox checkbox-sm"
                           />
                         </td>
                         <td className="p-3">
                           <img
-                            src={item.imageURL}
+                            src={item.image}
                             alt={item.name}
                             className="h-14 w-14 object-contain"
                           />
@@ -149,9 +115,7 @@ const Cart = () => {
                           {isSelected ? (
                             <div className="flex items-center rounded w-fit">
                               <button
-                                onClick={() =>
-                                  handleDecrease(item._id)
-                                }
+                                onClick={() => handleDecrease(item._id)}
                                 className="px-3 py-1 bg-gray-100 text-lg"
                               >
                                 -
@@ -198,19 +162,46 @@ const Cart = () => {
           {/* Order Summary */}
           <div className="shadow p-5 rounded-lg space-y-2 w-full md:w-1/3">
             <h3 className="text-xl font-bold mb-3">Order Summary</h3>
-            <p className="text-base font-medium flex justify-between">
-              Quantity: <span>{totalQuantity}</span>
-            </p>
-            <p className="text-base font-medium flex justify-between">
-              Total Price: <span>${totalPrice.toFixed(2)}</span>
-            </p>
-            <p className="text-base font-medium flex justify-between">
-              Total Discount: <span>${totalDiscount.toFixed(2)}</span>
-            </p>
-            <p className="text-lg font-bold border-t py-4 border-primary flex justify-between">
-              Payable: <span>${(totalPrice - totalDiscount).toFixed(2)}</span>
-            </p>
-            <Button onClick={handleCheckout} className="w-full">
+
+            {selectedItem ? (
+              <>
+                <p className="text-base font-medium flex justify-between">
+                  Quantity: <span>{quantities[selectedItem._id] || 1}</span>
+                </p>
+                <p className="text-base font-medium flex justify-between">
+                  Price: <span>${selectedItem.price.toFixed(2)}</span>
+                </p>
+                <p className="text-base font-medium flex justify-between">
+                  Discount: <span>{selectedItem.discount}%</span>
+                </p>
+                <p className="text-lg font-bold border-t py-4 border-primary flex justify-between">
+                  Payable:{" "}
+                  <span>
+                    $
+                    {(
+                      (selectedItem.price -
+                        (selectedItem.price * selectedItem.discount) / 100) *
+                      (quantities[selectedItem._id] || 1)
+                    ).toFixed(2)}
+                  </span>
+                </p>
+              </>
+            ) : (
+              <p className="text-gray-500 text-center py-4">
+                Please select a product.
+              </p>
+            )}
+
+            <Button
+              onClick={() => {
+                if (!selectedItem) {
+                  toast.error("Please select one product to checkout!");
+                  return;
+                }
+                handleCheckout(selectedItem._id);
+              }}
+              className="w-full"
+            >
               Checkout
             </Button>
           </div>

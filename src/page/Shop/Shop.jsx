@@ -8,13 +8,12 @@ import { UserAuth } from "../../hooks/userAuth/userAuth";
 import MedicineDetails from "./MedicineDetails";
 import { AnimatePresence } from "framer-motion";
 import { CartContext } from "../../Contextapi/AddToCart/cartContext";
-import { Link, useLocation } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { FaSearch } from "react-icons/fa";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
 const Shop = () => {
   const axiosInstanceCall = axiosinstance();
-
   const [currentPage, setCurrentPage] = useState(0);
   const [perPage, setPerPage] = useState(20);
   const { addToCart } = useContext(CartContext);
@@ -22,6 +21,7 @@ const Shop = () => {
   const categoryName = location.state?.category;
   const [sortOrder, setSortOrder] = useState("");
   const [searchText, setSearchText] = useState("");
+  const navigate = useNavigate()
 
   const { data, isLoading, error } = useQuery({
     queryKey: [
@@ -53,7 +53,9 @@ const Shop = () => {
     setSelectedMedicine(medicine);
     setIsModalOpen(true);
   };
-
+const handleCheckout = (id)=>{
+  navigate(`/checkout/${id}`)
+}
   if (error) return <p className="text-center text-red-500">{error.message}</p>;
 
   return (
@@ -116,7 +118,7 @@ const Shop = () => {
                 className="bg-white shadow-md rounded-lg overflow-hidden p-4 flex flex-col justify-between group hover:shadow-xl transition-shadow duration-300"
               >
                 <div className="relative overflow-hidden rounded-lg mb-4"
-                onClick={()=>addToCart(cart)}
+                onClick={()=>handleCheckout(medicine._id)}
                 >
                   <img
                     src={medicine.image}

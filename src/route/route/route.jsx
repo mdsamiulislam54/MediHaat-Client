@@ -41,9 +41,9 @@ const router = createBrowserRouter([
       {
         path: "/shop",
         element: (
-          
-            <Shop />
-         
+
+          <Shop />
+
         ),
       },
       {
@@ -60,7 +60,14 @@ const router = createBrowserRouter([
         element: <Cart />,
       },
       {
-        path: "/checkout",
+        path: "/checkout/:id",
+        loader: async ({ params }) => {
+          const res = await fetch(`http://localhost:5000/api/checkout/${params.id}`);
+          if (!res.ok) {
+            throw new Response("Product not found", { status: 404 });
+          }
+          return res.json();
+        },
         element: <Checkout />,
       },
       {
@@ -68,16 +75,16 @@ const router = createBrowserRouter([
         element: <PaymentSuccess />,
       },
       {
-        path:'/about',
-        Component:AboutPage
+        path: '/about',
+        Component: AboutPage
       },
       {
-        path:'/faq',
-        Component:Faq
+        path: '/faq',
+        Component: Faq
       },
       {
-        path:'/contact',
-        Component:Contact
+        path: '/contact',
+        Component: Contact
       }
     ],
   },
