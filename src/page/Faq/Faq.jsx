@@ -105,13 +105,13 @@ const faqData = [
 const Faq = () => {
   return (
     <div className="max-w-7xl mx-auto my-10 px-4 font-rubik">
-      <h2 className="text-2xl font-bold text-center mb-6">Frequently Asked Questions</h2>
+      <h2 className="text-3xl font-syne font-bold  mb-8">Frequently Asked Questions</h2>
       <div className="space-y-3">
         {faqData.map((item, index) => (
           <div key={index} className="collapse collapse-plus bg-base-100 border border-base-300">
             {/* Single-open accordion; change to checkbox for multi-open */}
             <input type="radio" name="faq-accordion" defaultChecked={index === 0} />
-            <div className="collapse-title font-semibold">{item.question}</div>
+            <div className="collapse-title font-syne font-semibold">{item.question}</div>
             <div className="collapse-content text-sm space-y-3">{item.answer}</div>
           </div>
         ))}

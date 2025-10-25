@@ -1,113 +1,28 @@
-import { useQuery } from "@tanstack/react-query";
-import axiosinstance from "../../hooks/axiosInstance/axiosinstance";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import { motion } from "framer-motion";
+
 import "swiper/css";
 import "swiper/css/pagination";
-import { useState } from "react";
-import { Link } from "react-router";
 import Button from "../../components/Button/Button";
-import Loader from "../../components/Loader/Loader";
+import { Link } from "react-router";
+
 
 const Banner = () => {
-  const instance = axiosinstance();
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  const { data, isLoading, error } = useQuery({
-    queryKey: ["bannerimages"],
-    queryFn: async () => {
-      const res = await instance.get("/banner");
-      return res.data;
-    },
-  });
-
-  if (isLoading)
-    return (
-      <div className="text-center py-10 min-h-screen flex justify-center items-center">
-        <Loader />
-      </div>
-    );
-  if (error)
-    return (
-      <div className="text-center py-10 text-red-500">
-        Failed to load banners
-      </div>
-    );
-
   return (
-    <div className="w-full mx-auto lg:min-h-[80vh] shadow flex justify-center items-center" >
-      <Swiper
-        loop={true}
-        autoplay={{
-          delay: 5000,
-          disableOnInteraction: false,
-        }}
-       
-        speed={1000}
-        pagination={{ clickable: true }}
-        modules={[Autoplay, Pagination, ]}
-        onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-        className="overflow-hidden  "
-      >
-        {data?.map((banner, index) => (
-          <SwiperSlide key={index}>
-            <div className="w-full flex items-center justify-center ">
-              <div className="custom-container flex flex-col lg:flex-row justify-between items-center gap-6 h-full bg-pri">
-                {activeIndex === index && (
-                  <>
-                    {/* Left Text */}
-                    <motion.div
-                      key={activeIndex}
-                      initial={{ x: -50, opacity: 0 }}
-                      animate={{ x: 0, opacity: 1 }}
-                      transition={{ duration: 0.8 }}
-                      className="flex-1 text-center lg:text-left"
-                    >
-                      <p className="uppercase text-sm lg::text-base tracking-widest text-primary font-semibold">
-                        {banner.title || "Easy Health Care"}
-                      </p>
-                      <h2 className="text-4xl lg:text-5xl font-bold leading-tight mb-4">
-                        {banner.heading || (
-                          <>
-                            Medicine & Health Care{" "}
-                            <span className="text-primary">For Your</span>{" "}
-                            Family
-                          </>
-                        )}
-                      </h2>
-                      <p className="text-sm md:text-lg text-gray-600 mb-5 max-w-xl">
-                        {banner.subTitle +
-                          "We provide quality medicine and health care products for your family with trusted service."}
-                      </p>
-
-                      <Link to={banner.link || "/shop"}>
-                        <Button
-                          children={banner.btnText || "Shop Now"}
-                          className={"text-black"}
-                        />
-                      </Link>
-                    </motion.div>
-
-                    {/* Right Image */}
-                    <div
-                      
-                      className="lg:flex-1 flex justify-center my-10 lg:my-0 "
-                    >
-                      <img
-                        src={banner.image}
-                        alt="banner"
-                        className="w-[24rem] lg:w-[28rem] drop-shadow-lg  "
-                      />
-                      
-                    </div>
-                  </>
-                )}
-              </div>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+    <div className="w-full relative mx-auto min-h-[100vh] shadow flex justify-center items-center bg-cover" style={{ backgroundImage: `url("https://img.freepik.com/free-photo/doctor-talking-with-his-patient-clinic_1303-19772.jpg?t=st=1761373163~exp=1761376763~hmac=2a122ec8833d4687416c3ae47a46e18a5fc135400926cafa742794acc2292141&w=1480")` }} >
+      <div className="absolute inset-0 bg-black/50 z-[1]"></div>
+      <div className="custom-container">
+        <div className="w-full sm:w-8/12 lg:2/12 text-white z-100 relative space-y-4">
+          <p className="font-bold text-sm ">Up to <span className="text-xl font-syne text-primary">30%</span> Off on Heart Care Medicines</p>
+          <h1 className="font-bold md:text-5xl text-3xl font-syne ">Trusted brands for cardiac health</h1>
+          <p className="text-md">
+            Highly effective in managing high blood pressure and supporting overall heart health.
+            Recommended by leading cardiologists worldwide for its proven ability to improve
+            blood circulation, reduce the risk of heart complications, and promote a healthier lifestyle.
+          </p>
+          <Link to={"/shop"}>
+            <Button children={"Shop Heart Care"} className={"text-white"} />
+          </Link>
+        </div>
+      </div>
     </div>
   );
 };

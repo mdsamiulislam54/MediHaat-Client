@@ -39,7 +39,7 @@ const Category = () => {
 
   return (
     <div className="custom-container py-16">
-      <h2 className="text-3xl font-bold mb-6 text-center">Shop by Category</h2>
+      <h2 className="text-3xl font-bold mb-6  font-syne">Shop by Category</h2>
       <Swiper
         spaceBetween={20}
         slidesPerView={2}
@@ -63,7 +63,7 @@ const Category = () => {
             <SwiperSlide key={category._id}>
               <div
                 onClick={() => handleCategoryClick(category.name)}
-                className="shadow shadow-primary/50 my-5 rounded-lg p-4 flex flex-col items-center text-center hover:shadow-md transition cursor-pointer h-[150px]"
+                className="shadow  my-5 rounded-lg p-4 flex flex-col items-center text-center hover:shadow-md transition cursor-pointer h-[150px] bg-secondary"
               >
                 <div className="text-4xl text-primary">
                   <img
@@ -72,8 +72,8 @@ const Category = () => {
                     className="w-14 h-14 mb-4"
                   />
                 </div>
-                <h3 className="text-base font-semibold">{category.name}</h3>
-                <p className="text-xs text-gray-500">
+                <h3 className="text-base font-semibold font-syne">{category.name}</h3>
+                <p className="text-xs text-gray-600 font-syne">
                   {category.medicineCount} Medicines
                 </p>
               </div>

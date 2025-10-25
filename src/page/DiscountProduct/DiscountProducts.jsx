@@ -1,10 +1,8 @@
-import React, { useContext } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination } from "swiper/modules";
+import { useContext } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import Button from "../../components/Button/Button";
+import { BsCartPlus } from "react-icons/bs";
 import useAxiosSecure from "../../hooks/axisonsecure/axiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import { CartContext } from "../../Contextapi/AddToCart/cartContext";
@@ -31,12 +29,12 @@ const navigate = useNavigate()
   return (
     <div className="py-16">
       <div className="custom-container">
-        <h2 className="text-3xl font-bold mb-8 ">Discounted Products</h2>
+        <h2 className="text-3xl font-bold mb-8 font-syne ">Discounted Products</h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {products.map((product) => (
 
-            <div key={product._id} className="product-card shadow-md rounded-xl p-4 bg-white transition-all duration-500 relative group flex flex-col h-[300px] ">
+            <div key={product._id} className="product-card shadow-md rounded-xl p-4 bg-white transition-all duration-500 relative group flex flex-col h-[300px] cur  ">
               <div className="relative overflow-hidden rounded-lg mb-4" onClick={()=>handleCheckout(product._id)} >
                 <img
                   src={product.image}
@@ -48,7 +46,7 @@ const navigate = useNavigate()
                 </p>
               </div>
 
-              <h3 className="text-lg font-semibold text-gray-800 mb-2  line-clamp-1">
+              <h3 className="text-lg font-semibold text-gray-800 mb-2  line-clamp-1 font-syne">
                 {product.name}
               </h3>
 
@@ -73,15 +71,15 @@ const navigate = useNavigate()
                 </div>
               </div>
 
-              <div className="">
-                <button onClick={() => addToCart(product)} className="border border-primary px-4 py-2 rounded-md hover:bg-primary hover:text-white cursor-pointer transition-all duration-300">Add To Cart</button>
+              <div className="font-syne">
+                <button onClick={() => addToCart(product)} className="border border-primary px-4 py-1 text-md font-syne rounded-md hover:bg-primary hover:text-white cursor-pointer transition-all duration-300 flex items-center gap-2">Add To Cart <BsCartPlus /></button>
               </div>
             </div>
 
           ))}
         </div>
 
-        <div className="flex justify-end items-center">
+        <div className="flex justify-center items-center mt-10">
           <Link to={'/shop'} className="border-2 border-primary text-black b px-5 py-1 rounded-md hover:bg-primary hover:text-white cursor-pointer transition-all duration-300">See More</Link>
         </div>
       </div>

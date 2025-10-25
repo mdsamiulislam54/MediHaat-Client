@@ -1,6 +1,6 @@
 import React, { use, useContext, useEffect, useState } from "react";
 import Logo from "../../components/Logo/Logo";
-import { Link, NavLink, useNavigate } from "react-router";
+import { Link, NavLink, useLocation, useNavigate } from "react-router";
 import { AnimatePresence, motion } from "framer-motion";
 import { IoClose } from "react-icons/io5";
 import { FiLogOut, FiUser, FiHome } from "react-icons/fi";
@@ -12,7 +12,7 @@ import Swal from "sweetalert2";
 import { CartContext } from "../../Contextapi/AddToCart/cartContext";
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-
+    const {pathname}= useLocation()
   const [scrollY, setScrollY] = useState(0);
   const [dropdownMenu, setDropdownMenu] = useState(false);
   const { user, logOut, setUser } = UserAuth();
@@ -20,6 +20,7 @@ const Navbar = () => {
   const { cart } = useContext(CartContext);
 
   useEffect(() => {
+
     const handleScroll = () => {
       setScrollY(window.scrollY);
     };
@@ -170,15 +171,15 @@ const Navbar = () => {
       <nav
         className={` ${
           scrollY > 50
-            ? "fixed-nav bg-gradient-to-br relative bg-white shadow py-3"
-            : " shadow py-3 relative z-100 "
+            ? "fixed-nav bg-gradient-to-br relative bg-white shadow py-2"
+            : pathname === '/'? "py-2 absolute w-full bg-white/70 z-100 ": " shadow py-2 relative z-100 "
         }`}
       >
         <div className="flex items-center justify-between custom-container   ">
           {/* logo */}
           <div className="flex items-center">
             <Link to="/" className="text-xl font-bold">
-              <Logo color="text-primary" />
+              <Logo color="text-black" />
             </Link>
           </div>
 
@@ -224,10 +225,10 @@ const Navbar = () => {
             animate={{ x: 0 }}
             exit={{ x: "-100%" }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="fixed top-0 left-0 w-[85%] sm:w-3/4 h-full bg-white shadow-lg z-[100] flex flex-col"
+            className="fixed top-0 left-0 w-[85%] sm:w-2/4 h-full bg-white to-white shadow-lg z-[200] flex flex-col"
           >
             {/* header */}
-            <div className="flex items-center justify-between px-5 py-4 border-b border-primary pt-[env(safe-area-inset-top)]">
+            <div className="flex items-center justify-between px-5 py-4 border-b border-primary ">
               <Logo color="text-primary" />
               <button
                 onClick={() => setMenuOpen(false)}
