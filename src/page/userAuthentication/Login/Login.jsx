@@ -1,5 +1,5 @@
-
-
+import { FaRegEye } from "react-icons/fa";
+import { FaRegEyeSlash } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { useState } from "react";
@@ -11,9 +11,9 @@ import { createUserIfNotExists } from "../../../hooks/useCreateUserWithGogle/use
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [shadowPassword, setShadowPassword] = useState(true);
   const [loading, setLoading] = useState(false);
-  const { loginWithEmailPassword, signWithGoogle, user, setUser, setRole } =
-    UserAuth();
+  const { loginWithEmailPassword, signWithGoogle, user, setUser, setRole } = UserAuth();
   const { state } = useLocation();
   const navigate = useNavigate();
   // auto fill function
@@ -25,7 +25,7 @@ const Login = () => {
       setEmail("seller@gmail.com");
       setPassword("Seller123");
     } else if (role === "user") {
-      setEmail("user@gmail.com");
+      setEmail("user123@gmail.com");
       setPassword("User123");
     }
   };
@@ -63,7 +63,7 @@ const Login = () => {
     }
 
     try {
-    
+
       const res = await signWithGoogle();
       const loggedInUser = res.user;
 
@@ -85,7 +85,7 @@ const Login = () => {
         title: "Login Failed!",
         text: error.message,
       });
-     
+
     }
   };
 
@@ -162,17 +162,27 @@ const Login = () => {
               </div>
 
               {/* Password Field */}
-              <div>
+              <div className="relative">
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Password
                 </label>
                 <input
-                  type="password"
+                  type={shadowPassword ? "password" : "text"}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary "
                   placeholder="Enter your password"
                 />
+                <div
+                  className="absolute right-3 top-[50%] cursor-pointer"
+                  onClick={() => setShadowPassword(!shadowPassword)}
+                >
+                  {shadowPassword ? (
+                    <FaRegEyeSlash size={20} />
+                  ) : (
+                    <FaRegEye size={20} />
+                  )}
+                </div>
               </div>
 
               {/* Login Button */}
@@ -216,13 +226,13 @@ const Login = () => {
                   ></path>
                 </g>
               </svg>
-               Login with Google"
+              Login with Google"
             </button>
 
             {/* Footer */}
             <p className="text-sm text-gray-600 text-center mt-4">
               Don’t have an account?{" "}
-              <Link to="/signUo" className="text-primary hover:underline">
+              <Link to="/signUp" className="text-primary hover:underline">
                 Register
               </Link>
             </p>
