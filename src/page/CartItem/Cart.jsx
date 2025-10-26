@@ -110,7 +110,7 @@ const Cart = () => {
                           />
                         </td>
                         <td className="p-3 font-semibold">{item.name}</td>
-                        <td className="p-3">${item.price}</td>
+                        <td className="p-3">৳ {item.price}</td>
                         <td className="p-3">
                           {isSelected ? (
                             <div className="flex items-center rounded w-fit">
@@ -137,7 +137,7 @@ const Cart = () => {
                           )}
                         </td>
                         <td className="p-3">
-                          $
+                          ৳ 
                           {(
                             item.price -
                             (item.price * item.discount) / 100
@@ -169,7 +169,7 @@ const Cart = () => {
                   Quantity: <span>{quantities[selectedItem._id] || 1}</span>
                 </p>
                 <p className="text-base font-medium flex justify-between">
-                  Price: <span>${selectedItem.price.toFixed(2)}</span>
+                  Price: <span>৳ {selectedItem.price.toFixed(2)}</span>
                 </p>
                 <p className="text-base font-medium flex justify-between">
                   Discount: <span>{selectedItem.discount}%</span>
@@ -177,7 +177,7 @@ const Cart = () => {
                 <p className="text-lg font-bold border-t py-4 border-primary flex justify-between">
                   Payable:{" "}
                   <span>
-                    $
+                    ৳ 
                     {(
                       (selectedItem.price -
                         (selectedItem.price * selectedItem.discount) / 100) *

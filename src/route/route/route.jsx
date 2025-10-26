@@ -49,7 +49,7 @@ const router = createBrowserRouter([
       {
         path: "/medicine-details/:id",
         loader: async ({ params }) => {
-          const res = await fetch(`http://localhost:5000/api/medicine/${params.id}`);
+          const res = await fetch(`https://medihaat-server.vercel.app/api/medicine/${params.id}`);
           if (!res.ok) {
             throw new Response("Product not found", { status: 404 });
           }
@@ -64,7 +64,7 @@ const router = createBrowserRouter([
       {
         path: "/checkout/:id",
         loader: async ({ params }) => {
-          const res = await fetch(`http://localhost:5000/api/checkout/${params.id}`);
+          const res = await fetch(`https://medihaat-server.vercel.app/api/checkout/${params.id}`);
           if (!res.ok) {
             throw new Response("Product not found", { status: 404 });
           }

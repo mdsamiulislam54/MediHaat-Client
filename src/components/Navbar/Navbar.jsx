@@ -14,7 +14,7 @@ import Button from "../Button/Button";
 import { toast } from "react-toastify";
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-    const {pathname}= useLocation()
+  const { pathname } = useLocation()
   const [scrollY, setScrollY] = useState(0);
   const [dropdownMenu, setDropdownMenu] = useState(false);
   const { user, logOut, setUser } = UserAuth();
@@ -33,7 +33,7 @@ const Navbar = () => {
   const handleLogOut = () => {
     logOut()
       .then(() => {
-       toast.success("Logout Successful!");
+        toast.success("Logout Successful!");
         setUser(null);
         navigate("/");
         setDropdownMenu(false);
@@ -87,22 +87,22 @@ const Navbar = () => {
       <li className="list">
         <Link to={"/cart-page"} className="indicator relative cursor-pointer">
           <FaCartPlus className="text-2xl" />
-          <span className="  absolute md:-top-7 -top-5 md:right-0 transform translate-x-2 translate-y-2 border-0 text-primary text-xl font-bold font-syne">
+          <span className="  absolute -top-7 right-0 transform translate-x-2 translate-y-2 border-0 text-primary text-xl font-bold font-syne">
             {cart.length}
           </span>
         </Link>
       </li>
 
-     
+
 
       {/* Join Button */}
       {!user ? (
         <li>
           <Link
             to="/login"
-           
+
           >
-            <Button children={"Join Us"} className={"text-white"}/>
+            <Button children={"Join Us"} className={"text-white"} />
           </Link>
         </li>
       ) : (
@@ -114,7 +114,7 @@ const Navbar = () => {
             <img
               src={user?.photoURL}
               alt=""
-              className="w-10 h-10 rounded-full"
+              className="lg:w-10 lg:h-10 w-7 h-7 rounded-full"
             />
           </button>
           {/* dropdown menu */}
@@ -125,7 +125,7 @@ const Navbar = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.5 }}
                 transition={{ duration: 0.35, ease: "easeInOut" }}
-                className="absolute max-md:-top-50 right-0 max-md:-right-32 bg-gradient-to-br from-white to-gray-100 p-4 rounded-xl shadow-lg shadow-primary/20 z-50"
+                className="absolute top-16 right-0 lg:-right-32 bg-secondary p-4  rounded-xl shadow-lg shadow-primary/20 z-[200]"
               >
                 <ul className="flex flex-col gap-3 w-48">
                   <NavLink
@@ -135,7 +135,7 @@ const Navbar = () => {
                     <FiHome className="text-lg" />
                     Dashboard
                   </NavLink>
-                
+
                   <button
                     onClick={handleLogOut}
                     className="flex items-center gap-3 text-gray-700 hover:text-primary hover:bg-gray-50 p-2 rounded-lg transition cursor-pointer"
@@ -155,17 +155,16 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={` ${
-          scrollY > 50
-            ? "fixed-nav bg-gradient-to-br relative bg-white shadow py-2"
-            : pathname === '/'? "py-3 absolute w-full bg-white/10 text-white  z-100 ": " shadow py-2 relative z-100 "
-        }`}
+        className={` ${scrollY > 50
+            ? "fixed-nav bg-gradient-to-br relative bg-white shadow py-2 z-[100]"
+            : pathname === '/' ? "py-3 absolute w-full bg-white/10 text-white  z-100 " : " shadow py-2 relative z-100 "
+          }`}
       >
         <div className="flex items-center justify-between custom-container   ">
           {/* logo */}
           <div className="flex items-center">
             <Link to="/" className="text-xl font-bold">
-              <Logo color={`${scrollY > 50 ? " text-black": pathname === '/'? "text-white":"text-black"}`} />
+              <Logo color={`${scrollY > 50 ? " text-black" : pathname === '/' ? "text-white" : "text-black"}`} />
             </Link>
           </div>
 
@@ -182,7 +181,7 @@ const Navbar = () => {
           </div>
 
           {/* mobile menu button */}
-          <div className="xl:hidden">
+          <div className="xl:hidden flex items-center flex-row-reverse gap-4">
             <button onClick={() => setMenuOpen(!menuOpen)}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -199,6 +198,7 @@ const Navbar = () => {
                 />
               </svg>
             </button>
+            <ul className="flex gap-3 items-center">{menuItem}</ul>
           </div>
         </div>
       </nav>
@@ -213,6 +213,7 @@ const Navbar = () => {
             transition={{ duration: 0.4, ease: "easeInOut" }}
             className="fixed top-0 left-0 w-[85%] sm:w-2/4 h-full bg-white to-white shadow-lg z-[200] flex flex-col"
           >
+
             {/* header */}
             <div className="flex items-center justify-between px-5 py-4 border-b border-primary ">
               <Logo color="text-primary" />
@@ -224,17 +225,16 @@ const Navbar = () => {
               </button>
             </div>
 
+           
+
             {/* scrollable menu area */}
             <div className="flex-1 overflow-y-auto">
-              <ul className="flex flex-col gap-5 text-primary text-base sm:text-lg font-medium p-5">
+              <ul className="flex flex-col gap-5  text-base sm:text-lg font-medium p-5">
                 {navItem}
               </ul>
             </div>
 
-            {/* mobile bottom actions */}
-            <div className="border-t border-primary p-5 flex flex-wrap gap-4">
-              {menuItem}
-            </div>
+
           </motion.div>
         )}
       </AnimatePresence>
