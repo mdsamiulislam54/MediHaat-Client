@@ -18,6 +18,7 @@ const Category = () => {
     error,
   } = useQuery({
     queryKey: ["categories"],
+    refetchInterval: 1000,
     queryFn: async () => {
       try {
         const res = await axiosSecure.get("/category");
@@ -63,20 +64,19 @@ const Category = () => {
             <SwiperSlide key={category._id}>
               <div
                 onClick={() => handleCategoryClick(category.name)}
-                className="shadow  my-5 rounded-lg p-4 flex flex-col items-center text-center hover:shadow-md transition cursor-pointer h-[150px] bg-secondary"
+                className="shadow  my-5 rounded-lg  flex flex-col items-center text-center hover:shadow-md transition cursor-pointer h-[200px]  w-full"
               >
-                <div className="text-4xl text-primary">
+                <div className="">
                   <img
                     src={category.images}
                     alt=""
-                    className="w-14 h-14 mb-4"
+                    className="w-full h-[200px] object-cover mb-4"
                   />
                 </div>
-                <h3 className="text-base font-semibold font-syne">{category.name}</h3>
-                <p className="text-xs text-gray-600 font-syne">
-                  {category.medicineCount} Medicines
-                </p>
+
               </div>
+              <h3 className="text-sm text-center font-semibold font-syne">{category.name}</h3>
+         
             </SwiperSlide>
           );
         })}

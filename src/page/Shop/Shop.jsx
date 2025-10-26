@@ -1,12 +1,10 @@
 import { useContext, useState } from "react";
 import Loader from "../../components/Loader/Loader";
-import { FaEye } from "react-icons/fa";
-import { BiSolidCartAdd } from "react-icons/bi";
+import { BsCartPlus } from "react-icons/bs";
 import { useQuery } from "@tanstack/react-query";
 import axiosinstance from "../../hooks/axiosInstance/axiosinstance";
-import { UserAuth } from "../../hooks/userAuth/userAuth";
-import MedicineDetails from "./MedicineDetails";
-import { AnimatePresence } from "framer-motion";
+
+
 import { CartContext } from "../../Contextapi/AddToCart/cartContext";
 import { Link, useLocation, useNavigate } from "react-router";
 import { FaSearch } from "react-icons/fa";
@@ -109,60 +107,60 @@ const Shop = () => {
           <p className="text-center text-red-500">No medicines found.</p>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 font-rubik">
-            {medicines.map((medicine) => (
-              <div
-                key={medicine._id}
-                className="bg-white shadow-md rounded-lg overflow-hidden p-4 flex flex-col justify-between group hover:shadow-xl transition-shadow duration-300"
-              >
-                <div className="relative overflow-hidden rounded-lg mb-4"
-                  onClick={() => handleCheckout(medicine._id)}
-                >
+            {medicines.map((product) => (
+
+              <div key={product._id} className="product-card shadow-md rounded-xl  bg-white transition-all duration-500 relative group flex flex-col  ">
+                <div className="relative overflow-hidden rounded-lg mb-4 " onClick={() => handleCheckout(product._id)} >
                   <img
-                    src={medicine.image}
-                    alt={medicine.name}
-                    className="w-full h-30  object-contain transition-transform duration-500 group-hover:scale-110"
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-50  object-contain transition-transform duration-300 group-hover:scale-125 cursor-pointer"
                   />
                   <p className="bg-primary text-xs font-medium px-2 py-1 text-white rounded-full absolute top-2 right-2">
-                    {Math.round(((medicine.price - medicine.discountPrice) / medicine.price) * 100)}%
+                    {Math.round(((product.price - product.discountPrice) / product.price) * 100)}%
                   </p>
                 </div>
-                <h3 className="text-md font-semibold mb-1 line-clamp-1">{medicine.name}</h3>
-                <p className="text-gray-600 text-sm  mb-2 line-clamp-1">
-                  {medicine.shortDescription || medicine.genericName}
-                </p>
-                <div className="flex justify-between items-center   gap-3  mt-auto mb-4">
-                  <div className="flex items-center gap-2">
-                    <span className="text-lg font-bold text-green-600">
-                      ${medicine.discountPrice}
-                    </span>
-                    <span className="text-xs line-through text-gray-600">
-                      ${medicine.price}
-                    </span>
-                  </div>
-                  <div>
-                    <p className="text-sm flex justify-center">
 
-                      {medicine.brand}
+                <div className="bg-gray-100 p-4">
+                  <div className="flex items-center justify-between mb-1">
+                    <p className="text-sm font-syne text-gray-600">{product.category}</p>
+                    <p className="flex">
+                      {Array.from({ length: 5 }, (_, i) => (
+                        <svg
+                          key={i}
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 20 20"
+                          fill={i < Math.floor(product.rating) ? "green" : "#e5e7eb"}
+                          className="w-4 h-4"
+                        >
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.967a1 1 0 00.95.69h4.175c.969 0 1.371 1.24.588 1.81l-3.382 2.46a1 1 0 00-.364 1.118l1.286 3.966c.3.921-.755 1.688-1.54 1.118l-3.382-2.46a1 1 0 00-1.175 0l-3.382 2.46c-.785.57-1.84-.197-1.54-1.118l1.286-3.966a1 1 0 00-.364-1.118L2 9.394c-.783-.57-.38-1.81.588-1.81h4.175a1 1 0 00.95-.69l1.286-3.967z" />
+                        </svg>
+                      ))}
                     </p>
                   </div>
-                </div>
-                <div className="flex gap-2 justify-center mt-auto">
-                  <button
-                    onClick={() => addToCart(medicine)}
-                    className="btn btn-primary btn-sm flex-1"
-                  >
-                    <BiSolidCartAdd className="text-xl" />
-                  </button>
-                  <Link
-                    to={`/medicine-details/${medicine._id}`}
+                  <h3 className="text-lg font-semibold text-gray-800 mb-2  line-clamp-1 font-syne">
+                    {product.name}
+                  </h3>
 
 
-                    className="btn btn-sm btn-primary flex-1"
-                  >
-                    <FaEye className="text-xl" />
-                  </Link>
+
+
+
+                  <div className="font-syne flex justify-between items-center mt-auto">
+                    <button onClick={() => addToCart(product)} className="border border-primary px-4 py-1 text-md font-syne rounded-md hover:bg-primary hover:text-white cursor-pointer transition-all duration-300 flex items-center gap-2">Add To Cart <BsCartPlus /></button>
+                    <div className="flex items-center gap-2">
+                      <span className="text-lg font-bold text-green-600">
+                        ৳{product.discountPrice}
+                      </span>
+                      <span className="text-xs line-through text-gray-600">
+                        ${product.price}
+                      </span>
+                    </div>
+
+                  </div>
                 </div>
               </div>
+
             ))}
           </div>
         )}
