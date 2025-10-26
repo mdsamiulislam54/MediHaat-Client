@@ -6,6 +6,7 @@ import TestimonialSection from '../Testimonial/TestimonialSection'
 
 import Faq from '../Faq/Faq'
 import HealthPlan from '../HealthPlan/HealthPlan'
+import Brand from '../Brand/Brand'
 
 const home = () => {
   return (
@@ -17,6 +18,7 @@ const home = () => {
       <Faq/>
       <HealthPlan/>
       <TestimonialSection/>
+      <Brand/>
     </div>
   )
 }

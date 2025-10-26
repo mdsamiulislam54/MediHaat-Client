@@ -83,38 +83,37 @@ const faqData = [
       </>
     ),
   },
-  {
-    question: "How do you handle my personal data and medical information?",
-    answer: (
-      <>
-        <p>
-          We take privacy seriously and limit access to your data to authorized team members only.
-        </p>
-        <ul className="list-disc pl-5 space-y-1">
-          <li><strong>Data protection:</strong> Stored on secure servers with encryption and strict access control.</li>
-          <li><strong>Prescription privacy:</strong> Reviewed only by licensed pharmacists for verification.</li>
-          <li><strong>No third-party sharing</strong> without your consent, except where required by law.</li>
-          <li><strong>Medical disclaimer:</strong> Content is for information only and not a substitute for professional medical advice.</li>
-          <li>You can request <strong>account deletion</strong> and <strong>marketing opt-out</strong> from your profile or by contacting support.</li>
-        </ul>
-      </>
-    ),
-  },
+ 
 ];
 
 const Faq = () => {
   return (
-    <div className="max-w-7xl mx-auto my-10 px-4 font-rubik">
-      <h2 className="text-3xl font-syne font-bold  mb-8">Frequently Asked Questions</h2>
-      <div className="space-y-3">
-        {faqData.map((item, index) => (
-          <div key={index} className="collapse collapse-plus bg-base-100 border border-base-300">
-            {/* Single-open accordion; change to checkbox for multi-open */}
-            <input type="radio" name="faq-accordion" defaultChecked={index === 0} />
-            <div className="collapse-title font-syne font-semibold">{item.question}</div>
-            <div className="collapse-content text-sm space-y-3">{item.answer}</div>
+    <div className=" my-10 px-4 font-rubik">
+
+      <div className="custom-container ">
+        <h2 className="text-3xl font-syne font-bold  max-md:text-center  lg:mb-8 mb-16">Frequently Asked Questions</h2>
+        <div className="grid lg:grid-cols-2 gap-10 items-center">
+          <div className="space-y-3  max-lg:order-2">
+            {faqData.map((item, index) => (
+              <div key={index} className="collapse collapse-plus bg-base-100 border border-base-300">
+                {/* Single-open accordion; change to checkbox for multi-open */}
+                <input type="radio" name="faq-accordion" defaultChecked={index === 0} />
+                <div className="collapse-title font-syne font-semibold">{item.question}</div>
+                <div className="collapse-content text-sm space-y-3">{item.answer}</div>
+              </div>
+            ))}
           </div>
-        ))}
+          <div className="relative max-lg:order-1">
+            <img src="https://i.postimg.cc/bJFNBxf1/faq.png" alt="faq question images" 
+            className="w-full h-full relative z-100"
+            />
+
+            <div className="absolute top-0 left-[50%] translate-x-[-50%] w-[70%]  h-full bg-gradient-to-br to-primary from-accent rounded-full blur-2xl">
+
+            </div>
+           
+          </div>
+        </div>
       </div>
     </div>
   );
