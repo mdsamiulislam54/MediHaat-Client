@@ -50,32 +50,32 @@ const Navbar = () => {
   const navItem = (
     <>
       <li>
-        <Link to="/" className="hover:bg-primary/15 p-2 ">
+        <Link to="/" className="hover:border-b-2 border-primary transition p-2 ">
           Home
         </Link>
       </li>
       <li>
-        <Link to="/shop" className="hover:bg-primary/15 p-2 ">
+        <Link to="/shop" className="hover:border-b-2 border-primary transition p-2 ">
           Shop
         </Link>
       </li>
       <li>
-        <Link to="/about" className="hover:bg-primary/15 p-2  ">
+        <Link to="/about" className="hover:border-b-2 border-primary transition p-2  ">
           About
         </Link>
       </li>
       <li>
-        <Link to="/shop" className="hover:bg-primary/15 p-2  ">
+        <Link to="/shop" className="hover:border-b-2 border-primary transition p-2  ">
           Services
         </Link>
       </li>
       <li>
-        <Link to="/contact" className="hover:bg-primary/15 p-2  ">
+        <Link to="/contact" className="hover:border-b-2 border-primary transition p-2  ">
           Contact
         </Link>
       </li>
       <li>
-        <Link to="/faq" className="hover:bg-primary/15 p-2  ">
+        <Link to="/faq" className="hover:border-b-2 border-primary transition p-2  ">
           FAQ
         </Link>
       </li>

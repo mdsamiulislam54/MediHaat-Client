@@ -79,7 +79,7 @@ const testimonials = [
 const TestimonialSection = () => {
   return (
     <div className="custom-container my-20">
-      <h2 className="text-3xl font-bold text-center mb-10">
+      <h2 className="text-3xl font-bold font-syne mb-8">
         What Our Customers Say
       </h2>
 
@@ -101,12 +101,12 @@ const TestimonialSection = () => {
             <div className="bg-white shadow-lg rounded-xl p-6 text-center h-full flex flex-col justify-between my-4 ">
               <div className="flex justify-center mb-4">
                 <img
-                  src={testimonial.image}
+                  src={testimonial.image || "https://i.pravatar.cc/150"}
                   alt={testimonial.name}
-                  className="w-20 h-20 rounded-full object-cover"
+                  className="w-14 h-14 rounded-tr-[30px] rounded-bl-[30px] object-cover border-2 border-primary"
                 />
               </div>
-              <p className="text-gray-600 italic mb-4">
+              <p className="text-gray-600 font-syne tracking-wide mb-4">
                 “{testimonial.review}”
               </p>
               <div className="flex justify-center mb-2 text-yellow-400">
@@ -114,7 +114,7 @@ const TestimonialSection = () => {
                   <FaStar key={i} />
                 ))}
               </div>
-              <h3 className="font-semibold">{testimonial.name}</h3>
+              <h3 className="font-semibold font-syne">{testimonial.name}</h3>
               <p className="text-sm text-gray-500">{testimonial.designation}</p>
             </div>
           </SwiperSlide>

@@ -49,13 +49,10 @@ const Shop = () => {
   const totalPage = Math.ceil(totalCount / perPage);
   const pageArray = [...Array(totalPage).keys()];
 
-  const handleViewDetails = (medicine) => {
-    setSelectedMedicine(medicine);
-    setIsModalOpen(true);
-  };
-const handleCheckout = (id)=>{
-  navigate(`/checkout/${id}`)
-}
+
+  const handleCheckout = (id) => {
+    navigate(`/checkout/${id}`)
+  }
   if (error) return <p className="text-center text-red-500">{error.message}</p>;
 
   return (
@@ -118,7 +115,7 @@ const handleCheckout = (id)=>{
                 className="bg-white shadow-md rounded-lg overflow-hidden p-4 flex flex-col justify-between group hover:shadow-xl transition-shadow duration-300"
               >
                 <div className="relative overflow-hidden rounded-lg mb-4"
-                onClick={()=>handleCheckout(medicine._id)}
+                  onClick={() => handleCheckout(medicine._id)}
                 >
                   <img
                     src={medicine.image}
@@ -144,7 +141,7 @@ const handleCheckout = (id)=>{
                   </div>
                   <div>
                     <p className="text-sm flex justify-center">
-                     
+
                       {medicine.brand}
                     </p>
                   </div>
@@ -156,12 +153,14 @@ const handleCheckout = (id)=>{
                   >
                     <BiSolidCartAdd className="text-xl" />
                   </button>
-                  <button
-                    onClick={() => handleViewDetails(medicine)}
+                  <Link
+                    to={`/medicine-details/${medicine._id}`}
+
+
                     className="btn btn-sm btn-primary flex-1"
                   >
                     <FaEye className="text-xl" />
-                  </button>
+                  </Link>
                 </div>
               </div>
             ))}
@@ -198,7 +197,7 @@ const handleCheckout = (id)=>{
           </ul>
         </div>
 
-        {/* Medicine Details Modal */}
+        {/* Medicine Details Modal
         <AnimatePresence>
           {isModalOpen && selectedMedicine && (
             <MedicineDetails
@@ -209,7 +208,7 @@ const handleCheckout = (id)=>{
               }}
             />
           )}
-        </AnimatePresence>
+        </AnimatePresence> */}
       </div>
     </div>
   );

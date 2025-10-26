@@ -48,12 +48,14 @@ const router = createBrowserRouter([
       },
       {
         path: "/medicine-details/:id",
-        element: (
-          <PrivateRoute>
-            {" "}
-            <MedicineDetails />{" "}
-          </PrivateRoute>
-        ),
+        loader: async ({ params }) => {
+          const res = await fetch(`http://localhost:5000/api/medicine/${params.id}`);
+          if (!res.ok) {
+            throw new Response("Product not found", { status: 404 });
+          }
+          return res.json();
+        },
+        element: <MedicineDetails />
       },
       {
         path: "/cart-page",

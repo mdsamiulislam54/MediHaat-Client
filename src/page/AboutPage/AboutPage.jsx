@@ -10,23 +10,34 @@ const AboutPage = () => {
     return (
         <div className="bg-gray-50 text-gray-800">
             {/* Hero Section */}
-            <section className="bg-primary py-12 px-6 text-center">
-                <motion.h1
-                    className="text-3xl sm:text-4xl font-bold font-rubik mb-4 text-white"
-                    initial={{ opacity: 0, y: -30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                >
-                    About MediHaat
-                </motion.h1>
-                <motion.p
-                    className="text-sm font-rubik text-white max-w-2xl mx-auto"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.2 }}
-                >
-                    Your trusted partner for genuine pharmacy products online
-                </motion.p>
-            </section>
+          
+
+            <div className=" relative">
+                <img
+                    className="w-full h-[200px] object-center object-cover "
+                    src="https://live.themewild.com/medion/assets/img/breadcrumb/01.jpg"
+                    alt=""
+                />
+                <div className="absolute inset-0  bg-black/40 text-white flex items-center justify-center">
+                    <div className="flex flex-col items-center">
+                        <motion.h1
+                            className="text-3xl sm:text-4xl font-bold font-syne mb-4 text-white"
+                            initial={{ opacity: 0, y: -30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                        >
+                            About MediHaat
+                        </motion.h1>
+                        <motion.p
+                            className="text-sm font-rubik text-white max-w-2xl mx-auto"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 0.2 }}
+                        >
+                            Your trusted partner for genuine pharmacy products online
+                        </motion.p>
+                    </div>
+                </div>
+            </div>
 
             {/* Who We Are */}
             <section className="custom-container  py-12 px-6 grid md:grid-cols-2 gap-10">
@@ -37,7 +48,7 @@ const AboutPage = () => {
                     className="rounded-2xl h-[400px] w-full object-cover "
                 />
                 <div>
-                    <h2 className="text-xl font-bold font-rubik tracking-wide mb-4">Who We Are</h2>
+                    <h2 className="text-xl font-bold font-rubik tracking-wide mb-4 font-syne">Who We Are</h2>
                     <p className="text-sm  leading-relaxed mb-3">
                         MediHaat is a reliable and customer-focused online pharmacy platform
                         dedicated to making healthcare products more accessible to everyone.
@@ -52,7 +63,7 @@ const AboutPage = () => {
                         everything under one platform for your convenience.
                     </p>
 
-                    <h2 className="text-md font-bold mb-2">Our Mission</h2>
+                    <h2 className="text-md font-bold mb-2 font-syne">Our Mission</h2>
                     <ul className="  text-sm">
                         <li className="flex items-start gap-2">
                             <FaCheckCircle className="text-primary mt-1" /> Deliver genuine and
@@ -73,11 +84,11 @@ const AboutPage = () => {
 
             {/* Values */}
             <section className="max-w-7xl mx-auto py-12 px-6">
-                <h2 className="text-[24px] font-rubik font-bold text-center mb-8">
+                <h2 className="text-[24px] font-rubik font-bold  mb-8 font-syne">
                     Our Values
                 </h2>
 
-                <div className="grid   md:grid-cols-2 lg:grid-cols-4 gap-6 text-center font-rubik">
+                <div className="grid   grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 text-center font-rubik">
                     {[
                         {
                             title: "Trust & Transparency",
@@ -108,10 +119,10 @@ const AboutPage = () => {
                 </div>
             </section>
 
-            <section className="max-w-7xl mx-auto py-12 px-6 text-center">
-                <h2 className="text-[24px] font-bold font-rubik mb-6">Why Choose MediHaat</h2>
+            <section className="max-w-7xl mx-auto py-12 px-6 ">
+                <h2 className="text-[24px] font-bold font-rubik mb-6 font-syne">Why Choose MediHaat</h2>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 text-center font-syne">
                     {[
                         {
                             title: "100% Genuine & Licensed Products",
@@ -159,7 +170,7 @@ const AboutPage = () => {
 
             {/* Commitment */}
             <section className="max-w-4xl mx-auto py-12 px-6 text-center">
-                <h2 className="text-[24px] font-bold font-rubik mb-4">Our Commitment</h2>
+                <h2 className="text-[24px] font-bold font-rubik mb-4 font-syne">Our Commitment</h2>
                 <p className="text-sm  leading-relaxed">
                     At MediHaat, we understand that your health comes first. That’s why we
                     are committed to providing only authentic, quality products and the
@@ -170,14 +181,14 @@ const AboutPage = () => {
 
             {/* Call to Action */}
             <section className=" custom-container rounded-box bg-gradient-to-r from-primary to-primary/90 py-12 px-6 text-center text-white mb-10">
-                <h2 className="text-[24px] font-rubik tracking-wide font-bold mb-4">
+                <h2 className="text-[24px] font-rubik tracking-wide font-bold mb-4 font-syne">
                     Your health is our priority.
                 </h2>
                 <p className="mb-6 text-sm">
                     Shop with confidence at MediHaat and get genuine pharmacy products
                     delivered to your doorstep.
                 </p>
-                <button className="border border-white px-4 py-2 rounded-md hover:bg-white hover:text-black cursor-pointer  ">
+                <button className="border border-white px-4 py-2 rounded-md hover:bg-white hover:text-black cursor-pointer font-syne  ">
                     Shop Now
                 </button>
             </section>

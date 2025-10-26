@@ -9,7 +9,7 @@ const HealthPlan = () => {
                 <div className='flex flex-col items-center justify-center text-center py-20 font-syne'>
                     <h2 className='text-4xl font-semibold text-white mb-4'>Join Our Health Plan</h2>
                     <p className='text-white mb-6'>Subscribe to our health plan and enjoy exclusive benefits and discounts on our services.</p>
-                    <Link>
+                    <Link to={'#'}>
                     <Button children={"Request Plan"} className={"text-white"}/>
                     </Link>
                 </div>

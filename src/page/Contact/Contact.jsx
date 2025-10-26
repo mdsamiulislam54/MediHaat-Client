@@ -35,14 +35,14 @@ const Contact = () => {
           alt=""
         />
         <div className="absolute inset-0 bg-black/40 text-white flex items-center justify-center">
-          <h2 className="text-3xl font-bold flex items-center gap-2">
+          <h2 className="text-3xl font-bold flex items-center gap-2 font-syne">
             Contact Us
           </h2>
         </div>
       </div>
 
       {/* Contact Section */}
-      <div className="custom-container py-10">
+      <div className="custom-container py-10 font-syne">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Contact Info */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
