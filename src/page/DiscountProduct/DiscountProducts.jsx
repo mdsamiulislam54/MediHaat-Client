@@ -12,7 +12,7 @@ import Loader from "../../components/Loader/Loader";
 const DiscountProducts = () => {
   const axiossecure = useAxiosSecure();
   const { addToCart } = useContext(CartContext)
-const navigate = useNavigate()
+  const navigate = useNavigate()
   const { data: products, isLoading, error } = useQuery({
     queryKey: ["discountProducts"],
     queryFn: async () => {
@@ -24,7 +24,7 @@ const navigate = useNavigate()
   if (isLoading) return <div className="text-center py-10 min-h-screen flex justify-center items-center"><Loader /></div>;
   if (error) return <div className="text-center text-red-500">{error}</div>;
   const handleCheckout = (id) => {
-    navigate(`/checkout/${id}`)
+    navigate(`/medicine-details/${id}`)
   }
   return (
     <div className="py-16">
@@ -35,7 +35,7 @@ const navigate = useNavigate()
           {products.map((product) => (
 
             <div key={product._id} className="product-card shadow-md rounded-xl p-4 bg-white transition-all duration-500 relative group flex flex-col h-[300px] cur  ">
-              <div className="relative overflow-hidden rounded-lg mb-4" onClick={()=>handleCheckout(product._id)} >
+              <div className="relative overflow-hidden rounded-lg mb-4" onClick={() => handleCheckout(product._id)} >
                 <img
                   src={product.image}
                   alt={product.name}

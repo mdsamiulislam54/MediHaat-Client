@@ -41,7 +41,7 @@ const SellerPaymentHistory = () => {
       </div>
     );
   if (error) return <ErrorPage message={error.message}/>;
-
+console.log(data);
   return (
     <div className="custom-container my-10 min-h-screen">
       <PageTitle title={'Payment History'}/>
@@ -73,12 +73,12 @@ const SellerPaymentHistory = () => {
                 <tr key={index} className="text-center">
                   <td>
                     <img
-                      src={item.product.images}
+                      src={item.products.image}
                       alt="products images"
                       className="md:w-[60px] w-[40px]"
                     />
                   </td>
-                  <td>{item.product.name}</td>
+                  <td>{item.name}</td>
                   <td>{item.customerName}</td>
                   <td>{item.email}</td>
                   <td>{item.totalQuantity}</td>

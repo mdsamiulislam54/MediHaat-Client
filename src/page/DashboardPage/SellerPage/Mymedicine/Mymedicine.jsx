@@ -66,7 +66,7 @@ const Mymedicine = () => {
                   <tr className="bg-secondary">
                     <th></th>
                     <th>Name</th>
-                    <th>GenericName</th>
+                    <th>DosageForm</th>
                     <th>Category</th>
                     <th>Price</th>
                     <th>Action</th>
@@ -87,13 +87,13 @@ const Mymedicine = () => {
                       <tr key={medicine._id} className="hover:bg-secondary">
                         <th>
                           <img
-                            src={medicine.imageURL}
+                            src={medicine.image}
                             alt=""
                             className="max-w-[40px] h-auto object-contain"
                           />
                         </th>
                         <td>{medicine.name}</td>
-                        <td>{medicine.genericName}</td>
+                        <td>{medicine.dosageForm}</td>
                         <td>{medicine.category}</td>
                         <td>{medicine.price}</td>
                         <td>x</td>

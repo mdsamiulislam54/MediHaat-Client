@@ -55,23 +55,23 @@ const MyOrders = () => {
                 <th>Total Price</th>
                 <th>Order Status</th>
                 <th> Order Date</th>
-                <th>Company Name</th>
+                <th>TotalQuantity</th>
               </thead>
               <tbody>
                 {myOrders?.map((order) => (
                   <tr>
                     <td>
                       <img
-                        src={order.products[0].images}
+                        src={order.products.image}
                         alt="images products"
                         className="w-20"
                       />
                     </td>
-                    <td> {order.products[0].name}</td>
+                    <td> {order.products.name}</td>
                     <td> {order.totalAmount}</td>
                     <td>{order.orderStatus}</td>
                     <td>{new Date(order.createdAt).toLocaleString()}</td>
-                    <td>{order.products[0].company}</td>
+                    <td>{order.totalQuantity}</td>
                   </tr>
                 ))}
               </tbody>

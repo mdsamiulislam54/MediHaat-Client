@@ -113,13 +113,13 @@ const SalesReport = () => {
                     <tr>
                       <th>
                         <img
-                          src={order.products[0].images}
+                          src={order.products.image}
                           alt="order images"
                           className="lg:w-14 w-10"
                         />
                       </th>
-                      <td>{order.products[0].name}</td>
-                      <td>{order.products[0].sellerEmail}</td>
+                      <td>{order.products.name}</td>
+                      <td>{order.sellerEmail}</td>
                       <td>{order.email}</td>
                       <td>${order.totalAmount}</td>
                     </tr>

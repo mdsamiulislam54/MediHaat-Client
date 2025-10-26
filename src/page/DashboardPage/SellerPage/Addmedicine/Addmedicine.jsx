@@ -55,28 +55,28 @@ const AddMedicineForm = () => {
 
   const onSubmit = async (data) => {
     console.log(data)
-    // try {
-    //   const res = await axiosinstanceCall.post("/add-medicine", data);
-    //   if (res.data) {
-    //     Swal.fire({
-    //       icon: "success",
-    //       title: "Medicine Added Successfully!",
-    //       text: `${data.name} has been added to your store.`,
-    //     });
-    //   }
-    // } catch (error) {
-    //   console.error("Add Medicine Error:", error);
-    //   Swal.fire({
-    //     icon: "error",
-    //     title: "Failed to Add Medicine!",
-    //     text: error.response?.data?.message || "Something went wrong.",
-    //   });
-    // }
-    // reset();
+    try {
+      const res = await axiosinstanceCall.post("/add-medicine", data);
+      if (res.data) {
+        Swal.fire({
+          icon: "success",
+          title: "Medicine Added Successfully!",
+          text: `${data.name} has been added to your store.`,
+        });
+      }
+    } catch (error) {
+      console.error("Add Medicine Error:", error);
+      Swal.fire({
+        icon: "error",
+        title: "Failed to Add Medicine!",
+        text: error.response?.data?.message || "Something went wrong.",
+      });
+    }
+    reset();
   };
 
   return (
-    <div className="bg-white p-6 rounded-xl shadow max-w-5xl mx-auto">
+    <div className="bg-white p-6 rounded-xl shadow ">
       <PageTitle title={"Add Medicine"} />
       <h2 className="text-2xl font-bold text-primary mb-6 flex items-center gap-2">
         <IoAddCircleOutline /> Add New Medicine
@@ -261,7 +261,7 @@ const AddMedicineForm = () => {
         </div>
 
         {/* Submit */}
-        <button type="submit" className="btn btn-success mt-4 md:col-span-2 w-full">Add Medicine</button>
+        <button type="submit" className="btn bg-primary text-white mt-4 md:col-span-2 w-full">Add Medicine</button>
       </form>
     </div>
   );

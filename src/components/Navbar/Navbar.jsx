@@ -4,12 +4,14 @@ import { Link, NavLink, useLocation, useNavigate } from "react-router";
 import { AnimatePresence, motion } from "framer-motion";
 import { IoClose } from "react-icons/io5";
 import { FiLogOut, FiUser, FiHome } from "react-icons/fi";
-
+import { FaCartPlus } from "react-icons/fa6";
 import { UserAuth } from "../../hooks/userAuth/userAuth";
 
 import Swal from "sweetalert2";
 
 import { CartContext } from "../../Contextapi/AddToCart/cartContext";
+import Button from "../Button/Button";
+import { toast } from "react-toastify";
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
     const {pathname}= useLocation()
@@ -31,10 +33,7 @@ const Navbar = () => {
   const handleLogOut = () => {
     logOut()
       .then(() => {
-        Swal.fire({
-          icon: "success",
-          title: "LogOut Successful!",
-        });
+       toast.success("Logout Successful!");
         setUser(null);
         navigate("/");
         setDropdownMenu(false);
@@ -87,21 +86,8 @@ const Navbar = () => {
       {/* Cart */}
       <li className="list">
         <Link to={"/cart-page"} className="indicator relative cursor-pointer">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-8 w-8 text-primary xl:text-black"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-            />
-          </svg>
-          <span className="badge badge-sm indicator-item absolute md:-top-5 -top-5 md:right-0 transform translate-x-2 translate-y-2 bg-primary border-0 text-white">
+          <FaCartPlus className="text-2xl" />
+          <span className="  absolute md:-top-7 -top-5 md:right-0 transform translate-x-2 translate-y-2 border-0 text-primary text-xl font-bold font-syne">
             {cart.length}
           </span>
         </Link>
@@ -114,9 +100,9 @@ const Navbar = () => {
         <li>
           <Link
             to="/login"
-            className="btn bg-white text-primary border-2 border-primary px-6 py-2 rounded-md text-sm hover:bg-[#00a08a] hover:text-white"
+           
           >
-            Join Us
+            <Button children={"Join Us"} className={"text-white"}/>
           </Link>
         </li>
       ) : (
@@ -172,14 +158,14 @@ const Navbar = () => {
         className={` ${
           scrollY > 50
             ? "fixed-nav bg-gradient-to-br relative bg-white shadow py-2"
-            : pathname === '/'? "py-2 absolute w-full bg-white/70 z-100 ": " shadow py-2 relative z-100 "
+            : pathname === '/'? "py-3 absolute w-full bg-white/10 text-white  z-100 ": " shadow py-2 relative z-100 "
         }`}
       >
         <div className="flex items-center justify-between custom-container   ">
           {/* logo */}
           <div className="flex items-center">
             <Link to="/" className="text-xl font-bold">
-              <Logo color="text-black" />
+              <Logo color={`${scrollY > 50 ? " text-black": pathname === '/'? "text-white":"text-black"}`} />
             </Link>
           </div>
 

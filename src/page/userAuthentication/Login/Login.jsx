@@ -7,6 +7,7 @@ import Logo from "../../../components/Logo/Logo";
 import { UserAuth } from "../../../hooks/userAuth/userAuth";
 import Swal from "sweetalert2";
 import { createUserIfNotExists } from "../../../hooks/useCreateUserWithGogle/useCreateUserWithGoogle";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -37,29 +38,19 @@ const Login = () => {
     setLoading(true);
     loginWithEmailPassword(email, password)
       .then(() => {
-        Swal.fire({
-          title: "Login Successful!",
-          icon: "success",
-        });
+        toast.success("Login Successful!");
         navigate(state?.pathname || "/");
         setLoading(false);
       })
       .catch((error) => {
         console.error(error);
-        Swal.fire({
-          title: "Login Failed!",
-          text: error.message,
-          icon: "error",
-        });
+        toast.error(error.message);
         setLoading(false);
       });
   };
   const handleGoogleLogin = async () => {
     if (user) {
-      return Swal.fire({
-        icon: "error",
-        title: "Already Logged In!",
-      });
+      return toast.info("You are already logged in.");
     }
 
     try {
@@ -72,25 +63,19 @@ const Login = () => {
       setUser(loggedInUser);
       setRole(roles);
 
-      Swal.fire({
-        icon: "success",
-        title: "Login Successful!",
-      });
+      toast.success("Login Successful!");
       navigate(state?.pathname || '/');
       setLoading(false);
     } catch (error) {
       console.error("Google Login Error:", error);
-      Swal.fire({
-        icon: "error",
-        title: "Login Failed!",
-        text: error.message,
-      });
+      toast.error(error.message);
+      setLoading(false);
 
     }
   };
 
   return (
-    <div className="bg-gray-100 py-10">
+    <div className="bg-gray-100 py-10 ">
       <div className="grid grid-cols-1 md:grid-cols-2 custom-container bg-white shadow relative min-h-[90vh] ">
         {/* Back Button */}
         <div className="absolute top-2 left-4 bg-gray-200 p-2 rounded-full z-10">
@@ -188,7 +173,7 @@ const Login = () => {
               {/* Login Button */}
               <button
                 type="submit"
-                className="w-full bg-primary text-white font-semibold py-2 rounded-md hover:bg-primary/90 transition"
+                className="w-full bg-primary text-white font-semibold py-2 rounded-md hover:bg-primary/90 transition cursor-pointer"
               >
                 Login
               </button>

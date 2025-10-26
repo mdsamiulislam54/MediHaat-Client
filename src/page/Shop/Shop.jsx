@@ -51,7 +51,7 @@ const Shop = () => {
 
 
   const handleCheckout = (id) => {
-    navigate(`/checkout/${id}`)
+    navigate(`/medicine-details/${id}`)
   }
   if (error) return <p className="text-center text-red-500">{error.message}</p>;
 

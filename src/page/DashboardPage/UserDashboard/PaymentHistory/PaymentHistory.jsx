@@ -60,7 +60,7 @@ const PaymentHistory = () => {
               <th>Transaction ID</th>
               <th>Total Paid</th>
               <th>Status</th>
-              <th>Products</th>
+              <th>Date</th>
             </tr>
           </thead>
           <tbody>
@@ -69,26 +69,10 @@ const PaymentHistory = () => {
                 <td className="">{currentPage * itemsPerPage + index + 1}</td>
                 <td className="">{order.paymentIntentId}</td>
                 <td className=" text-green-600 font-semibold">
-                  ${order.totalAmount}
+                  ৳ {order.totalAmount}
                 </td>
                 <td className=" capitalize text-primary">{order.payStatus}</td>
-                <td className="">
-                  <ul className="space-y-1">
-                    {order.products.slice(0, 3).map((p) => (
-                      <li key={p.id}>
-                        {p.name}{" "}
-                        <span className="text-sm text-gray-500">
-                          ({p.category})
-                        </span>
-                      </li>
-                    ))}
-                    {order.products.length > 3 && (
-                      <li className="text-sm text-gray-400">
-                        + {order.products.length - 3} more
-                      </li>
-                    )}
-                  </ul>
-                </td>
+                <td>{new Date(order.placedAt).toLocaleDateString()}</td>
               </tr>
             ))}
           </tbody>

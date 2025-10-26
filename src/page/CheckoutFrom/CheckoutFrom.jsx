@@ -72,10 +72,13 @@ const CheckoutForm = ({ paymentData }) => {
         const orderDetails = {
           customerName: formData.name,
           email: formData.email,
+          address: formData.address,
+          zip: formData.zip,
+          city: formData.city,
           totalAmount:
             data.price - (data.price * data.discount) / 100,
           orderStatus: "pending",
-          paymentMethod:"card",
+          paymentMethod: "card",
           payStatus: "paid",
           paymentIntentId: `${formData.name}${new Date().toLocaleDateString()}`,
           totalQuantity: 1,
@@ -89,7 +92,7 @@ const CheckoutForm = ({ paymentData }) => {
           },
         };
 
-        console.log("formData",orderDetails)
+        console.log("formData", orderDetails)
 
         await axiosSecure.post("/order-history", orderDetails);
 
@@ -159,7 +162,7 @@ const CheckoutForm = ({ paymentData }) => {
           disabled={!stripe}
           className="btn btn-primary w-full"
         >
-          {loading ? `Processing Pay $ ${totalPay}...` : `Pay $${totalPay}`}
+          {loading ? `Processing Pay $ ${totalPay}...` : `Pay ৳ ${totalPay}`}
         </button>
       </form>
     </div>

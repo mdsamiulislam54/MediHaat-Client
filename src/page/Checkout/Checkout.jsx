@@ -10,7 +10,7 @@ import axiosSecure from "../../hooks/axisonsecure/axiosSecure";
 import useAxiosSecure from "../../hooks/axisonsecure/axiosSecure";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import { address } from "framer-motion/client";
-
+import Backutton from "../../components/BackButton/BackButton";
 
 const Checkout = () => {
 
@@ -38,11 +38,11 @@ const Checkout = () => {
       const orderDetails = {
         customerName: formData.name,
         email: formData.email,
-        address:formData.address,
-        zip:formData.zip,
+        address: formData.address,
+        zip: formData.zip,
         city: formData.city,
         totalAmount:
-        checkOutData.price - (checkOutData.price * checkOutData.discount) / 100,
+          checkOutData.price - (checkOutData.price * checkOutData.discount) / 100,
         orderStatus: "pending",
         paymentMethod,
         payStatus: paymentMethod === "cod" ? "pending" : "paid",
@@ -55,7 +55,7 @@ const Checkout = () => {
           price: checkOutData.price,
           discount: checkOutData.discount,
           category: checkOutData.category,
-          
+
         },
       };
       console.log('order', orderDetails)
@@ -121,7 +121,7 @@ const Checkout = () => {
     <div className=" py-10 bg-gray-100">
       <div className="custom-container">
         <PageTitle title={'Checkout'} />
-        <h2 className="text-3xl font-semibold mb-8">Checkout</h2>
+        <Backutton />
 
         {checkOutData === null ? (
           <p className="text-center text-gray-500">
@@ -280,7 +280,7 @@ const Checkout = () => {
                     </div>
                   </div>
                   <div className="text-right">
-                    <p className="font-semibold">${afterDiscount.toFixed(2)}</p>
+                    <p className="font-semibold">৳ {afterDiscount.toFixed(2)}</p>
                   </div>
                 </div>
 
@@ -306,7 +306,7 @@ const Checkout = () => {
               <div className="mt-6 border-t border-primary pt-4">
                 <div className="flex justify-between">
                   <p className="text-lg">Price:</p>
-                  <p className="text-lg font-semibold">${price.toFixed(2)}</p>
+                  <p className="text-lg font-semibold">৳ {price.toFixed(2)}</p>
                 </div>
                 <div className="flex justify-between mt-2">
                   <p className="text-lg">Discount:</p>
@@ -314,12 +314,12 @@ const Checkout = () => {
                 </div>
                 <div className="flex justify-between mt-2">
                   <p className="text-lg">After Discount:</p>
-                  <p className="text-lg font-semibold">${afterDiscount.toFixed(2)}</p>
+                  <p className="text-lg font-semibold">৳ {afterDiscount.toFixed(2)}</p>
                 </div>
                 <div className="flex justify-between mt-4 border-t border-primary pt-4">
                   <p className="text-xl font-semibold">Total Payable:</p>
                   <p className="text-xl font-bold text-green-600">
-                    ${totalPay.toFixed(2)}
+                    ৳ {totalPay.toFixed(2)}
                   </p>
                 </div>
               </div>

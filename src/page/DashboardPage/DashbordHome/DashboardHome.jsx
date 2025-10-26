@@ -74,7 +74,7 @@ const DashboardHome = () => {
             <div>
               <h4 className="text-lg font-semibold">Total Sale</h4>
               <p className="text-lg text-gray-800 font-bold ">
-                ${adminDashboardTotalPaid?.data?.totalPaidAmount || 0}
+                ৳ {adminDashboardTotalPaid?.data?.totalPaidAmount || 0}
               </p>
             </div>
           </div>
@@ -140,7 +140,7 @@ const DashboardHome = () => {
             <div>
               <h4 className="text-lg font-semibold">Total Earn</h4>
               <p className="text-sm text-gray-800 font-bold">
-                ${
+                ৳ {
                  ( sellerPaidOrder?.data?.paid?.reduce((acc, order)=> acc + order.totalAmount,0))
                 }
               </p>
